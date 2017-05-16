@@ -1,0 +1,52 @@
+{
+    "app_name": "Hackatrix",
+    "logo": "",
+    "intro": "Hackatrix es la Hackathon anual de Belatrix, creada para promover el desarrollo colectivo de ideas sociales e innovadoras en un ambiente de diversión y adrenalina pura.",
+    "branch" : "Master",
+    "repo_url": "https://github.com/belatrix/BelatrixEventsIOS",
+    "version_name" : "1.0.0",
+    "file": "CHANGELOG.md",
+    "template": "",
+    "sections": [
+        {
+            "title": "Bug Fixes",
+            "grep": "^fix"
+        },
+        {
+            "title": "Features",
+            "grep": "^feat"
+        },
+        {
+            "title": "Documentation",
+            "grep": "^docs"
+        },
+        {
+            "title": "Breaking changes",
+            "grep": "BREAKING"
+        },
+        {
+            "title": "Refactor",
+            "grep": "^refactor"
+        },
+        {
+            "title": "Style",
+            "grep": "^style"
+        },
+        {
+            "title": "Test",
+            "grep": "^test"
+        },
+        {
+            "title": "Chore",
+            "grep": "^chore"
+        },
+        {
+            "title": "Branchs merged",
+            "grep": "^Merge branch"
+        },
+        {
+            "title" : "Pull requests merged",
+            "grep": "^Merge pull request"
+        }
+    ]
+}
