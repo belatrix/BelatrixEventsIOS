@@ -145,6 +145,7 @@
 		66AA966A1EC246D300C3C351 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		66AA966E1EC246E600C3C351 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		66AA96721EC2613F00C3C351 /* ApiURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiURL.swift; sourceTree = "<group>"; };
+		66DCA64C1ECC9FDB00D86F9A /* Hackatrix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Hackatrix-Bridging-Header.h"; sourceTree = "<group>"; };
 		66E68E501EC1FC5B00CCA811 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66E87FFF1EC378B5008E3C18 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		66E880071EC3BD11008E3C18 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
@@ -310,6 +311,7 @@
 				6603FEE81EC6660000A37D68 /* Utils.swift */,
 				662A99FE1ECB918D00581622 /* Constants.swift */,
 				662A9A021ECB933200581622 /* Enums.swift */,
+				66DCA64C1ECC9FDB00D86F9A /* Hackatrix-Bridging-Header.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -805,6 +807,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Hackatrix-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -847,6 +850,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Hackatrix-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -867,6 +871,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "25a80c99-a679-4105-bc07-a8d7739da328";
 				PROVISIONING_PROFILE_SPECIFIER = "Belatrix Hackatrix Dev";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -886,6 +891,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "25a80c99-a679-4105-bc07-a8d7739da328";
 				PROVISIONING_PROFILE_SPECIFIER = "Belatrix Hackatrix Dev";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

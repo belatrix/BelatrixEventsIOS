@@ -12,6 +12,7 @@ target 'Hackatrix' do
   pod 'SwiftyJSON'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'DZNEmptyDataSet'
 
   target 'HackatrixTests' do
     inherit! :search_paths

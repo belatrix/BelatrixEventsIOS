@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.4.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
+  - DZNEmptyDataSet (1.8.1)
   - Firebase/Core (3.17.0):
     - FirebaseAnalytics (= 3.9.0)
     - FirebaseCore (= 3.6.0)
@@ -33,6 +34,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - AlamofireImage (~> 3.1)
+  - DZNEmptyDataSet
   - Firebase/Core
   - Firebase/Messaging
   - SideMenu
@@ -41,6 +43,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Firebase: 4b66b5b59c43edac745b87f0c87e42cdd0279c13
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
@@ -51,6 +54,6 @@ SPEC CHECKSUMS:
   SideMenu: 3fa07dd05d4bade2b6f9889fb1877e312e1ba319
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: f5f06e9b1e333a4d6e5be958d742480828174a20
+PODFILE CHECKSUM: 6e02fcc9172649e53e4bc8d9bb7663f26d382aa8
 
 COCOAPODS: 1.2.1

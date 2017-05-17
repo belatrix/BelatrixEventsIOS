@@ -8,7 +8,7 @@
 
 struct api {
     struct url {
-        static let root = ""
+        static let root = "http://bxevents.herokuapp.com:80"
         struct device {
             static let register = "\(root)/device/register/ios/"
             static func update(deviceID id:Int) -> String {

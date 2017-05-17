@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import DZNEmptyDataSet
 
 class NewsVC: UIViewController {
     
@@ -41,6 +42,8 @@ class NewsVC: UIViewController {
     func customStyleTableView() {
         self.tableViewNews.rowHeight = UITableViewAutomaticDimension
         self.tableViewNews.estimatedRowHeight = 50
+        self.tableViewNews.emptyDataSetSource = self
+        self.tableViewNews.emptyDataSetDelegate = self
         self.tableViewNews.tableFooterView = UIView()
     }
     
@@ -100,3 +103,21 @@ extension NewsVC: UITableViewDataSource {
 extension NewsVC: UITableViewDelegate {
 
 }
+
+//MARK: - DZNEmptyData
+
+extension NewsVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate{
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "BelatrixLogo")
+    }
+    
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+}
+
