@@ -13,7 +13,7 @@ class AboutVC: UIViewController {
     //MARK: - Properties
 
     @IBOutlet weak var collectionViewContributors: UICollectionView!
-    let contributors:[[String:String]] = [["icon":"erikIcon","name":"Erik Flores"],["icon":"diegoIcon","name":"Diego Velásquez "],["icon":"carinaIcon","name":"Carina Valdez"],["icon":"sergioIcon","name":"Sergio Infante"],["icon":"karlaIcon","name":"Karla Cerrón"],["icon":"fernandoIcon","name":"Fernando Puebla"]]
+    let contributors:[[String:String]] = [["icon":"ErikIcon","name":"Erik Flores"],["icon":"DiegoIcon","name":"Diego Velásquez "],["icon":"KarlaIcon","name":"Karla Cerrón"],["icon":"SergioIcon","name":"Sergio Infante"],["icon":"CarinaIcon","name":"Carina Valdez"],["icon":"FernandoIcon","name":"Fernando Puebla"],["icon":"CarlosIcon","name":"Carlos Monzón"],["icon":"GladysIcon","name":"Gladys Cuzcano"],["icon":"RaulIcon","name":"Raul Rashuaman"]]
     
     //MARK: - LifeCycle
     

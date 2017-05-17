@@ -65,6 +65,12 @@
 		66AA96731EC2613F00C3C351 /* ApiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA96721EC2613F00C3C351 /* ApiURL.swift */; };
 		66AA96741EC2613F00C3C351 /* ApiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA96721EC2613F00C3C351 /* ApiURL.swift */; };
 		66AA96751EC2613F00C3C351 /* ApiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA96721EC2613F00C3C351 /* ApiURL.swift */; };
+		66DCA64E1ECCB6C300D86F9A /* Contributors.json in Resources */ = {isa = PBXBuildFile; fileRef = 66DCA64D1ECCB6C300D86F9A /* Contributors.json */; };
+		66DCA64F1ECCB6C300D86F9A /* Contributors.json in Resources */ = {isa = PBXBuildFile; fileRef = 66DCA64D1ECCB6C300D86F9A /* Contributors.json */; };
+		66DCA6501ECCB6C300D86F9A /* Contributors.json in Resources */ = {isa = PBXBuildFile; fileRef = 66DCA64D1ECCB6C300D86F9A /* Contributors.json */; };
+		66DCA6521ECCD4BB00D86F9A /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DCA6511ECCD4BB00D86F9A /* Contributor.swift */; };
+		66DCA6531ECCD4BB00D86F9A /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DCA6511ECCD4BB00D86F9A /* Contributor.swift */; };
+		66DCA6541ECCD4BB00D86F9A /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DCA6511ECCD4BB00D86F9A /* Contributor.swift */; };
 		66E68E511EC1FC5B00CCA811 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66E68E501EC1FC5B00CCA811 /* GoogleService-Info.plist */; };
 		66E68E521EC1FC5B00CCA811 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66E68E501EC1FC5B00CCA811 /* GoogleService-Info.plist */; };
 		66E68E531EC1FC5B00CCA811 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66E68E501EC1FC5B00CCA811 /* GoogleService-Info.plist */; };
@@ -146,6 +152,8 @@
 		66AA966E1EC246E600C3C351 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		66AA96721EC2613F00C3C351 /* ApiURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiURL.swift; sourceTree = "<group>"; };
 		66DCA64C1ECC9FDB00D86F9A /* Hackatrix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Hackatrix-Bridging-Header.h"; sourceTree = "<group>"; };
+		66DCA64D1ECCB6C300D86F9A /* Contributors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contributors.json; sourceTree = "<group>"; };
+		66DCA6511ECCD4BB00D86F9A /* Contributor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contributor.swift; sourceTree = "<group>"; };
 		66E68E501EC1FC5B00CCA811 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66E87FFF1EC378B5008E3C18 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		66E880071EC3BD11008E3C18 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
@@ -275,6 +283,7 @@
 				6636CAA01EC4F0A500C442D8 /* Annotation.swift */,
 				6636CAA81EC4FC1700C442D8 /* Project.swift */,
 				6603FEE41EC6598D00A37D68 /* News.swift */,
+				66DCA6511ECCD4BB00D86F9A /* Contributor.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -312,6 +321,7 @@
 				662A99FE1ECB918D00581622 /* Constants.swift */,
 				662A9A021ECB933200581622 /* Enums.swift */,
 				66DCA64C1ECC9FDB00D86F9A /* Hackatrix-Bridging-Header.h */,
+				66DCA64D1ECCB6C300D86F9A /* Contributors.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -469,6 +479,7 @@
 				663418871EC0CD1000B26A7D /* LaunchScreen.storyboard in Resources */,
 				66E68E511EC1FC5B00CCA811 /* GoogleService-Info.plist in Resources */,
 				663418841EC0CD1000B26A7D /* Assets.xcassets in Resources */,
+				66DCA64E1ECCB6C300D86F9A /* Contributors.json in Resources */,
 				6634187F1EC0CD1000B26A7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66E68E521EC1FC5B00CCA811 /* GoogleService-Info.plist in Resources */,
+				66DCA64F1ECCB6C300D86F9A /* Contributors.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66E68E531EC1FC5B00CCA811 /* GoogleService-Info.plist in Resources */,
+				66DCA6501ECCB6C300D86F9A /* Contributors.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +664,7 @@
 				6603FEE11EC657D200A37D68 /* NewsCell.swift in Sources */,
 				66AA96731EC2613F00C3C351 /* ApiURL.swift in Sources */,
 				6636CA9D1EC4EAAE00C442D8 /* MapVC.swift in Sources */,
+				66DCA6521ECCD4BB00D86F9A /* Contributor.swift in Sources */,
 				6634187A1EC0CD1000B26A7D /* AppDelegate.swift in Sources */,
 				66AA96671EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66E8800C1EC3BFF9008E3C18 /* InteractionVC.swift in Sources */,
@@ -683,6 +697,7 @@
 				6603FEE21EC657D200A37D68 /* NewsCell.swift in Sources */,
 				66AA96741EC2613F00C3C351 /* ApiURL.swift in Sources */,
 				6636CA9E1EC4EAAE00C442D8 /* MapVC.swift in Sources */,
+				66DCA6531ECCD4BB00D86F9A /* Contributor.swift in Sources */,
 				66A801B31EC12AF300E22303 /* MenuVC.swift in Sources */,
 				66AA96681EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66E8800D1EC3BFF9008E3C18 /* InteractionVC.swift in Sources */,
@@ -715,6 +730,7 @@
 				6603FEE31EC657D200A37D68 /* NewsCell.swift in Sources */,
 				66AA96751EC2613F00C3C351 /* ApiURL.swift in Sources */,
 				6636CA9F1EC4EAAE00C442D8 /* MapVC.swift in Sources */,
+				66DCA6541ECCD4BB00D86F9A /* Contributor.swift in Sources */,
 				66A801B41EC12AF300E22303 /* MenuVC.swift in Sources */,
 				66AA96691EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66E8800E1EC3BFF9008E3C18 /* InteractionVC.swift in Sources */,

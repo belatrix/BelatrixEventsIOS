@@ -92,7 +92,7 @@ extension NewsVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cell.news) as! NewsCell
-        cell.dateLbl.text = Utils.getFormatterDate(dateString: self.news[indexPath.row].datetime!)
+        cell.dateLbl.text = Utils.date.getFormatter(dateString: self.news[indexPath.row].datetime!)
         cell.descriptionLbl.text = self.news[indexPath.row].text
         return cell
     }

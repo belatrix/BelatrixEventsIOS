@@ -19,7 +19,7 @@ class Event: NSObject {
     var details:String?
     var registerLink:String?
     var sharingText:String?
-    var hasInteractions:String?
+    var hasInteractions:Bool?
     var interactionText:String?
     var interactionConfirmationText:String?
     var isFeatured:Bool?
@@ -39,7 +39,7 @@ class Event: NSObject {
         self.details = data["details"].string
         self.registerLink = data["register_link"].string
         self.sharingText = data["sharing_text"].string
-        self.hasInteractions = data["has_interactions"].string
+        self.hasInteractions = data["has_interactions"].bool
         self.interactionText = data["interaction_text"].string
         self.interactionConfirmationText = data["interaction_confirmation_text"].string
         self.isFeatured = data["is_featured"].bool

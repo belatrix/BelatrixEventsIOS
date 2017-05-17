@@ -596,10 +596,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYx-sw-7qn" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="878.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="928.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="egq-rZ-MRq">
-                                                <rect key="frame" x="12" y="12" width="351" height="866.5"/>
+                                                <rect key="frame" x="12" y="12" width="351" height="916.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="opb-MB-fEK">
                                                         <rect key="frame" x="0.0" y="0.0" width="351" height="425.5"/>
@@ -669,7 +669,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fcP-Eg-UuI">
-                                                        <rect key="frame" x="0.0" y="526" width="351" height="340.5"/>
+                                                        <rect key="frame" x="0.0" y="526" width="351" height="390.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colaboradores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojC-j3-Jth">
                                                                 <rect key="frame" x="0.0" y="0.0" width="351" height="20.5"/>
@@ -678,10 +678,10 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ftg-ux-hlm">
-                                                                <rect key="frame" x="0.0" y="40.5" width="351" height="300"/>
+                                                                <rect key="frame" x="0.0" y="40.5" width="351" height="350"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="300" id="jLP-9c-tej"/>
+                                                                    <constraint firstAttribute="height" constant="350" id="jLP-9c-tej"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nf3-5f-7c9">
                                                                     <size key="itemSize" width="100" height="100"/>
@@ -835,7 +835,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkf-eY-MNY" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="345.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="365.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xT5-C8-iHH">
                                                 <rect key="frame" x="10" y="210" width="355" height="135.5"/>
@@ -935,7 +935,7 @@
                                             <constraint firstItem="dYW-up-Ohc" firstAttribute="leading" secondItem="Pkf-eY-MNY" secondAttribute="leading" id="SxW-bz-5Mx"/>
                                             <constraint firstAttribute="trailing" secondItem="dYW-up-Ohc" secondAttribute="trailing" id="WVe-YS-cS8"/>
                                             <constraint firstItem="dYW-up-Ohc" firstAttribute="top" secondItem="Pkf-eY-MNY" secondAttribute="top" id="XT8-eJ-EzO"/>
-                                            <constraint firstAttribute="bottom" secondItem="xT5-C8-iHH" secondAttribute="bottom" id="raX-Pv-rtC"/>
+                                            <constraint firstAttribute="bottom" secondItem="xT5-C8-iHH" secondAttribute="bottom" constant="20" id="raX-Pv-rtC"/>
                                             <constraint firstItem="xT5-C8-iHH" firstAttribute="leading" secondItem="Pkf-eY-MNY" secondAttribute="leading" constant="10" id="sAH-4u-K7N"/>
                                         </constraints>
                                     </view>

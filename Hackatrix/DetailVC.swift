@@ -64,7 +64,7 @@ class DetailVC: UIViewController {
     
     func addInfo() {
         self.getBanner()
-        self.dateLbl.text = Utils.getFormatterDateEvent(dateString: detailEvent.datetime!)
+        self.dateLbl.text = Utils.date.getFormatterEvent(dateString: detailEvent.datetime!)
         if detailEvent.address == "" {
             self.locationBtn.setTitle("Belatrix", for: .normal)
         } else {
@@ -93,6 +93,9 @@ class DetailVC: UIViewController {
     func bussinesValidations(){
         if !self.detailEvent.isInteractionActive! {
             self.tabBarController?.tabBar.isHidden = true
+        }
+        if !self.detailEvent.hasInteractions! {
+            self.tabBarController?.tabBar.items?[1].isEnabled = false
         }
     }
     
