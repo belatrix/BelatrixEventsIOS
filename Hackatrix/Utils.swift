@@ -51,7 +51,7 @@ struct Utils {
                 fatalError("Unable to convert \(sourceName).json to JSON dictionary")
             }
             
-            print("The JSON dictionary is: \(jsonDictionary)")
+            //print("The JSON dictionary is: \(jsonDictionary)")
         }
     }
 }

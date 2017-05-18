@@ -872,7 +872,6 @@
                                                                 <rect key="frame" x="35" y="0.0" width="320" height="30"/>
                                                                 <state key="normal" title="Ubicación"/>
                                                                 <connections>
-                                                                    <action selector="showLocation:" destination="W37-dQ-H59" eventType="touchUpInside" id="a9R-HB-CGd"/>
                                                                     <segue destination="kFZ-VN-ynX" kind="show" identifier="mapSegue" id="lhW-29-aX7"/>
                                                                 </connections>
                                                             </button>

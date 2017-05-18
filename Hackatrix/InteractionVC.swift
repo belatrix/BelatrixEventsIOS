@@ -82,6 +82,7 @@ class InteractionVC: UIViewController {
             self.activityIndicator.startAnimating()
             self.sendVoteForProject(withID: project.id!, complete: {
                 self.getProjects {
+                    self.makeFeedback()
                     self.tableViewInteraction.isHidden = false
                     self.activityIndicator.stopAnimating()
                 }
@@ -126,6 +127,16 @@ class InteractionVC: UIViewController {
         let url = api.url.event.voteWith(interactionID: id)
         Alamofire.request(url, method: .patch).responseJSON { (response) in
             complete()
+        }
+    }
+    
+    func makeFeedback() {
+        if #available(iOS 10.0, *) {
+            var feedbackGenerator : UINotificationFeedbackGenerator? =  nil
+            feedbackGenerator = UINotificationFeedbackGenerator()
+            feedbackGenerator?.prepare()
+            feedbackGenerator?.notificationOccurred(.success)
+            feedbackGenerator = nil
         }
     }
 }

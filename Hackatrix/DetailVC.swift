@@ -91,12 +91,12 @@ class DetailVC: UIViewController {
     }
     
     func bussinesValidations(){
-        if !self.detailEvent.isInteractionActive! {
+        /*if !self.detailEvent.isInteractionActive! {
             self.tabBarController?.tabBar.isHidden = true
         }
         if !self.detailEvent.hasInteractions! {
             self.tabBarController?.tabBar.items?[1].isEnabled = false
-        }
+        }*/
     }
     
 }
