@@ -27,31 +27,7 @@ struct Utils {
             let newDateFormat = DateFormatter()
             newDateFormat.dateFormat = "dd/MM/yy hh:mm a"
             newDateFormat.locale = Locale(identifier: "es_PE")
-            newDateFormat.timeZone = TimeZone(identifier: "UTC")
             return newDateFormat.string(from: date)
-        }
-    }
-    struct data {
-        static func readJsonWith(name sourceName:String) {
-            guard let pathString = Bundle.main.path(forResource: sourceName, ofType: "json") else {
-                fatalError("\(sourceName).json not found")
-            }
-            
-            guard let jsonString = try? NSString(contentsOfFile: pathString, encoding: String.Encoding.utf8.rawValue) else {
-                fatalError("Unable to convert \(sourceName).json to String")
-            }
-            
-            print("The JSON string is: \(jsonString)")
-            
-            guard let jsonData = jsonString.data(using: String.Encoding.utf8.rawValue) else {
-                fatalError("Unable to convert \(sourceName).json to NSData")
-            }
-            
-            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String:AnyObject] else {
-                fatalError("Unable to convert \(sourceName).json to JSON dictionary")
-            }
-            
-            //print("The JSON dictionary is: \(jsonDictionary)")
         }
     }
 }

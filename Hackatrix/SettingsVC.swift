@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class SettingsVC: UIViewController {
     
     //MARK: - Properties
     
     @IBOutlet weak var tableViewSettings: UITableView!
+    var cities:[City] = []
     
     //MARK: - LifeCycle
 
@@ -21,10 +24,31 @@ class SettingsVC: UIViewController {
         self.customStyleTableView()
     }
     
+    //MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.segue.citySetting {
+            let locations = segue.destination as! LocationVC
+            locations.cities = self.cities
+        }
+    }
+    
     //MARK: - Functions
     
     func customStyleTableView() {
         self.tableViewSettings.tableFooterView = UIView()
+    }
+    
+    func getCities(completitionHandler: @escaping () -> Void) {
+        Alamofire.request(api.url.event.city).responseJSON { response in
+            if let responseServer = response.result.value {
+                let json = JSON(responseServer)
+                for (_,subJson):(String, JSON) in json {
+                    self.cities.append(City(data: subJson))
+                }
+                completitionHandler()
+            }
+        }
     }
 
 }
@@ -55,7 +79,11 @@ extension SettingsVC:UITableViewDataSource {
 
 extension SettingsVC:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: K.segue.citySetting, sender: nil)
+        self.cities = []
+        self.getCities {
+            self.performSegue(withIdentifier: K.segue.citySetting, sender: nil)
+        }
+        
     }
 }
 

@@ -21,6 +21,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var featureTitle: UILabel!
     @IBOutlet weak var activityUpcoming: UIActivityIndicatorView!
     @IBOutlet weak var activityPass: UIActivityIndicatorView!
+    @IBOutlet weak var scrollView: UIScrollView!
     var featuredBanner:Event! = nil
     var upcomingEvents:[Event] = [] {
         didSet {
@@ -45,8 +46,10 @@ class MainVC: UIViewController {
             self.addTitleinMainBanner()
             self.addActionToEventsTo(images: self.bannerImage)
         }
+        self.addRefreshController()
         self.getEventOf(type: .upcoming)
         self.getEventOf(type: .past)
+        
     }
     
     //MARK: - Navigation
@@ -125,6 +128,31 @@ class MainVC: UIViewController {
                 }
             }
         }
+    }
+    
+    func addRefreshController() {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(self.refreshContent), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            self.scrollView.refreshControl = refresh
+        } else {
+            self.scrollView.addSubview(refresh)
+        }
+        
+    }
+    
+    func refreshContent(sender:UIRefreshControl) {
+        self.getBanner {
+            self.addTitleinMainBanner()
+            self.addActionToEventsTo(images: self.bannerImage)
+        }
+        self.upcomingEvents = []
+        self.upcomingCollectionView.reloadData()
+        self.getEventOf(type: .upcoming)
+        self.pastEvents = []
+        self.pastCollectionView.reloadData()
+        self.getEventOf(type: .past)
+        sender.endRefreshing()
     }
     
 }

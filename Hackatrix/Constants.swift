@@ -22,6 +22,7 @@ struct K {
         static let detail = "detailSegue"
         static let map = "mapSegue"
         static let citySetting = "citySettingSegue"
+        static let selectCity = "selectCitySegue"
     }
     struct cell {
         static let menu = "itemMenuCell"
@@ -30,6 +31,7 @@ struct K {
         static let news = "newsCell"
         static let contributor = "contributorCell"
         static let interaction = "interactionCell"
+        static let location = "locationCell"
     }
     struct key {
         static let showedWelcomeAlertInteraction = "isShowedWelcomeAlertInteraction"

@@ -53,6 +53,12 @@
 		666F6ECE1ECA01B70044A298 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F6ECD1ECA01B70044A298 /* SettingsCell.swift */; };
 		666F6ECF1ECA01B70044A298 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F6ECD1ECA01B70044A298 /* SettingsCell.swift */; };
 		666F6ED01ECA01B70044A298 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F6ECD1ECA01B70044A298 /* SettingsCell.swift */; };
+		6683595B1ECF8B0D0079ACB0 /* SelectCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6683595A1ECF8B0D0079ACB0 /* SelectCityVC.swift */; };
+		6683595C1ECF8B0D0079ACB0 /* SelectCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6683595A1ECF8B0D0079ACB0 /* SelectCityVC.swift */; };
+		6683595D1ECF8B0D0079ACB0 /* SelectCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6683595A1ECF8B0D0079ACB0 /* SelectCityVC.swift */; };
+		668896CB1ECF40CF00EA12C2 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668896CA1ECF40CF00EA12C2 /* LocationCell.swift */; };
+		668896CC1ECF40CF00EA12C2 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668896CA1ECF40CF00EA12C2 /* LocationCell.swift */; };
+		668896CD1ECF40CF00EA12C2 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668896CA1ECF40CF00EA12C2 /* LocationCell.swift */; };
 		66A801B21EC12AF300E22303 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A801B11EC12AF300E22303 /* MenuVC.swift */; };
 		66A801B31EC12AF300E22303 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A801B11EC12AF300E22303 /* MenuVC.swift */; };
 		66A801B41EC12AF300E22303 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A801B11EC12AF300E22303 /* MenuVC.swift */; };
@@ -150,7 +156,9 @@
 		6668EB961ECB498A0098685F /* ContributorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributorCell.swift; sourceTree = "<group>"; };
 		666F6ECD1ECA01B70044A298 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		666F6ED51ECA042D0044A298 /* Hackatrix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hackatrix.entitlements; sourceTree = "<group>"; };
+		6683595A1ECF8B0D0079ACB0 /* SelectCityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityVC.swift; sourceTree = "<group>"; };
 		668896C91ECF38E900EA12C2 /* Hackatrix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Hackatrix-Bridging-Header.h"; sourceTree = "<group>"; };
+		668896CA1ECF40CF00EA12C2 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		66A801B11EC12AF300E22303 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		66AA96661EC246A000C3C351 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		66AA966A1EC246D300C3C351 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
@@ -304,6 +312,7 @@
 				66E8800B1EC3BFF9008E3C18 /* InteractionVC.swift */,
 				6636CA9C1EC4EAAE00C442D8 /* MapVC.swift */,
 				66308CC81ECF32D3001B714B /* LocationVC.swift */,
+				6683595A1ECF8B0D0079ACB0 /* SelectCityVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -340,6 +349,7 @@
 				6603FEE01EC657D200A37D68 /* NewsCell.swift */,
 				666F6ECD1ECA01B70044A298 /* SettingsCell.swift */,
 				6668EB961ECB498A0098685F /* ContributorCell.swift */,
+				668896CA1ECF40CF00EA12C2 /* LocationCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -659,6 +669,7 @@
 				66F452801EC204BC002D7D96 /* MainVC.swift in Sources */,
 				66F2BB181EC495E600FB20DD /* Event.swift in Sources */,
 				66A801B21EC12AF300E22303 /* MenuVC.swift in Sources */,
+				6683595B1ECF8B0D0079ACB0 /* SelectCityVC.swift in Sources */,
 				6636CAA11EC4F0A500C442D8 /* Annotation.swift in Sources */,
 				66F2BB201EC4985000FB20DD /* City.swift in Sources */,
 				66F2BB1C1EC497DE00FB20DD /* Location.swift in Sources */,
@@ -670,6 +681,7 @@
 				66AA96731EC2613F00C3C351 /* ApiURL.swift in Sources */,
 				6636CA9D1EC4EAAE00C442D8 /* MapVC.swift in Sources */,
 				66DCA6521ECCD4BB00D86F9A /* Contributor.swift in Sources */,
+				668896CB1ECF40CF00EA12C2 /* LocationCell.swift in Sources */,
 				6634187A1EC0CD1000B26A7D /* AppDelegate.swift in Sources */,
 				66AA96671EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66308CC91ECF32D3001B714B /* LocationVC.swift in Sources */,
@@ -693,6 +705,7 @@
 				66F452811EC204BC002D7D96 /* MainVC.swift in Sources */,
 				66F2BB191EC495E600FB20DD /* Event.swift in Sources */,
 				663418B71EC1078600B26A7D /* ItemMenuCell.swift in Sources */,
+				6683595C1ECF8B0D0079ACB0 /* SelectCityVC.swift in Sources */,
 				6636CAA21EC4F0A500C442D8 /* Annotation.swift in Sources */,
 				66F2BB211EC4985000FB20DD /* City.swift in Sources */,
 				66F2BB1D1EC497DE00FB20DD /* Location.swift in Sources */,
@@ -704,6 +717,7 @@
 				66AA96741EC2613F00C3C351 /* ApiURL.swift in Sources */,
 				6636CA9E1EC4EAAE00C442D8 /* MapVC.swift in Sources */,
 				66DCA6531ECCD4BB00D86F9A /* Contributor.swift in Sources */,
+				668896CC1ECF40CF00EA12C2 /* LocationCell.swift in Sources */,
 				66A801B31EC12AF300E22303 /* MenuVC.swift in Sources */,
 				66AA96681EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66308CCA1ECF32D3001B714B /* LocationVC.swift in Sources */,
@@ -727,6 +741,7 @@
 				66F452821EC204BC002D7D96 /* MainVC.swift in Sources */,
 				66F2BB1A1EC495E600FB20DD /* Event.swift in Sources */,
 				663418B81EC1078600B26A7D /* ItemMenuCell.swift in Sources */,
+				6683595D1ECF8B0D0079ACB0 /* SelectCityVC.swift in Sources */,
 				6636CAA31EC4F0A500C442D8 /* Annotation.swift in Sources */,
 				66F2BB221EC4985000FB20DD /* City.swift in Sources */,
 				66F2BB1E1EC497DE00FB20DD /* Location.swift in Sources */,
@@ -738,6 +753,7 @@
 				66AA96751EC2613F00C3C351 /* ApiURL.swift in Sources */,
 				6636CA9F1EC4EAAE00C442D8 /* MapVC.swift in Sources */,
 				66DCA6541ECCD4BB00D86F9A /* Contributor.swift in Sources */,
+				668896CD1ECF40CF00EA12C2 /* LocationCell.swift in Sources */,
 				66A801B41EC12AF300E22303 /* MenuVC.swift in Sources */,
 				66AA96691EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66308CCB1ECF32D3001B714B /* LocationVC.swift in Sources */,
@@ -897,6 +913,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Belatrix Hackatrix Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -917,6 +934,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Belatrix Hackatrix Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

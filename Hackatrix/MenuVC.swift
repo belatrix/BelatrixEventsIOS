@@ -14,14 +14,13 @@ class MenuVC: UIViewController {
      //MARK: - Properties
     
     @IBOutlet weak var tableViewMenu: UITableView!
-    let items:[[String:String]] = [["icon":"SettingsIcon","name":"Configuraciones"],["icon":"NewsIcon","name":"Novedades"],["icon":"AboutIcon","name":"Acerca de"],["icon":"HelpIcon","name":"Ayuda"]]
+    let items:[[String:String]] = [["icon":"NewsIcon","name":"Novedades"],["icon":"AboutIcon","name":"Acerca de"],["icon":"HelpIcon","name":"Ayuda"]]
     
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customStyleTableView()
-        self.navigationItem.backBarButtonItem?.title = "@"
     }
     
     //MARK: - Functions
@@ -65,17 +64,15 @@ extension MenuVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            self.performSegue(withIdentifier: K.segue.settings, sender: nil)
-        case 1:
             self.performSegue(withIdentifier: K.segue.news, sender: nil)
-        case 2:
+        case 1:
             self.performSegue(withIdentifier: K.segue.about, sender: nil)
-        case 3:
+        case 2:
             let helpURL = URL(string: K.url.belatrix)
             let safariView = SFSafariViewController(url: helpURL!)
             self.present(safariView, animated: true, completion: nil)
         default:
-            self.performSegue(withIdentifier: K.segue.settings, sender: nil)
+            self.performSegue(withIdentifier: K.segue.news, sender: nil)
         }
     }
     

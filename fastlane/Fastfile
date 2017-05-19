@@ -23,13 +23,21 @@ platform :ios do
     scan(
       scheme: "#{application_name}",
       workspace: "#{application_name}.xcworkspace",
-      devices: ["iPhone 6s", "iPhone 7"]
+      devices: ["iPhone 7"],
+      clean: true,
+      open_report: true
     )
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
-  lane :beta do |options|
+  lane :release do |options|
     #match(type: "appstore")
+    increment_version_number(
+      version_number: "#{options[:version]}"
+    )
+    increment_build_number(
+      build_number: "#{options[:build]}"
+    )
     cocoapods
     gym(
         scheme: "#{application_name}",
