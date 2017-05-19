@@ -26,7 +26,7 @@ class HackatrixTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         //2017-05-20T09:00:00Z
         //2017-05-11T14:51:13.560243Z
-        XCTAssert("11/05/17 09:51 AM" == Utils.getFormatterDate(dateString: "2017-05-11T14:51:13.560243Z"))
+        XCTAssert("11/05/17 02:51 PM" == Utils.date.getFormatter(dateString: "2017-05-11T14:51:13.560243Z"))
     }
     
     func testPerformanceExample() {

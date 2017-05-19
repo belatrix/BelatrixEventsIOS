@@ -21,6 +21,7 @@ struct K {
         static let about = "aboutSegue"
         static let detail = "detailSegue"
         static let map = "mapSegue"
+        static let citySetting = "citySettingSegue"
     }
     struct cell {
         static let menu = "itemMenuCell"

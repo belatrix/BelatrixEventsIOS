@@ -17,6 +17,8 @@ target 'Hackatrix' do
   target 'HackatrixTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
   end
 
   target 'HackatrixUITests' do

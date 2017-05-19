@@ -18,6 +18,13 @@ class SettingsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.customStyleTableView()
+    }
+    
+    //MARK: - Functions
+    
+    func customStyleTableView() {
+        self.tableViewSettings.tableFooterView = UIView()
     }
 
 }
@@ -25,6 +32,15 @@ class SettingsVC: UIViewController {
 //MARK: - UITableViewDataSource
 
 extension SettingsVC:UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Localización"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -39,6 +55,8 @@ extension SettingsVC:UITableViewDataSource {
 
 extension SettingsVC:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: K.segue.citySetting, sender: nil)
     }
 }
+
+

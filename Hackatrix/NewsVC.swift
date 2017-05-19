@@ -42,8 +42,8 @@ class NewsVC: UIViewController {
     func customStyleTableView() {
         self.tableViewNews.rowHeight = UITableViewAutomaticDimension
         self.tableViewNews.estimatedRowHeight = 50
-        self.tableViewNews.emptyDataSetSource = self
-        self.tableViewNews.emptyDataSetDelegate = self
+        self.tableViewNews.emptyDataSetSource = self;
+        self.tableViewNews.emptyDataSetDelegate = self;
         self.tableViewNews.tableFooterView = UIView()
     }
     
@@ -104,20 +104,19 @@ extension NewsVC: UITableViewDelegate {
 
 }
 
-//MARK: - DZNEmptyData
+//MARK: - DZNEmptyDataSet
 
-extension NewsVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate{
+extension NewsVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
-    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return UIImage(named: "BelatrixLogo")
-    }
-    
-    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
-        return true
     }
     
     func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView!) -> Bool {
         return true
     }
+    
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
 }
-

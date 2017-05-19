@@ -23,6 +23,9 @@
 		662A9A031ECB933200581622 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662A9A021ECB933200581622 /* Enums.swift */; };
 		662A9A041ECB933200581622 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662A9A021ECB933200581622 /* Enums.swift */; };
 		662A9A051ECB933200581622 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662A9A021ECB933200581622 /* Enums.swift */; };
+		66308CC91ECF32D3001B714B /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66308CC81ECF32D3001B714B /* LocationVC.swift */; };
+		66308CCA1ECF32D3001B714B /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66308CC81ECF32D3001B714B /* LocationVC.swift */; };
+		66308CCB1ECF32D3001B714B /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66308CC81ECF32D3001B714B /* LocationVC.swift */; };
 		6634187A1EC0CD1000B26A7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663418791EC0CD1000B26A7D /* AppDelegate.swift */; };
 		6634187F1EC0CD1000B26A7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6634187D1EC0CD1000B26A7D /* Main.storyboard */; };
 		663418841EC0CD1000B26A7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 663418831EC0CD1000B26A7D /* Assets.xcassets */; };
@@ -126,6 +129,7 @@
 		6603FEE81EC6660000A37D68 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		662A99FE1ECB918D00581622 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		662A9A021ECB933200581622 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		66308CC81ECF32D3001B714B /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		663418761EC0CD1000B26A7D /* Hackatrix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackatrix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		663418791EC0CD1000B26A7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6634187E1EC0CD1000B26A7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,12 +150,12 @@
 		6668EB961ECB498A0098685F /* ContributorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributorCell.swift; sourceTree = "<group>"; };
 		666F6ECD1ECA01B70044A298 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		666F6ED51ECA042D0044A298 /* Hackatrix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hackatrix.entitlements; sourceTree = "<group>"; };
+		668896C91ECF38E900EA12C2 /* Hackatrix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Hackatrix-Bridging-Header.h"; sourceTree = "<group>"; };
 		66A801B11EC12AF300E22303 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		66AA96661EC246A000C3C351 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		66AA966A1EC246D300C3C351 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		66AA966E1EC246E600C3C351 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		66AA96721EC2613F00C3C351 /* ApiURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiURL.swift; sourceTree = "<group>"; };
-		66DCA64C1ECC9FDB00D86F9A /* Hackatrix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Hackatrix-Bridging-Header.h"; sourceTree = "<group>"; };
 		66DCA64D1ECCB6C300D86F9A /* Contributors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contributors.json; sourceTree = "<group>"; };
 		66DCA6511ECCD4BB00D86F9A /* Contributor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contributor.swift; sourceTree = "<group>"; };
 		66E68E501EC1FC5B00CCA811 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -299,6 +303,7 @@
 				66E880071EC3BD11008E3C18 /* DetailVC.swift */,
 				66E8800B1EC3BFF9008E3C18 /* InteractionVC.swift */,
 				6636CA9C1EC4EAAE00C442D8 /* MapVC.swift */,
+				66308CC81ECF32D3001B714B /* LocationVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -320,7 +325,7 @@
 				6603FEE81EC6660000A37D68 /* Utils.swift */,
 				662A99FE1ECB918D00581622 /* Constants.swift */,
 				662A9A021ECB933200581622 /* Enums.swift */,
-				66DCA64C1ECC9FDB00D86F9A /* Hackatrix-Bridging-Header.h */,
+				668896C91ECF38E900EA12C2 /* Hackatrix-Bridging-Header.h */,
 				66DCA64D1ECCB6C300D86F9A /* Contributors.json */,
 			);
 			name = Resources;
@@ -667,6 +672,7 @@
 				66DCA6521ECCD4BB00D86F9A /* Contributor.swift in Sources */,
 				6634187A1EC0CD1000B26A7D /* AppDelegate.swift in Sources */,
 				66AA96671EC246A000C3C351 /* SettingsVC.swift in Sources */,
+				66308CC91ECF32D3001B714B /* LocationVC.swift in Sources */,
 				66E8800C1EC3BFF9008E3C18 /* InteractionVC.swift in Sources */,
 				6603FEE91EC6660000A37D68 /* Utils.swift in Sources */,
 				66AA966B1EC246D300C3C351 /* NewsVC.swift in Sources */,
@@ -700,6 +706,7 @@
 				66DCA6531ECCD4BB00D86F9A /* Contributor.swift in Sources */,
 				66A801B31EC12AF300E22303 /* MenuVC.swift in Sources */,
 				66AA96681EC246A000C3C351 /* SettingsVC.swift in Sources */,
+				66308CCA1ECF32D3001B714B /* LocationVC.swift in Sources */,
 				66E8800D1EC3BFF9008E3C18 /* InteractionVC.swift in Sources */,
 				6603FEEA1EC6660000A37D68 /* Utils.swift in Sources */,
 				66AA966C1EC246D300C3C351 /* NewsVC.swift in Sources */,
@@ -733,6 +740,7 @@
 				66DCA6541ECCD4BB00D86F9A /* Contributor.swift in Sources */,
 				66A801B41EC12AF300E22303 /* MenuVC.swift in Sources */,
 				66AA96691EC246A000C3C351 /* SettingsVC.swift in Sources */,
+				66308CCB1ECF32D3001B714B /* LocationVC.swift in Sources */,
 				66E8800E1EC3BFF9008E3C18 /* InteractionVC.swift in Sources */,
 				6603FEEB1EC6660000A37D68 /* Utils.swift in Sources */,
 				66AA966D1EC246D300C3C351 /* NewsVC.swift in Sources */,
@@ -923,6 +931,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.belatrixsf.HackatrixTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hackatrix.app/Hackatrix";
 			};
@@ -939,6 +948,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.belatrixsf.HackatrixTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hackatrix.app/Hackatrix";
 			};
@@ -954,6 +964,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.belatrixsf.HackatrixUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Hackatrix;
 			};
@@ -969,6 +980,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.belatrixsf.HackatrixUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Hackatrix;
 			};

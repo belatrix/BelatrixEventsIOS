@@ -9,5 +9,7 @@
 import UIKit
 
 class SettingsCell: UITableViewCell {
+    
+    @IBOutlet weak var cityName: UILabel!
 
 }
