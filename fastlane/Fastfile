@@ -41,7 +41,7 @@ platform :ios do
     cocoapods
     gym(
         scheme: "#{application_name}",
-        export_method: "appstore"
+        export_method: "app-store"
     )
     sh("git-changelog -n #{options[:version]} --changelogrc #{changelog_configuration_source} --file #{changelog_generation_output}")
     git_tasks(options[:version], options[:build])
