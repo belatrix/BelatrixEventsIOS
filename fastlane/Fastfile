@@ -73,7 +73,7 @@ end
 def git_tasks(version, build)
   git_add(path:"./")
   git_commit(path:"./", message:"Versión #{version}")
-  sh("git tag -a #{new_tag_name} -m 'Se crea #{new_tag_name}'")
+  sh("git tag -a #{version} -m 'Se crea #{version}'")
   push_to_git_remote
   push_git_tags
 end
