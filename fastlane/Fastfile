@@ -7,8 +7,8 @@ application_name = "Hackatrix"
 channel_notification = "#iosteam"
 
 project_base_url = sh("cd .. && pwd").strip!
-changelog_configuration_source = "#{project_base_url}.changelogrc"
-changelog_generation_output = "#{project_base_url}CHANGELOG.md"
+changelog_configuration_source = "#{project_base_url}/.changelogrc"
+changelog_generation_output = "#{project_base_url}/CHANGELOG.md"
 
 default_platform :ios
 
@@ -44,13 +44,13 @@ platform :ios do
         export_method: "app-store"
     )
     sh("git-changelog -n #{options[:version]} --changelogrc #{changelog_configuration_source} --file #{changelog_generation_output}")
-    git_tasks(options[:version], options[:build])
     pilot(
         skip_waiting_for_build_processing: true
     )
     clean_build_artifacts
+    git_tasks(options[:version], options[:build])
     slack(
-       message: "#{application_name} #{options[:version]} (#{get_build_number}) ya esta en testflight! 🎉 😎",
+       message: "#{application_name} #{options[:version]} (#{options[:build]}) ya esta en testflight! 🎉 😎",
        channel: "#{channel_notification}"
     )
   end
