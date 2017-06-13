@@ -31,22 +31,22 @@ class Event: NSObject {
     
     
     init(data:JSON) {
-        self.id = data["id"].int
-        self.title = data["title"].string
-        self.image = data["image"].string
-        self.datetime = data["datetime"].string
-        self.address = data["address"].string
-        self.details = data["details"].string
-        self.registerLink = data["register_link"].string
-        self.sharingText = data["sharing_text"].string
-        self.hasInteractions = data["has_interactions"].bool
-        self.interactionText = data["interaction_text"].string
+        self.id                 = data["id"].int
+        self.title              = data["title"].string
+        self.image              = data["image"].string
+        self.datetime           = data["datetime"].string
+        self.address            = data["address"].string
+        self.details            = data["details"].string
+        self.registerLink       = data["register_link"].string
+        self.sharingText        = data["sharing_text"].string
+        self.hasInteractions    = data["has_interactions"].bool
+        self.interactionText    = data["interaction_text"].string
         self.interactionConfirmationText = data["interaction_confirmation_text"].string
-        self.isFeatured = data["is_featured"].bool
-        self.isUpcoming = data["is_upcoming"].bool
+        self.isFeatured         = data["is_featured"].bool
+        self.isUpcoming         = data["is_upcoming"].bool
         self.isInteractionActive = data["is_interaction_active"].bool
-        self.isActive = data["is_active"].bool
-        self.location = Location(data: data["location"])
+        self.isActive           = data["is_active"].bool
+        self.location           = Location(data: data["location"])
 
     }
     
