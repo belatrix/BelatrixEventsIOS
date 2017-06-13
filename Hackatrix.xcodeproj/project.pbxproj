@@ -225,12 +225,12 @@
 		6634186D1EC0CD1000B26A7D = {
 			isa = PBXGroup;
 			children = (
+				8D3AB7CAC0D7C4FB11A95155 /* Frameworks */,
 				663418781EC0CD1000B26A7D /* Hackatrix */,
 				663418901EC0CD1100B26A7D /* HackatrixTests */,
 				6634189B1EC0CD1100B26A7D /* HackatrixUITests */,
-				663418771EC0CD1000B26A7D /* Products */,
 				3AD2D2BD1C10FC5980A389DB /* Pods */,
-				8D3AB7CAC0D7C4FB11A95155 /* Frameworks */,
+				663418771EC0CD1000B26A7D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,13 +247,13 @@
 		663418781EC0CD1000B26A7D /* Hackatrix */ = {
 			isa = PBXGroup;
 			children = (
-				666F6ED51ECA042D0044A298 /* Hackatrix.entitlements */,
-				663418AE1EC0CD5900B26A7D /* Resources */,
-				663418AD1EC0CD4F00B26A7D /* Extensions */,
 				663418AC1EC0CD4400B26A7D /* Controller */,
+				663418AD1EC0CD4F00B26A7D /* Extensions */,
 				663418AB1EC0CD3F00B26A7D /* Model */,
+				663418AE1EC0CD5900B26A7D /* Resources */,
 				663418AA1EC0CD3200B26A7D /* View */,
 				663418791EC0CD1000B26A7D /* AppDelegate.swift */,
+				666F6ED51ECA042D0044A298 /* Hackatrix.entitlements */,
 			);
 			path = Hackatrix;
 			sourceTree = "<group>";
@@ -280,41 +280,44 @@
 			isa = PBXGroup;
 			children = (
 				663418B31EC1076200B26A7D /* Cell */,
-				6634187D1EC0CD1000B26A7D /* Main.storyboard */,
 				663418851EC0CD1000B26A7D /* LaunchScreen.storyboard */,
+				6634187D1EC0CD1000B26A7D /* Main.storyboard */,
 			);
 			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		663418AB1EC0CD3F00B26A7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6636CAA01EC4F0A500C442D8 /* Annotation.swift */,
+				66F2BB1F1EC4985000FB20DD /* City.swift */,
+				66DCA6511ECCD4BB00D86F9A /* Contributor.swift */,
 				66F2BB171EC495E600FB20DD /* Event.swift */,
 				66F2BB1B1EC497DE00FB20DD /* Location.swift */,
-				66F2BB1F1EC4985000FB20DD /* City.swift */,
-				6636CAA01EC4F0A500C442D8 /* Annotation.swift */,
-				6636CAA81EC4FC1700C442D8 /* Project.swift */,
 				6603FEE41EC6598D00A37D68 /* News.swift */,
-				66DCA6511ECCD4BB00D86F9A /* Contributor.swift */,
+				6636CAA81EC4FC1700C442D8 /* Project.swift */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		663418AC1EC0CD4400B26A7D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				66A801B11EC12AF300E22303 /* MenuVC.swift */,
-				66F4527F1EC204BC002D7D96 /* MainVC.swift */,
-				66AA96661EC246A000C3C351 /* SettingsVC.swift */,
-				66AA966A1EC246D300C3C351 /* NewsVC.swift */,
 				66AA966E1EC246E600C3C351 /* AboutVC.swift */,
 				66E880071EC3BD11008E3C18 /* DetailVC.swift */,
 				66E8800B1EC3BFF9008E3C18 /* InteractionVC.swift */,
-				6636CA9C1EC4EAAE00C442D8 /* MapVC.swift */,
 				66308CC81ECF32D3001B714B /* LocationVC.swift */,
+				66F4527F1EC204BC002D7D96 /* MainVC.swift */,
+				6636CA9C1EC4EAAE00C442D8 /* MapVC.swift */,
+				66A801B11EC12AF300E22303 /* MenuVC.swift */,
+				66AA966A1EC246D300C3C351 /* NewsVC.swift */,
 				6683595A1ECF8B0D0079ACB0 /* SelectCityVC.swift */,
+				66AA96661EC246A000C3C351 /* SettingsVC.swift */,
 			);
 			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		663418AD1EC0CD4F00B26A7D /* Extensions */ = {
@@ -322,36 +325,39 @@
 			children = (
 			);
 			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		663418AE1EC0CD5900B26A7D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				66E68E501EC1FC5B00CCA811 /* GoogleService-Info.plist */,
-				663418831EC0CD1000B26A7D /* Assets.xcassets */,
-				663418881EC0CD1000B26A7D /* Info.plist */,
 				66AA96721EC2613F00C3C351 /* ApiURL.swift */,
-				6603FEE81EC6660000A37D68 /* Utils.swift */,
+				663418831EC0CD1000B26A7D /* Assets.xcassets */,
 				662A99FE1ECB918D00581622 /* Constants.swift */,
-				662A9A021ECB933200581622 /* Enums.swift */,
-				668896C91ECF38E900EA12C2 /* Hackatrix-Bridging-Header.h */,
 				66DCA64D1ECCB6C300D86F9A /* Contributors.json */,
+				662A9A021ECB933200581622 /* Enums.swift */,
+				66E68E501EC1FC5B00CCA811 /* GoogleService-Info.plist */,
+				668896C91ECF38E900EA12C2 /* Hackatrix-Bridging-Header.h */,
+				663418881EC0CD1000B26A7D /* Info.plist */,
+				6603FEE81EC6660000A37D68 /* Utils.swift */,
 			);
 			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		663418B31EC1076200B26A7D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				663418B41EC1078600B26A7D /* ItemMenuCell.swift */,
+				6668EB961ECB498A0098685F /* ContributorCell.swift */,
 				66E87FFF1EC378B5008E3C18 /* EventCell.swift */,
 				6636CAA41EC4F72E00C442D8 /* InteractionCell.swift */,
+				663418B41EC1078600B26A7D /* ItemMenuCell.swift */,
+				668896CA1ECF40CF00EA12C2 /* LocationCell.swift */,
 				6603FEE01EC657D200A37D68 /* NewsCell.swift */,
 				666F6ECD1ECA01B70044A298 /* SettingsCell.swift */,
-				6668EB961ECB498A0098685F /* ContributorCell.swift */,
-				668896CA1ECF40CF00EA12C2 /* LocationCell.swift */,
 			);
 			name = Cell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		8D3AB7CAC0D7C4FB11A95155 /* Frameworks */ = {
@@ -788,6 +794,7 @@
 				6634187E1EC0CD1000B26A7D /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		663418851EC0CD1000B26A7D /* LaunchScreen.storyboard */ = {
@@ -796,6 +803,7 @@
 				663418861EC0CD1000B26A7D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -904,7 +912,7 @@
 				CODE_SIGN_ENTITLEMENTS = Hackatrix/Hackatrix.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = X3NTASB9PV;
-				INFOPLIST_FILE = Hackatrix/Info.plist;
+				INFOPLIST_FILE = Hackatrix/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.belatrix.hackatrix;
@@ -925,7 +933,7 @@
 				CODE_SIGN_ENTITLEMENTS = Hackatrix/Hackatrix.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = X3NTASB9PV;
-				INFOPLIST_FILE = Hackatrix/Info.plist;
+				INFOPLIST_FILE = Hackatrix/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.belatrix.hackatrix;
