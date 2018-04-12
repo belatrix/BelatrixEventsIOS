@@ -44,15 +44,12 @@ class InteractionVC: UIViewController {
     
     //MARK: - Functions
     
-    func getProjects(complete: (() -> Void)? = nil) {
+    func getProjects(completion: (() -> Void)? = nil) {
         if let eventID = self.detailEvent.id {
-            Alamofire.request(api.url.event.interactionWith(eventID: eventID)).responseJSON { response in
-                if let responseServer = response.result.value {
-                    let json = JSON(responseServer)
-                    for (_,subJson):(String, JSON) in json {
-                        self.projects.append(Project(data: subJson))
-                    }
-                    if let completion = complete {
+            ProjectManager.shared.getProjects(eventID: eventID) { [weak self] (projects) in
+                if let weakSelf = self {
+                    weakSelf.projects = projects
+                    if let completion = completion {
                         completion()
                     }
                 }
@@ -87,13 +84,15 @@ class InteractionVC: UIViewController {
             self.tableViewInteraction.reloadData()
             self.activityIndicator.startAnimating()
             if let projectID = project.id {
-                self.sendVoteForProject(withID: projectID, complete: {
-                    self.getProjects {
-                        self.makeFeedback()
-                        self.tableViewInteraction.isHidden = false
-                        self.activityIndicator.stopAnimating()
+                self.sendVoteForProject(withID: projectID) { [weak self] in
+                    if let weakSelf = self {
+                        weakSelf.getProjects {
+                            weakSelf.makeFeedback()
+                            weakSelf.tableViewInteraction.isHidden = false
+                            weakSelf.activityIndicator.stopAnimating()
+                        }
                     }
-                })
+                }
             }
             self.userDefaults.set(true, forKey: K.key.interactionForAProject)
         }
@@ -130,11 +129,8 @@ class InteractionVC: UIViewController {
         }
     }
     
-    func sendVoteForProject(withID id: Int, complete: @escaping () -> Void) {
-        let url = api.url.event.voteWith(interactionID: id)
-        Alamofire.request(url, method: .patch).responseJSON { (response) in
-            complete()
-        }
+    func sendVoteForProject(withID id: Int, completion: @escaping () -> Void) {
+        VoteManager.shared.castVote(projectID: id, completion: completion)
     }
     
     func makeFeedback() {

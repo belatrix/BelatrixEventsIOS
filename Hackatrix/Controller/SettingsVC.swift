@@ -38,15 +38,12 @@ class SettingsVC: UIViewController {
         self.tableViewSettings.tableFooterView = UIView()
     }
     
-    func getCities(completitionHandler: @escaping () -> Void) {
-        Alamofire.request(api.url.event.city).responseJSON { response in
-            if let responseServer = response.result.value {
-                let json = JSON(responseServer)
-                for (_,subJson):(String, JSON) in json {
-                    self.cities.append(City(data: subJson))
-                }
-                completitionHandler()
+    func getCities(completion: @escaping () -> Void) {
+        EventManager.shared.getEventCities { [weak self] (cities) in
+            if let weakSelf = self {
+                weakSelf.cities = cities
             }
+            completion()
         }
     }
 }

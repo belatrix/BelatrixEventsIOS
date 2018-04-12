@@ -71,18 +71,17 @@ class MainVC: UIViewController {
     
     //MARK: - Functions
     
-    func getBanner(complete: @escaping () -> Void) {
-        Alamofire.request(api.url.event.featured).responseJSON { response in
-            if let responseServer = response.result.value {
-                let json = JSON(responseServer)
-                self.featuredBanner = Event(data: json)
-                if let featuredBannerImage = self.featuredBanner.image, let url = URL(string: featuredBannerImage) {
-                    self.bannerImage.af_setImage(
+    func getBanner(completion: @escaping () -> Void) {
+        EventManager.shared.getFeaturedEvent { [weak self] (event) in
+            if let weakSelf = self {
+                weakSelf.featuredBanner = event
+                if let featuredBannerImage = weakSelf.featuredBanner.image, let url = URL(string: featuredBannerImage) {
+                    weakSelf.bannerImage.af_setImage(
                         withURL: url,
                         imageTransition: .crossDissolve(0.2)
                     )
                 }
-                complete()
+                completion()
             }
         }
     }
@@ -104,21 +103,10 @@ class MainVC: UIViewController {
     }
     
     func getEventOf(type:EventType) {
-        var eventURL = api.url.event.upcoming
-        if type == .past {
-            eventURL = api.url.event.past
-        }
-        
-        Alamofire.request(eventURL).responseJSON { response in
-            if let responseServer = response.result.value {
-                let json = JSON(responseServer)
-                for (_, subJson): (String, JSON) in json {
-                    if type == .upcoming {
-                        self.upcomingEvents.append(Event(data: subJson))
-                    } else {
-                        self.pastEvents.append(Event(data: subJson))
-                    }
-                }
+        EventManager.shared.getEvent(type: type) { [weak self] (upcomingEvents, pastEvents) in
+            if let weakSelf = self {
+                weakSelf.upcomingEvents = upcomingEvents
+                weakSelf.pastEvents = pastEvents
             }
         }
     }

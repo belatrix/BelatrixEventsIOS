@@ -51,6 +51,6 @@ extension AboutVC: UICollectionViewDataSource {
             cell.name.text =  item["name"]
             return cell
         }
-        return UITableViewCell()
+        return UICollectionViewCell()
     }
 }

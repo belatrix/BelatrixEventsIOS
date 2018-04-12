@@ -17,7 +17,7 @@ class NewsVC: UIViewController {
     
     @IBOutlet weak var tableViewNews: UITableView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
-    var news:[News] = [] {
+    var news: [News] = [] {
         didSet {
             self.tableViewNews.reloadData()
         }
@@ -45,16 +45,13 @@ class NewsVC: UIViewController {
         self.tableViewNews.tableFooterView = UIView()
     }
     
-    func getNews(complete: (()->Void)? = nil) {
-        Alamofire.request(api.url.notifications.all).responseJSON { response in
-            if let responseServer = response.result.value {
-                let json = JSON(responseServer)
-                for (_,subJson):(String, JSON) in json {
-                    self.news.append(News(data: subJson))
-                }
-                if let completion = complete {
-                    completion()
-                }
+    func getNews(completion: (() -> Void)? = nil) {
+        NewsManager.shared.getNews { [weak self] (news) in
+            if let weakSelf = self {
+                weakSelf.news = news
+            }
+            if let completion = completion {
+                completion()
             }
         }
     }

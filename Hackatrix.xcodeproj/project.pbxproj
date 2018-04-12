@@ -105,6 +105,12 @@
 		66F452811EC204BC002D7D96 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4527F1EC204BC002D7D96 /* MainVC.swift */; };
 		66F452821EC204BC002D7D96 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4527F1EC204BC002D7D96 /* MainVC.swift */; };
 		9555632B3FE4DC1A0E78225F /* Pods_HackatrixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868A775811D05CFEE19B8EC6 /* Pods_HackatrixTests.framework */; };
+		ED0B7EC1207FBF4400F4A26B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC0207FBF4400F4A26B /* ServiceManager.swift */; };
+		ED0B7EC3207FC05000F4A26B /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC2207FC05000F4A26B /* ServiceError.swift */; };
+		ED0B7EC5207FC2A700F4A26B /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC4207FC2A700F4A26B /* ProjectManager.swift */; };
+		ED0B7EC7207FC7D100F4A26B /* VoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC6207FC7D100F4A26B /* VoteManager.swift */; };
+		ED0B7EC9207FCAE800F4A26B /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC8207FCAE800F4A26B /* EventManager.swift */; };
+		ED0B7ECB207FCE4800F4A26B /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7ECA207FCE4800F4A26B /* NewsManager.swift */; };
 		FF0E8624C885D132818E8F55 /* Pods_Hackatrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB0EB9098F46B99F587D518 /* Pods_Hackatrix.framework */; };
 /* End PBXBuildFile section */
 
@@ -179,6 +185,12 @@
 		9485E9A8E92AF9DC74FA3E16 /* Pods-HackatrixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackatrixUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackatrixUITests/Pods-HackatrixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DCB0EB9098F46B99F587D518 /* Pods_Hackatrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackatrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E174186F982FA7A5E55E5BE2 /* Pods-HackatrixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackatrixTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackatrixTests/Pods-HackatrixTests.release.xcconfig"; sourceTree = "<group>"; };
+		ED0B7EC0207FBF4400F4A26B /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		ED0B7EC2207FC05000F4A26B /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		ED0B7EC4207FC2A700F4A26B /* ProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
+		ED0B7EC6207FC7D100F4A26B /* VoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteManager.swift; sourceTree = "<group>"; };
+		ED0B7EC8207FCAE800F4A26B /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+		ED0B7ECA207FCE4800F4A26B /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +259,7 @@
 		663418781EC0CD1000B26A7D /* Hackatrix */ = {
 			isa = PBXGroup;
 			children = (
+				ED0B7EBF207FBF3400F4A26B /* Managers */,
 				663418AC1EC0CD4400B26A7D /* Controller */,
 				663418AB1EC0CD3F00B26A7D /* Model */,
 				663418AE1EC0CD5900B26A7D /* Resources */,
@@ -295,6 +308,7 @@
 				66F2BB1B1EC497DE00FB20DD /* Location.swift */,
 				6603FEE41EC6598D00A37D68 /* News.swift */,
 				6636CAA81EC4FC1700C442D8 /* Project.swift */,
+				ED0B7EC2207FC05000F4A26B /* ServiceError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,6 +368,18 @@
 				0F510F2E91A07BF29F0ACE77 /* Pods_HackatrixUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED0B7EBF207FBF3400F4A26B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				ED0B7EC0207FBF4400F4A26B /* ServiceManager.swift */,
+				ED0B7EC4207FC2A700F4A26B /* ProjectManager.swift */,
+				ED0B7EC6207FC7D100F4A26B /* VoteManager.swift */,
+				ED0B7EC8207FCAE800F4A26B /* EventManager.swift */,
+				ED0B7ECA207FCE4800F4A26B /* NewsManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -687,14 +713,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				66AA966F1EC246E600C3C351 /* AboutVC.swift in Sources */,
+				ED0B7EC7207FC7D100F4A26B /* VoteManager.swift in Sources */,
+				ED0B7EC5207FC2A700F4A26B /* ProjectManager.swift in Sources */,
 				66E880001EC378B5008E3C18 /* EventCell.swift in Sources */,
 				662A9A031ECB933200581622 /* Enums.swift in Sources */,
 				663418B61EC1078600B26A7D /* ItemMenuCell.swift in Sources */,
+				ED0B7EC9207FCAE800F4A26B /* EventManager.swift in Sources */,
 				66F452801EC204BC002D7D96 /* MainVC.swift in Sources */,
 				66F2BB181EC495E600FB20DD /* Event.swift in Sources */,
 				66A801B21EC12AF300E22303 /* MenuVC.swift in Sources */,
 				6683595B1ECF8B0D0079ACB0 /* SelectCityVC.swift in Sources */,
 				6636CAA11EC4F0A500C442D8 /* Annotation.swift in Sources */,
+				ED0B7ECB207FCE4800F4A26B /* NewsManager.swift in Sources */,
+				ED0B7EC3207FC05000F4A26B /* ServiceError.swift in Sources */,
 				66F2BB201EC4985000FB20DD /* City.swift in Sources */,
 				66F2BB1C1EC497DE00FB20DD /* Location.swift in Sources */,
 				6668EB971ECB498A0098685F /* ContributorCell.swift in Sources */,
@@ -715,6 +746,7 @@
 				6603FEE51EC6598D00A37D68 /* News.swift in Sources */,
 				6636CAA91EC4FC1700C442D8 /* Project.swift in Sources */,
 				662A99FF1ECB918D00581622 /* Constants.swift in Sources */,
+				ED0B7EC1207FBF4400F4A26B /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
