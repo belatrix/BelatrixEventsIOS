@@ -11,23 +11,20 @@ import Alamofire
 import SwiftyJSON
 
 class LocationVC: UIViewController {
-    
     //MARK: - Properties
     
     @IBOutlet weak var tableViewLocation: UITableView!
-    var cities:[City] = []
-    var itemSelected:IndexPath!
+    var cities: [City] = []
+    var itemSelected: IndexPath!
     
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
 }
 
 extension LocationVC: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -41,20 +38,18 @@ extension LocationVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cell.location) as! LocationCell
-        cell.locationName.text = self.cities[indexPath.row].name
-        if indexPath.row == 0 {
-            cell.accessoryType = .checkmark
-            self.itemSelected = indexPath
+        if let cell = tableView.dequeueReusableCell(withIdentifier: K.cell.location) as? LocationCell {
+            cell.locationName.text = self.cities[indexPath.row].name
+            if indexPath.row == 0 {
+                cell.accessoryType = .checkmark
+                self.itemSelected = indexPath
+            }
+            return cell
         }
-        return cell
+        return UITableViewCell()
     }
 }
 
 extension LocationVC: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
 }
 

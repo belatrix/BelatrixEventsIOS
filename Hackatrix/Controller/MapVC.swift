@@ -10,13 +10,12 @@ import UIKit
 import MapKit
 
 class MapVC: UIViewController {
-    
     //MARK: - Properties
     
     @IBOutlet weak var mapView: MKMapView!
-    var latitud:String!
-    var longitud:String!
-    var name:String!
+    var latitud: String!
+    var longitud: String!
+    var name: String!
     
     //MARK: - LifeCycle
 
@@ -28,18 +27,19 @@ class MapVC: UIViewController {
     //MARK: - Functions
     
     func createMap() {
-        let lat = CLLocationDegrees(exactly: Double(self.latitud)!)
-        let long = CLLocationDegrees(exactly: Double(self.longitud)!)
-        let center = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
-        
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
-        self.mapView.setRegion(region, animated: true)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = center
-        annotation.title = self.name
-        self.mapView.addAnnotation(annotation)
+        if let latitud = Double(self.latitud), let longitud = Double(self.longitud) {
+            let lat = CLLocationDegrees(exactly: latitud)
+            let long = CLLocationDegrees(exactly: longitud)
+            let center = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+            
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+            self.mapView.setRegion(region, animated: true)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = center
+            annotation.title = self.name
+            self.mapView.addAnnotation(annotation)
+        }
     }
-
 }
 

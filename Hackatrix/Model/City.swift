@@ -10,13 +10,11 @@ import UIKit
 import SwiftyJSON
 
 class City: NSObject {
-    
-    var id:Int?
-    var name:String?
+    var id: Int?
+    var name: String?
     
     init(data: JSON) {
         self.id = data["id"].int
         self.name = data["name"].string
     }
-
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 class NewsCell: UITableViewCell {
-    
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
 
@@ -18,5 +17,4 @@ class NewsCell: UITableViewCell {
         self.selectionStyle = .none
         self.separatorInset = .zero
     }
-
 }
