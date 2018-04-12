@@ -14,7 +14,7 @@ class VoteManager: NSObject {
     let serviceManager = ServiceManager.shared
     
     func castVote(projectID: Int, completion: (() -> Void)? = nil) {
-        serviceManager.useService(url: api.url.event.voteWith(interactionID: projectID)) { (json) in
+        serviceManager.useService(url: api.url.event.voteWith(interactionID: projectID), method: .get, parameters: nil) { (json) in
             if let completion = completion {
                 completion()
             }

@@ -72,12 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func registerDeviceInBackEndWith(_ fcmToken:String) {
-        Alamofire.request(api.url.device.register, method: .post, parameters: ["device_code":fcmToken]).responseJSON { response in
-            if let responseServer = response.result.value {
-                let json = JSON(responseServer)
-                print("json \(json)")
-            }
-        }
+        DeviceManager.shared.registerDevice(fcmToken: fcmToken  )
     }
 }
 

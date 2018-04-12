@@ -13,8 +13,8 @@ import SwiftyJSON
 class ServiceManager: NSObject {
     static let shared = ServiceManager()
     
-    func useService(url: String, completion: ((_ response: JSON?) -> Void)? = nil) {
-        Alamofire.request(url).responseJSON { response in
+    func useService(url: String, method: HTTPMethod, parameters: Parameters?, completion: ((_ response: JSON?) -> Void)? = nil) {
+        Alamofire.request(url, method: method, parameters: parameters).responseJSON { response in
             if let completion = completion {
                 if let responseServer = response.result.value, let code = response.response?.statusCode {
                     if code == 200 {

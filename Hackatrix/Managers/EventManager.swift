@@ -14,7 +14,7 @@ class EventManager: NSObject {
     let serviceManager = ServiceManager.shared
     
     func getFeaturedEvent(completion: ((_ event: Event) -> Void)? = nil) {
-        serviceManager.useService(url: api.url.event.featured) { (json) in
+        serviceManager.useService(url: api.url.event.featured, method: .get, parameters: nil) { (json) in
             if let json = json {
                 if let completion = completion {
                     completion(Event(data: json))
@@ -29,7 +29,7 @@ class EventManager: NSObject {
             eventURL = api.url.event.past
         }
         
-        serviceManager.useService(url: eventURL) { (json) in
+        serviceManager.useService(url: eventURL, method: .get, parameters: nil) { (json) in
             if let json = json {
                 var upcomingEvents: [Event] = []
                 var pastEvents: [Event] = []
@@ -50,7 +50,7 @@ class EventManager: NSObject {
     }
     
     func getEventCities(completion: ((_ cities: [City]) -> Void)? = nil) {
-        serviceManager.useService(url: api.url.event.city) { (json) in
+        serviceManager.useService(url: api.url.event.city, method: .get, parameters: nil) { (json) in
             var cities: [City] = []
             if let json = json {
                 for (_, subJson): (String, JSON) in json {
