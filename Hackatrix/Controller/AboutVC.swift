@@ -12,11 +12,21 @@ class AboutVC: UIViewController {
     //MARK: - Properties
 
     @IBOutlet weak var collectionViewContributors: UICollectionView!
-    let contributors: [[String:String]] = [["icon":"ErikIcon","name":"Erik Flores"],["icon":"DiegoIcon","name":"Diego Velásquez "],["icon":"KarlaIcon","name":"Karla Cerrón"],["icon":"SergioIcon","name":"Sergio Infante"],["icon":"CarinaIcon","name":"Carina Valdez"],["icon":"FernandoIcon","name":"Fernando Puebla"],["icon":"CarlosIcon","name":"Carlos Monzón"],["icon":"GladysIcon","name":"Gladys Cuzcano"],["icon":"RaulIcon","name":"Raul Rashuaman"]]
+    var contributors: [[String:String]] = []
     
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
+        if let path = Bundle.main.path(forResource: "Contributors", ofType: "json") {
+            if let jsonData = NSData(contentsOfFile: path) {
+                let data = jsonData as Data
+                do {
+                    let jsonResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                    self.contributors = jsonResult as! [[String: String]]
+                } catch {
+                }
+            }
+        }
         super.viewDidLoad()
     }
     
