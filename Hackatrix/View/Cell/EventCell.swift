@@ -9,8 +9,6 @@
 import UIKit
 
 class EventCell: UICollectionViewCell {
-    
     @IBOutlet weak var eventImage: UIImageView!
     @IBOutlet weak var eventTitle: UILabel!
-   
 }

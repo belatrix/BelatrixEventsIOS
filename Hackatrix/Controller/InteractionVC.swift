@@ -11,13 +11,12 @@ import Alamofire
 import SwiftyJSON
 
 class InteractionVC: UIViewController {
-    
     //MARK: - Properties
     
     @IBOutlet weak var tableViewInteraction: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    var detailEvent:Event!
-    var projects:[Project] = [] {
+    var detailEvent: Event!
+    var projects: [Project] = [] {
         didSet {
             self.tableViewInteraction.reloadData()
         }
@@ -45,21 +44,20 @@ class InteractionVC: UIViewController {
     
     //MARK: - Functions
     
-    func getProjects(complete: (()->Void)? = nil) {
-        Alamofire.request(api.url.event.interactionWith(eventID: self.detailEvent.id!)).responseJSON { response in
-            if let responseServer = response.result.value {
-                let json = JSON(responseServer)
-                for (_,subJson):(String, JSON) in json {
-                    self.projects.append(Project(data: subJson))
-                }
-                if complete != nil {
-                    complete!()
+    func getProjects(completion: (() -> Void)? = nil) {
+        if let eventID = self.detailEvent.id {
+            ProjectManager.shared.getProjects(eventID: eventID) { [weak self] (projects) in
+                if let weakSelf = self {
+                    weakSelf.projects = projects
+                    if let completion = completion {
+                        completion()
+                    }
                 }
             }
         }
     }
     
-    func showWelcomeAlert(){
+    func showWelcomeAlert() {
         let titleWelcome = self.detailEvent.title
         let messageWelcome = self.detailEvent.interactionText
         let alert = UIAlertController(title: titleWelcome, message: messageWelcome, preferredStyle: .alert)
@@ -70,23 +68,32 @@ class InteractionVC: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func voteFor(_ project:Project) {
+    func voteFor(_ project: Project) {
         let titleConfirmation = self.detailEvent.title
         let tmpMessageConfirmation = self.detailEvent.interactionConfirmationText
-        let messageConfirmation = tmpMessageConfirmation?.replacingOccurrences(of: "%s", with: project.text!)
+        var messageConfirmation = ""
+        if let text = project.text {
+            if let tmp = tmpMessageConfirmation {
+                messageConfirmation = tmp.replacingOccurrences(of: "%s", with: text)
+            }
+        }
         let alert = UIAlertController(title: titleConfirmation, message: messageConfirmation, preferredStyle: .alert)
         let btnAccept = UIAlertAction(title: "Si", style: .default) { (alertAction) in
             self.tableViewInteraction.isHidden = true
             self.projects = []
             self.tableViewInteraction.reloadData()
             self.activityIndicator.startAnimating()
-            self.sendVoteForProject(withID: project.id!, complete: {
-                self.getProjects {
-                    self.makeFeedback()
-                    self.tableViewInteraction.isHidden = false
-                    self.activityIndicator.stopAnimating()
+            if let projectID = project.id {
+                self.sendVoteForProject(withID: projectID) { [weak self] in
+                    if let weakSelf = self {
+                        weakSelf.getProjects {
+                            weakSelf.makeFeedback()
+                            weakSelf.tableViewInteraction.isHidden = false
+                            weakSelf.activityIndicator.stopAnimating()
+                        }
+                    }
                 }
-            })
+            }
             self.userDefaults.set(true, forKey: K.key.interactionForAProject)
         }
         let btnCancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
@@ -117,17 +124,13 @@ class InteractionVC: UIViewController {
     func refreshTable(sender: UIRefreshControl) {
         self.projects = []
         self.tableViewInteraction.reloadData()
-        self.getProjects{
+        self.getProjects {
             sender.endRefreshing()
         }
     }
     
-    func sendVoteForProject(withID id:Int, complete : @escaping ()->Void) {
-        
-        let url = api.url.event.voteWith(interactionID: id)
-        Alamofire.request(url, method: .patch).responseJSON { (response) in
-            complete()
-        }
+    func sendVoteForProject(withID id: Int, completion: @escaping () -> Void) {
+        VoteManager.shared.castVote(projectID: id, completion: completion)
     }
     
     func makeFeedback() {
@@ -143,26 +146,24 @@ class InteractionVC: UIViewController {
 
 //MARK: - UITableViewDataSource
 
-
-extension InteractionVC:UITableViewDataSource {
-
+extension InteractionVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cell.interaction) as! InteractionCell
-        cell.nameProject.text = self.projects[indexPath.row].text
-        cell.numberOfVote.text = "\(self.projects[indexPath.row].votes!)"
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: K.cell.interaction) as? InteractionCell {
+            cell.nameProject.text = self.projects[indexPath.row].text
+            cell.numberOfVote.text = "\(self.projects[indexPath.row].votes!)"
+            return cell
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.projects.count
     }
-    
 }
 
 //MARK: - UITableViewDelegate
 
-extension InteractionVC:UITableViewDelegate {
-
+extension InteractionVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let isInteraction = self.userDefaults.bool(forKey: K.key.interactionForAProject)
         if !isInteraction {
@@ -171,5 +172,4 @@ extension InteractionVC:UITableViewDelegate {
             self.showValidationInteractionAlertFor()
         }
     }
-    
 }

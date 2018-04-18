@@ -10,13 +10,11 @@ import UIKit
 import SwiftyJSON
 
 class Contributor: NSObject {
-    
-    var icon:String?
-    var name:String?
+    var icon: String?
+    var name: String?
     
     init(data:JSON) {
         self.icon = data["icon"].string
         self.name = data["name"].string
     }
-
 }

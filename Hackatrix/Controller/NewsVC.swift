@@ -17,7 +17,7 @@ class NewsVC: UIViewController {
     
     @IBOutlet weak var tableViewNews: UITableView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
-    var news:[News] = [] {
+    var news: [News] = [] {
         didSet {
             self.tableViewNews.reloadData()
         }
@@ -33,8 +33,6 @@ class NewsVC: UIViewController {
             self.activity.stopAnimating()
         }
         self.addPullRefresh()
-        
-        
     }
     
     //MARK: - Functions
@@ -42,21 +40,18 @@ class NewsVC: UIViewController {
     func customStyleTableView() {
         self.tableViewNews.rowHeight = UITableViewAutomaticDimension
         self.tableViewNews.estimatedRowHeight = 50
-        self.tableViewNews.emptyDataSetSource = self;
-        self.tableViewNews.emptyDataSetDelegate = self;
+        self.tableViewNews.emptyDataSetSource = self
+        self.tableViewNews.emptyDataSetDelegate = self
         self.tableViewNews.tableFooterView = UIView()
     }
     
-    func getNews(complete: (()->Void)? = nil) {
-        Alamofire.request(api.url.notifications.all).responseJSON { response in
-            if let responseServer = response.result.value {
-                let json = JSON(responseServer)
-                for (_,subJson):(String, JSON) in json {
-                    self.news.append(News(data: subJson))
-                }
-                if complete != nil {
-                    complete!()
-                }
+    func getNews(completion: (() -> Void)? = nil) {
+        NewsManager.shared.getNews { [weak self] (news) in
+            if let weakSelf = self {
+                weakSelf.news = news
+            }
+            if let completion = completion {
+                completion()
             }
         }
     }
@@ -75,39 +70,38 @@ class NewsVC: UIViewController {
         self.news = []
         self.tableViewNews.reloadData()
         self.getNews {
-         sender.endRefreshing()
+            sender.endRefreshing()
         }
     }
-
-
 }
 
 //MARK: - UITableViewDataSource
 
 extension NewsVC: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return news.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cell.news) as! NewsCell
-        cell.dateLbl.text = Utils.date.getFormatter(dateString: self.news[indexPath.row].datetime!)
-        cell.descriptionLbl.text = self.news[indexPath.row].text
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: K.cell.news) as? NewsCell {
+            if let datetime = self.news[indexPath.row].datetime {
+                cell.dateLbl.text = Utils.date.getFormatter(dateString: datetime)
+            }
+            cell.descriptionLbl.text = self.news[indexPath.row].text
+            return cell
+        }
+        return UITableViewCell()
     }
 }
 
 //MARK: - UITableViewDelegate
 
 extension NewsVC: UITableViewDelegate {
-
 }
 
 //MARK: - DZNEmptyDataSet
 
 extension NewsVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-    
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return UIImage(named: "BelatrixLogo")
     }

@@ -9,7 +9,6 @@
 import UIKit
 
 class InteractionCell: UITableViewCell {
-    
     @IBOutlet weak var nameProject: UILabel!
     @IBOutlet weak var numberOfVote: UILabel!
 

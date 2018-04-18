@@ -10,12 +10,11 @@ import Foundation
 import SwiftyJSON
 
 class Project: NSObject {
-
-    var id:Int?
-    var text:String?
-    var votes:Int?
-    var isActive:Bool?
-    var event:Int?
+    var id: Int?
+    var text: String?
+    var votes: Int?
+    var isActive: Bool?
+    var event: Int?
     
     init(data: JSON) {
         self.id = data["id"].int
@@ -25,4 +24,3 @@ class Project: NSObject {
         self.event = data["event"].int
     }
 }
-

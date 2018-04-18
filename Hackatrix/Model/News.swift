@@ -10,12 +10,11 @@ import UIKit
 import SwiftyJSON
 
 class News: NSObject {
-    
-    var id:Int?
-    var text:String?
-    var datetime:String?
-    var city:Int?
-    var isActive:Bool?
+    var id: Int?
+    var text: String?
+    var datetime: String?
+    var city: Int?
+    var isActive: Bool?
     
     init(data: JSON) {
         self.id = data["id"].int
@@ -25,7 +24,7 @@ class News: NSObject {
         self.isActive = data["is_active"].bool
     }
     
-    init(datetime:String, text:String) {
+    init(datetime: String, text: String) {
         self.datetime = datetime
         self.text = text
     }

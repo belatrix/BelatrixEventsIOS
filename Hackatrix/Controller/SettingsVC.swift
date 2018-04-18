@@ -11,11 +11,10 @@ import Alamofire
 import SwiftyJSON
 
 class SettingsVC: UIViewController {
-    
     //MARK: - Properties
     
     @IBOutlet weak var tableViewSettings: UITableView!
-    var cities:[City] = []
+    var cities: [City] = []
     
     //MARK: - LifeCycle
 
@@ -39,24 +38,19 @@ class SettingsVC: UIViewController {
         self.tableViewSettings.tableFooterView = UIView()
     }
     
-    func getCities(completitionHandler: @escaping () -> Void) {
-        Alamofire.request(api.url.event.city).responseJSON { response in
-            if let responseServer = response.result.value {
-                let json = JSON(responseServer)
-                for (_,subJson):(String, JSON) in json {
-                    self.cities.append(City(data: subJson))
-                }
-                completitionHandler()
+    func getCities(completion: @escaping () -> Void) {
+        EventManager.shared.getEventCities { [weak self] (cities) in
+            if let weakSelf = self {
+                weakSelf.cities = cities
             }
+            completion()
         }
     }
-
 }
 
 //MARK: - UITableViewDataSource
 
-extension SettingsVC:UITableViewDataSource {
-    
+extension SettingsVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -70,20 +64,21 @@ extension SettingsVC:UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cell.setting) as! SettingsCell
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: K.cell.setting) as? SettingsCell {
+            return cell
+        }
+        return UITableViewCell()
     }
 }
 
 //MARK: - UITableViewDelegate
 
-extension SettingsVC:UITableViewDelegate {
+extension SettingsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.cities = []
         self.getCities {
             self.performSegue(withIdentifier: K.segue.citySetting, sender: nil)
         }
-        
     }
 }
 

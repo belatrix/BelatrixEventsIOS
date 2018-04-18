@@ -9,8 +9,6 @@
 import UIKit
 
 class ItemMenuCell: UITableViewCell {
-    
     @IBOutlet weak var imageItemMenu: UIImageView!
     @IBOutlet weak var nameItemMenu: UILabel!
-    
 }

@@ -14,7 +14,6 @@ import SwiftyJSON
 import SafariServices
 
 class DetailVC: UIViewController {
-    
     //MARK: - Properties
     
     @IBOutlet weak var mainImage: UIImageView!
@@ -23,7 +22,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var urlBtn: UIButton!
     @IBOutlet weak var detailTitle: UILabel!
-    var detailEvent:Event!
+    var detailEvent: Event!
     
     //MARK: - LifeCycle
     
@@ -42,29 +41,30 @@ class DetailVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.map {
-            let mapVC = segue.destination as! MapVC
-            mapVC.latitud = detailEvent.location?.latitude ?? "-12.099947"
-            mapVC.longitud = detailEvent.location?.longitude ?? "-77.018978"
-            mapVC.name = detailEvent.location?.name ?? "Belatrix"
+            if let mapVC = segue.destination as? MapVC {
+                mapVC.latitud = detailEvent.location?.latitude ?? "-12.099947"
+                mapVC.longitud = detailEvent.location?.longitude ?? "-77.018978"
+                mapVC.name = detailEvent.location?.name ?? "Belatrix"
+            }
         }
     }
     
     //MARK: - Actions
     
     @IBAction func showWebPage(_ sender: Any) {
-        
-        if let helpURL = URL(string: detailEvent.registerLink!) {
+        if let registerLink = detailEvent.registerLink, let helpURL = URL(string: registerLink) {
             let safariView = SFSafariViewController(url: helpURL)
             self.present(safariView, animated: true, completion: nil)
         }
-        
     }
     
     //MARK: - Functions
     
     func addInfo() {
         self.getBanner()
-        self.dateLbl.text = Utils.date.getFormatterEvent(dateString: detailEvent.datetime!)
+        if let datetime = detailEvent.datetime {
+            self.dateLbl.text = Utils.date.getFormatterEvent(dateString: datetime)
+        }
         if detailEvent.address == "" {
             self.locationBtn.setTitle("Belatrix", for: .normal)
         } else {
@@ -76,26 +76,29 @@ class DetailVC: UIViewController {
             self.descriptionLbl.text = detailEvent.details
         }
         self.urlBtn.setTitle(detailEvent.registerLink ?? "", for: .normal)
-        
     }
 
     func getBanner() {
-        self.mainImage.af_setImage(
-            withURL: URL(string: self.detailEvent.image!)!,
-            imageTransition: .crossDissolve(0.2)
-        )
+        if let image = self.detailEvent.image, let url = URL(string: image) {
+            self.mainImage.af_setImage(
+                withURL: url,
+                imageTransition: .crossDissolve(0.2)
+            )
+        }
     }
     
-    func addTitleinMainBanner(){
+    func addTitleinMainBanner() {
         self.detailTitle.text = detailEvent.title
     }
     
-    func bussinesValidations(){
-        if !self.detailEvent.isInteractionActive! {
-            self.tabBarController?.tabBar.isHidden = true
-        }
-        if !self.detailEvent.hasInteractions! {
-            self.tabBarController?.tabBar.items?[1].isEnabled = false
+    func bussinesValidations() {
+        if let isInteractionActive = self.detailEvent.isInteractionActive, let hasInteractions = self.detailEvent.hasInteractions {
+            if !isInteractionActive {
+                self.tabBarController?.tabBar.isHidden = true
+            }
+            if !hasInteractions {
+                self.tabBarController?.tabBar.items?[1].isEnabled = false
+            }
         }
     }
     

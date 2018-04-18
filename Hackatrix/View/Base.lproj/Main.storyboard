@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JOF-Je-DPp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JOF-Je-DPp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ArialBold.ttf">
-            <string>Arial-BoldMT</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Hackatrix-->
         <scene sceneID="gAD-oJ-eOe">
@@ -206,7 +201,7 @@
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 </activityIndicatorView>
                                                                                 <cells>
-                                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventCell" id="qc0-8Z-juo" customClass="EventCell" customModule="Hackatrix" customModuleProvider="target">
+                                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="eventCell" id="qc0-8Z-juo" customClass="EventCell" customModule="Hackatrix" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="2" width="180" height="130"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -214,20 +209,20 @@
                                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                                             <subviews>
                                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbe-hO-rUB">
-                                                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="130"/>
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="0.0"/>
                                                                                                     <subviews>
                                                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="5gU-OY-E5b">
-                                                                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="130"/>
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="0.0"/>
                                                                                                             <color key="backgroundColor" red="0.075166009369999995" green="0.32364070420000002" blue="0.6139311194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                         </imageView>
                                                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DecorationMini" translatesAutoresizingMaskIntoConstraints="NO" id="lUy-B7-4Va">
-                                                                                                            <rect key="frame" x="0.0" y="90" width="180" height="40"/>
+                                                                                                            <rect key="frame" x="0.0" y="-40" width="180" height="40"/>
                                                                                                             <constraints>
                                                                                                                 <constraint firstAttribute="height" constant="40" id="u7C-I1-79j"/>
                                                                                                             </constraints>
                                                                                                         </imageView>
                                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eix-IH-VU2">
-                                                                                                            <rect key="frame" x="8" y="122" width="164" height="0.0"/>
+                                                                                                            <rect key="frame" x="8" y="-8" width="164" height="0.0"/>
                                                                                                             <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="13"/>
                                                                                                             <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                             <nil key="highlightedColor"/>
@@ -777,14 +772,14 @@
                                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                                     <subviews>
                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rNP-IK-fvo">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                                                            <rect key="frame" x="20" y="0.0" width="60" height="60"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="height" constant="60" id="35t-xI-n8g"/>
                                                                                                 <constraint firstAttribute="width" constant="60" id="9ix-8Q-02I"/>
                                                                                             </constraints>
                                                                                         </imageView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6L4-4t-nHz">
-                                                                                            <rect key="frame" x="0.0" y="65" width="0.0" height="35"/>
+                                                                                            <rect key="frame" x="34.5" y="65" width="31" height="35"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>

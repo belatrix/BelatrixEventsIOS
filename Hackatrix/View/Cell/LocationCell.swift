@@ -9,7 +9,6 @@
 import UIKit
 
 class LocationCell: UITableViewCell {
-    
     @IBOutlet weak var locationName: UILabel!
 
 }

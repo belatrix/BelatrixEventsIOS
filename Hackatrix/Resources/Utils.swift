@@ -11,17 +11,22 @@ import SwiftyJSON
 
 struct Utils {
     struct date {
-        static func getFormatter(dateString:String)->String{
+        static func getFormatter(dateString:String) -> String {
             let dateFormater = DateFormatter()
             dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ"
-            return self.newFormatFor(dateFormater.date(from: dateString)!)
+            if let date = dateFormater.date(from: dateString) {
+                return self.newFormatFor(date)
+            }
+            return ""
         }
         
-        static func getFormatterEvent(dateString:String)->String{
+        static func getFormatterEvent(dateString:String) -> String {
             let dateFormater = DateFormatter()
             dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            return self.newFormatFor(dateFormater.date(from: dateString)!)
-            
+            if let date = dateFormater.date(from: dateString) {
+                return self.newFormatFor(date)
+            }
+            return ""
         }
         
         private static func newFormatFor(_ date:Date) -> String {
