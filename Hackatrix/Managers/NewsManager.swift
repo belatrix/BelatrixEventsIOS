@@ -14,7 +14,7 @@ class NewsManager: NSObject {
     let serviceManager = ServiceManager.shared
     
     func getNews(completion: ((_ news: [News]) -> Void)? = nil) {
-        serviceManager.useService(url: api.url.notifications.all, method: .get, parameters: nil) { (json) in
+        self.serviceManager.useService(url: api.url.notifications.all, method: .get, parameters: nil) { (json) in
             var news: [News] = []
             if let json = json {
                 for (_, subJson): (String, JSON) in json {

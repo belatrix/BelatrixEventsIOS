@@ -14,7 +14,7 @@ class ProjectManager: NSObject {
     let serviceManager = ServiceManager.shared
     
     func getProjects(eventID: Int, completion: ((_ response: [Project]) -> Void)? = nil) {
-        serviceManager.useService(url: api.url.event.interactionWith(eventID: eventID), method: .get, parameters: nil) { (json) in
+        self.serviceManager.useService(url: api.url.event.interactionWith(eventID: eventID), method: .get, parameters: nil) { (json) in
             if let completion = completion {
                 var projects: [Project] = []
                 if let json = json {
