@@ -104,6 +104,10 @@
 		66F452801EC204BC002D7D96 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4527F1EC204BC002D7D96 /* MainVC.swift */; };
 		66F452811EC204BC002D7D96 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4527F1EC204BC002D7D96 /* MainVC.swift */; };
 		66F452821EC204BC002D7D96 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4527F1EC204BC002D7D96 /* MainVC.swift */; };
+		7B20776C2088EDAB00F75143 /* EmployeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20776B2088EDAB00F75143 /* EmployeeManager.swift */; };
+		7B20776E2088F17400F75143 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20776D2088F17400F75143 /* UserManager.swift */; };
+		7B2077702088F32F00F75143 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20776F2088F32F00F75143 /* User.swift */; };
+		7B2077722088F75300F75143 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2077712088F75300F75143 /* Employee.swift */; };
 		9555632B3FE4DC1A0E78225F /* Pods_HackatrixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868A775811D05CFEE19B8EC6 /* Pods_HackatrixTests.framework */; };
 		ED0B7EC1207FBF4400F4A26B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC0207FBF4400F4A26B /* ServiceManager.swift */; };
 		ED0B7EC3207FC05000F4A26B /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC2207FC05000F4A26B /* ServiceError.swift */; };
@@ -181,6 +185,10 @@
 		66F2BB1B1EC497DE00FB20DD /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		66F2BB1F1EC4985000FB20DD /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		66F4527F1EC204BC002D7D96 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		7B20776B2088EDAB00F75143 /* EmployeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeManager.swift; sourceTree = "<group>"; };
+		7B20776D2088F17400F75143 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		7B20776F2088F32F00F75143 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7B2077712088F75300F75143 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		7C0242861AF7A77AB80B9CA9 /* Pods-HackatrixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackatrixTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackatrixTests/Pods-HackatrixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		868A775811D05CFEE19B8EC6 /* Pods_HackatrixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackatrixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9485E9A8E92AF9DC74FA3E16 /* Pods-HackatrixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackatrixUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackatrixUITests/Pods-HackatrixUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -311,6 +319,8 @@
 				6603FEE41EC6598D00A37D68 /* News.swift */,
 				6636CAA81EC4FC1700C442D8 /* Project.swift */,
 				ED0B7EC2207FC05000F4A26B /* ServiceError.swift */,
+				7B20776F2088F32F00F75143 /* User.swift */,
+				7B2077712088F75300F75143 /* Employee.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,6 +391,8 @@
 				ED0B7EC8207FCAE800F4A26B /* EventManager.swift */,
 				ED0B7ECA207FCE4800F4A26B /* NewsManager.swift */,
 				ED0B7ECC207FD2E600F4A26B /* DeviceManager.swift */,
+				7B20776B2088EDAB00F75143 /* EmployeeManager.swift */,
+				7B20776D2088F17400F75143 /* UserManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -717,6 +729,8 @@
 			files = (
 				66AA966F1EC246E600C3C351 /* AboutVC.swift in Sources */,
 				ED0B7EC7207FC7D100F4A26B /* VoteManager.swift in Sources */,
+				7B20776E2088F17400F75143 /* UserManager.swift in Sources */,
+				7B20776C2088EDAB00F75143 /* EmployeeManager.swift in Sources */,
 				ED0B7EC5207FC2A700F4A26B /* ProjectManager.swift in Sources */,
 				66E880001EC378B5008E3C18 /* EventCell.swift in Sources */,
 				662A9A031ECB933200581622 /* Enums.swift in Sources */,
@@ -739,12 +753,14 @@
 				66AA96731EC2613F00C3C351 /* ApiURL.swift in Sources */,
 				6636CA9D1EC4EAAE00C442D8 /* MapVC.swift in Sources */,
 				66DCA6521ECCD4BB00D86F9A /* Contributor.swift in Sources */,
+				7B2077702088F32F00F75143 /* User.swift in Sources */,
 				668896CB1ECF40CF00EA12C2 /* LocationCell.swift in Sources */,
 				ED0B7ECD207FD2E600F4A26B /* DeviceManager.swift in Sources */,
 				6634187A1EC0CD1000B26A7D /* AppDelegate.swift in Sources */,
 				66AA96671EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66308CC91ECF32D3001B714B /* LocationVC.swift in Sources */,
 				66E8800C1EC3BFF9008E3C18 /* InteractionVC.swift in Sources */,
+				7B2077722088F75300F75143 /* Employee.swift in Sources */,
 				6603FEE91EC6660000A37D68 /* Utils.swift in Sources */,
 				66AA966B1EC246D300C3C351 /* NewsVC.swift in Sources */,
 				6603FEE51EC6598D00A37D68 /* News.swift in Sources */,

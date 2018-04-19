@@ -37,5 +37,19 @@ struct api {
         struct notifications {
             static let all = "\(root)/notifications/all/"
         }
+        struct user {
+            static func ID(_ id:Int) -> String {
+                return "\(root)/user/\(id)/"
+            }
+            static func updatePasswordWithID(_ id:Int) -> String {
+                return "\(root)/user/\(id)/update/password"
+            }
+            static let authenticate = "\(root)/user/authenticate/"
+            static let create = "\(root)/user/create/"
+            static let recover = "\(root)/user/recover/"
+            static func recoverPasswordWithID(_ id:Int) -> String {
+                return "\(root)/user/recover/\(id)/"
+            }
+        }
     }
 }
