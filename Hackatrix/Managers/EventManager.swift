@@ -61,7 +61,7 @@ class EventManager: NSObject {
         }
     }
     
-    func getEvent(type: EventType, completion: ((_ upcomingEvents: [Event], _ pastEvents: [Event]) -> Void)? = nil) {
+    func getEvent(type: EventType, completion: ((_ events: [Event]) -> Void)? = nil) {
         var eventURL = api.url.event.upcoming
         if type == .past {
             eventURL = api.url.event.past
@@ -69,19 +69,14 @@ class EventManager: NSObject {
         
         self.serviceManager.useService(url: eventURL, method: .get, parameters: nil) { (json) in
             if let json = json {
-                var upcomingEvents: [Event] = []
-                var pastEvents: [Event] = []
+                var events: [Event] = []
                 
                 for (_, subJson): (String, JSON) in json {
-                    if type == .upcoming {
-                        upcomingEvents.append(Event(data: subJson))
-                    } else {
-                        pastEvents.append(Event(data: subJson))
-                    }
+                    events.append(Event(data: subJson))
                 }
                 
                 if let completion = completion {
-                    completion(upcomingEvents, pastEvents)
+                    completion(events)
                 }
             }
         }

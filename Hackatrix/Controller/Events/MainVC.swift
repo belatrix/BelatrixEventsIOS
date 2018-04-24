@@ -54,15 +54,12 @@ class MainVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.detail {
-            if let tabBarVC = segue.destination as? UITabBarController, let detailVC = tabBarVC.viewControllers?[0] as? DetailVC, let interactionVC = tabBarVC.viewControllers?[1] as? InteractionVC {
+            if let detailVC = segue.destination as? DetailVC {
                 if self.eventTypeSelected == .upcoming {
-                    interactionVC.detailEvent = self.upcomingEvents[currentEventSelected.row]
                     detailVC.detailEvent = self.upcomingEvents[currentEventSelected.row]
                 } else if self.eventTypeSelected == .past {
-                    interactionVC.detailEvent = self.pastEvents[currentEventSelected.row]
                     detailVC.detailEvent = self.pastEvents[currentEventSelected.row]
                 } else {
-                    interactionVC.detailEvent = self.featuredBanner
                     detailVC.detailEvent = self.featuredBanner
                 }
             }
@@ -102,11 +99,14 @@ class MainVC: UIViewController {
         self.performSegue(withIdentifier: K.segue.detail, sender: nil)
     }
     
-    func getEventOf(type:EventType) {
-        EventManager.shared.getEvent(type: type) { [weak self] (upcomingEvents, pastEvents) in
+    func getEventOf(type: EventType) {
+        EventManager.shared.getEvent(type: type) { [weak self] (events) in
             if let weakSelf = self {
-                weakSelf.upcomingEvents = upcomingEvents
-                weakSelf.pastEvents = pastEvents
+                if type == .upcoming {
+                    weakSelf.upcomingEvents = events
+                } else if type == .past {
+                    weakSelf.pastEvents = events
+                }
             }
         }
     }

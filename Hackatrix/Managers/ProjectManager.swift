@@ -19,12 +19,13 @@ class ProjectManager: NSObject {
                 var projects: [Project] = []
                 if let json = json {
                     guard let _ = json.error else {
+                        for (_, subJson): (String, JSON) in json {
+                            projects.append(Project(data: subJson))
+                        }
                         completion(projects)
                         return
                     }
-                    for (_, subJson): (String, JSON) in json {
-                        projects.append(Project(data: subJson))
-                    }
+                    completion(projects)
                 }
                 completion(projects)
             }

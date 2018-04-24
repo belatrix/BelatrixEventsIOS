@@ -13,6 +13,7 @@ target 'Hackatrix' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'DZNEmptyDataSet'
+  pod 'KMPlaceholderTextView'
 
   target 'HackatrixTests' do
     inherit! :search_paths

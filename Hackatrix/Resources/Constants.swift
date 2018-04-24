@@ -23,6 +23,8 @@ struct K {
         static let map = "mapSegue"
         static let citySetting = "citySettingSegue"
         static let selectCity = "selectCitySegue"
+        static let newIdea = "newIdeaSegue"
+        static let project = "projectSegue"
     }
     struct cell {
         static let menu = "itemMenuCell"
