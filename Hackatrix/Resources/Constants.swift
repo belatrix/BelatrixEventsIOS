@@ -25,6 +25,8 @@ struct K {
         static let selectCity = "selectCitySegue"
         static let newIdea = "newIdeaSegue"
         static let project = "projectSegue"
+        static let login = "loginSegue"
+        static let createAccount = "createAccountSegue"
     }
     struct cell {
         static let menu = "itemMenuCell"
@@ -38,5 +40,9 @@ struct K {
     struct key {
         static let showedWelcomeAlertInteraction = "isShowedWelcomeAlertInteraction"
         static let interactionForAProject = "isInteractionForAProject"
+    }
+    
+    struct keychain {
+        static let tokenKey = "token"
     }
 }

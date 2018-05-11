@@ -17,12 +17,15 @@ class ServiceManager: NSObject {
         Alamofire.request(url, method: method, parameters: parameters).responseJSON { response in
             if let completion = completion {
                 if let responseServer = response.result.value, let code = response.response?.statusCode {
-                    if code == 200 {
+                    switch response.result {
+                    case .success:
                         let json = JSON(responseServer)
                         completion(json)
-                    } else {
+                        break
+                    case .failure(_):
                         ServiceError(errorCode: code, urlRequest: url).printMessage()
                         completion(nil)
+                        break
                     }
                 } else {
                     if let code = response.response?.statusCode {

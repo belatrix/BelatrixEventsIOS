@@ -32,22 +32,26 @@ class UserManager: NSObject {
         }
     }
 
-    func updateUserPassword(username: String, password: String, completion: ((_ user: User) -> Void)? = nil) {
+    func authenticate(username: String, password: String,error: @escaping () -> Void, completion: ((_ user: Auth) -> Void)? = nil) {
         self.serviceManager.useService(url: api.url.user.authenticate, method: .post, parameters: ["username": username, "password": password]) { (json) in
             if let json = json {
                 if let completion = completion {
-                    completion(User(data: json))
+                    completion(Auth(data: json))
                 }
+            } else {
+                error()
             }
         }
     }
 
-    func createNewUser(email: String, completion: ((_ user: User) -> Void)? = nil) {
+    func createNewUser(email: String, error: @escaping () -> Void, completion: ((_ user: User) -> Void)? = nil) {
         self.serviceManager.useService(url: api.url.user.create, method: .post, parameters: ["email": email]) { (json) in
             if let json = json {
                 if let completion = completion {
                     completion(User(data: json))
                 }
+            } else {
+                error()
             }
         }
     }
