@@ -187,7 +187,12 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.currentTab == .Ideas {
-            return (self.ideas?.count ?? 0) + 1
+            let ideasCount = ideas?.count ?? 0
+            if let _ = UserManager.shared.currentUser {
+                //user is log in
+                 return ideasCount + 1
+            }
+            return ideasCount
         }
         return self.sortedProjects.count
     }

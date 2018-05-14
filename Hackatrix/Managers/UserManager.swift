@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class UserManager: NSObject {
     static let shared = UserManager()
     let serviceManager = ServiceManager.shared
+    var currentUser : User?  {
+      if let currentJSON = loadJSON() {
+        return User(data: currentJSON)
+      }
+      return nil
+    }
 
     func getUser(userID: Int, completion: ((_ user: User) -> Void)? = nil) {
         self.serviceManager.useService(url: api.url.user.ID(userID), method: .get, parameters: nil) { (json) in
@@ -43,6 +50,19 @@ class UserManager: NSObject {
             }
         }
     }
+  
+  func profile(token: String, error: @escaping () -> Void, completion: (() -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.user.profile, method: .get, parameters: nil, token: token) { (json) in
+      if let json = json {
+        if let completion = completion {
+          self.saveJSON(j: json)
+          completion()
+        }
+      } else {
+        error()
+      }
+    }
+  }
 
     func createNewUser(email: String, error: @escaping () -> Void, completion: ((_ user: User) -> Void)? = nil) {
         self.serviceManager.useService(url: api.url.user.create, method: .post, parameters: ["email": email]) { (json) in
@@ -77,4 +97,18 @@ class UserManager: NSObject {
             }
         }
     }
+  
+  public func saveJSON(j: JSON) {
+    let defaults = UserDefaults.standard
+    defaults.setValue(j.rawString()!, forKey: "jsonUSER")
+    defaults.synchronize()
+  }
+  
+  public func loadJSON() -> JSON? {
+    let defaults = UserDefaults.standard
+    if let dataString = defaults.string(forKey: "jsonUSER") {
+      return JSON.init(parseJSON: dataString)
+    }
+    return nil
+  }
 }

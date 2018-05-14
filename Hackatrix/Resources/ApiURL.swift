@@ -48,6 +48,7 @@ struct api {
                 return "\(root)/user/\(id)/update/password"
             }
             static let authenticate = "\(root)/user/authenticate/"
+            static let profile = "\(root)/user/profile/"
             static let create = "\(root)/user/create/"
             static let recover = "\(root)/user/recover/"
             static func recoverPasswordWithID(_ id:Int) -> String {

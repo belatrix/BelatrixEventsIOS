@@ -121,6 +121,7 @@
                         <outlet property="fullName" destination="a9a-sh-Nnh" id="XRH-gx-BX3"/>
                         <outlet property="loginInfoLabel" destination="tBq-lN-82j" id="Y64-WU-ZXh"/>
                         <outlet property="profileContainer" destination="WQR-KJ-bnL" id="VPb-QH-tFD"/>
+                        <outlet property="qrImageView" destination="9vS-yD-uEJ" id="87t-4g-c1z"/>
                         <outlet property="topButton" destination="uDD-ST-Cko" id="X9f-Yx-QAO"/>
                         <segue destination="krQ-Cl-4o5" kind="show" identifier="loginSegue" id="xF6-QI-w6k"/>
                         <segue destination="UyO-IJ-wxg" kind="show" identifier="createAccountSegue" id="4Te-ED-TNp"/>

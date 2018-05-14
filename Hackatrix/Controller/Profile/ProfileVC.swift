@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftKeychainWrapper
+import SwiftQRCode
 
 class ProfileVC: UIViewController {
     
@@ -17,6 +18,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var profileContainer: UIView!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var qrImageView: UIImageView!
     var userLoggedIn = false
     
     override func viewDidLoad() {
@@ -50,8 +52,16 @@ class ProfileVC: UIViewController {
     
     private func isUserLoggedIn() -> Bool {
         let token: String? = KeychainWrapper.standard.string(forKey: K.keychain.tokenKey)
-        print(token)
-        return token?.count ?? 0 > 0
+      if let currentToken = token {
+        UserManager.shared.profile(token: currentToken, error: {
+          print ("error")
+        }) {
+          print ("success")
+          print("email : \(UserManager.shared.currentUser?.email)")
+        }
+        return true
+      }
+      return false
     }
     
     open func setupUI() {
@@ -63,6 +73,7 @@ class ProfileVC: UIViewController {
             loginInfoLabel.isHidden = true
             topButton.setTitle("Cambiar contraseña", for: .normal)
             bottomButton.setTitle("Cerrar sesión", for: .normal)
+            qrImageView.image = QRCode.generateImage("diegoveloper@gmail.com", avatarImage: nil)
         } else{
             userLoggedIn = false
             profileContainer.isHidden = true

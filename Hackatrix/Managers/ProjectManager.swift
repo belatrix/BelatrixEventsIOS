@@ -52,13 +52,17 @@ class ProjectManager: NSObject {
     }
     
     func createIdea(eventID: Int, title: String, description: String, error: @escaping () -> (), success: @escaping (Idea) -> ()) {
-        let paramenters: [String: Any] = ["author": 14, "event": eventID, "title": title, "description": description]
-        self.serviceManager.useAuthService(url: api.url.idea.create, method: .post, parameters: paramenters) { (json) in
-            if let json = json {
-                success(Idea(data: json))
-            } else {
-                error()
+        if let userId = UserManager.shared.currentUser?.id {
+            let paramenters: [String: Any] = ["author": userId, "event": eventID, "title": title, "description": description]
+            self.serviceManager.useAuthService(url: api.url.idea.create, method: .post, parameters: paramenters) { (json) in
+                if let json = json {
+                    success(Idea(data: json))
+                } else {
+                    error()
+                }
             }
+        } else {
+            error()
         }
     }
 }

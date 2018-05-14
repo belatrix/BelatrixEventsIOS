@@ -12,20 +12,37 @@ import SwiftyJSON
 class User: NSObject {
     var id: Int?
     var email: String?
-    var firstName: String?
-    var lastName: String?
+    var fullName: String?
+    var phoneNumber: String?
     var isStaff: Bool?
     var isJury: Bool?
     var isActive: Bool?
+    var isModerator: Bool?
     var isPasswordResetRequired: Bool?
+  
+    /*
+     {
+     "id": 13,
+     "email": "diegoveloper@gmail.com",
+     "full_name": null,
+     "phone_number": null,
+     "role": null,
+     "is_moderator": false,
+     "is_staff": false,
+     "is_active": true,
+     "is_jury": false,
+     "is_password_reset_required": true
+     }
+    */
 
     init(data: JSON) {
-        self.id = data["pk"].int
+        self.id = data["id"].int
         self.email = data["email"].string
-        self.firstName = data["first_name"].string
-        self.lastName = data["last_name"].string
+        self.fullName = data["full_name"].string
+        self.phoneNumber = data["phone_number"].string
         self.isStaff = data["is_staff"].bool
         self.isJury = data["is_jury"].bool
+        self.isModerator = data["is_moderator"].bool
         self.isActive = data["is_active"].bool
         self.isPasswordResetRequired = data["is_password_reset_required"].bool
     }
