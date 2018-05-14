@@ -11,7 +11,7 @@ import UIKit
 class ProjectDetailVC: UIViewController {
     @IBOutlet weak var lblDescription: UILabel!
 
-    var project: Project?
+    var idea: Idea?
     var participants: [Employee] = []
 
     override func viewDidLoad() {
@@ -21,8 +21,8 @@ class ProjectDetailVC: UIViewController {
     }
 
     func setUIElements() {
-        let title = self.project?.text?.split(separator: "-")[0].trimmingCharacters(in: .whitespacesAndNewlines)
-        let description = self.project?.text?.split(separator: "-")[1].trimmingCharacters(in: .whitespacesAndNewlines)
+        let title = self.idea?.title?.split(separator: "-")[0].trimmingCharacters(in: .whitespacesAndNewlines)
+        let description = self.idea?.title?.split(separator: "-")[1].trimmingCharacters(in: .whitespacesAndNewlines)
         self.title = title
         self.lblDescription.text = description
     }

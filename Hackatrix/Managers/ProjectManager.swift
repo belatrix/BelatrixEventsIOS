@@ -31,4 +31,34 @@ class ProjectManager: NSObject {
             }
         }
     }
+    
+    func getIdeas(eventID: Int, completion: ((_ response: [Idea]) -> Void)? = nil) {
+        self.serviceManager.useService(url: api.url.event.ideaList(eventID: eventID), method: .get, parameters: nil) { (json) in
+            if let completion = completion {
+                var ideaList: [Idea] = []
+                if let json = json, json.array?.count ?? 0 > 0 {
+                    guard let _ = json.error else {
+                        for (_, subJson): (String, JSON) in json {
+                            ideaList.append(Idea(data: subJson))
+                        }
+                        completion(ideaList)
+                        return
+                    }
+                    completion(ideaList)
+                }
+                completion(ideaList)
+            }
+        }
+    }
+    
+    func createIdea(eventID: Int, title: String, description: String, error: @escaping () -> (), success: @escaping (Idea) -> ()) {
+        let paramenters: [String: Any] = ["author": 14, "event": eventID, "title": title, "description": description]
+        self.serviceManager.useAuthService(url: api.url.idea.create, method: .post, parameters: paramenters) { (json) in
+            if let json = json {
+                success(Idea(data: json))
+            } else {
+                error()
+            }
+        }
+    }
 }

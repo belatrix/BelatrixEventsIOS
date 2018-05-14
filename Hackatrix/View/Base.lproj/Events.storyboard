@@ -448,8 +448,43 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="404.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IdeaTableViewCell" rowHeight="60" id="dHE-Wr-FJ9" customClass="IdeaTableViewCell" customModule="Hackatrix" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dHE-Wr-FJ9" id="Tgb-FG-6KB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkG-KB-DVL">
+                                                                    <rect key="frame" x="24" y="10" width="327" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vi-Cg-M1l">
+                                                                    <rect key="frame" x="24" y="28" width="327" height="21.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="lkG-KB-DVL" firstAttribute="top" secondItem="Tgb-FG-6KB" secondAttribute="top" constant="10" id="1N6-qW-MZk"/>
+                                                                <constraint firstItem="2vi-Cg-M1l" firstAttribute="leading" secondItem="lkG-KB-DVL" secondAttribute="leading" id="I8b-bK-Rsh"/>
+                                                                <constraint firstItem="2vi-Cg-M1l" firstAttribute="top" secondItem="lkG-KB-DVL" secondAttribute="bottom" id="T4h-lK-GHU"/>
+                                                                <constraint firstAttribute="trailing" secondItem="lkG-KB-DVL" secondAttribute="trailing" constant="24" id="XJO-W6-CBd"/>
+                                                                <constraint firstAttribute="trailing" secondItem="2vi-Cg-M1l" secondAttribute="trailing" constant="24" id="fGK-r1-MAh"/>
+                                                                <constraint firstItem="lkG-KB-DVL" firstAttribute="leading" secondItem="Tgb-FG-6KB" secondAttribute="leading" constant="24" id="iZO-Lw-BQU"/>
+                                                                <constraint firstAttribute="bottom" secondItem="2vi-Cg-M1l" secondAttribute="bottom" constant="10" id="nXW-V9-tSc"/>
+                                                            </constraints>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="descriptionLabel" destination="2vi-Cg-M1l" id="RMz-PF-LDk"/>
+                                                            <outlet property="titleLabel" destination="lkG-KB-DVL" id="d3z-Yk-Njh"/>
+                                                        </connections>
+                                                    </tableViewCell>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProjectTableViewCell" id="bQm-SD-0ic" customClass="ProjectTableViewCell" customModule="Hackatrix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bQm-SD-0ic" id="CCk-OT-bnJ">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -484,8 +519,8 @@
                                                             <outlet property="lblScore" destination="ypv-h2-yuN" id="vjd-y1-pTz"/>
                                                         </connections>
                                                     </tableViewCell>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddIdeaTableViewCell" id="OZC-0c-tMq" customClass="AddIdeaTableViewCell" customModule="Hackatrix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddIdeaTableViewCell" rowHeight="44" id="OZC-0c-tMq" customClass="AddIdeaTableViewCell" customModule="Hackatrix" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OZC-0c-tMq" id="btj-MT-7kQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -493,6 +528,7 @@
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efZ-7w-aOd">
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                                    <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
                                                                     <state key="normal" title="Agregar una idea"/>
                                                                 </button>
                                                             </subviews>

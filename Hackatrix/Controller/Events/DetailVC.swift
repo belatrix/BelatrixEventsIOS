@@ -37,13 +37,20 @@ class DetailVC: UIViewController {
     var projects: [Project] = []
     var sortedProjects: [Project] = []
     var currentTab: DetailTab = .Information
+    var ideas: [Idea]? {
+        didSet {
+            projectTableView.reloadData()
+        }
+    }
     
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
         self.getProjects()
+        self.getIdeaList()
         super.viewDidLoad()
         self.setUIElements()
+        projectTableView.estimatedRowHeight = 66
         //self.bussinesValidations()
     }
 
@@ -51,7 +58,9 @@ class DetailVC: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ProjectDetailVC, segue.identifier == K.segue.project, let indexPath = sender as? IndexPath {
-            destination.project = self.projects[indexPath.row]
+            destination.idea = self.ideas?[indexPath.row]
+        } else if let addNewIdeaVC = segue.destination as? AddNewIdeaVC, segue.identifier == K.segue.newIdea {
+            addNewIdeaVC.eventId = detailEvent?.id
         }
     }
     
@@ -129,6 +138,14 @@ class DetailVC: UIViewController {
         }
     }
     
+    func getIdeaList() {
+        if let eventID = self.detailEvent?.id {
+            ProjectManager.shared.getIdeas(eventID: eventID) { (ideas) in
+                self.ideas = ideas
+            }
+        }
+    }
+    
     func bussinesValidations() {
         if let isInteractionActive = self.detailEvent?.isInteractionActive, let hasInteractions = self.detailEvent?.hasInteractions {
             if !isInteractionActive {
@@ -170,16 +187,30 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.currentTab == .Ideas {
-            return self.projects.count + 1
+            return (self.ideas?.count ?? 0) + 1
         }
         return self.sortedProjects.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == self.projects.count {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "AddIdeaTableViewCell", for: indexPath) as? AddIdeaTableViewCell {
-                cell.btnAddIdea.addTarget(self, action: #selector(DetailVC.addNewIdea), for: .touchUpInside)
-                return cell
+        if self.currentTab == .Ideas {
+            if indexPath.row == ideas?.count {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "AddIdeaTableViewCell", for: indexPath) as? AddIdeaTableViewCell {
+                    cell.btnAddIdea.addTarget(self, action: #selector(DetailVC.addNewIdea), for: .touchUpInside)
+                    return cell
+                }
+            } else {
+                if let ideaCell = tableView.dequeueReusableCell(withIdentifier: "IdeaTableViewCell", for: indexPath) as? IdeaTableViewCell {
+                    let idea = self.ideas?[indexPath.row]
+                    if let title = idea?.title?.split(separator: "-"), title.count > 1 {
+                        ideaCell.titleLabel.text = title[0].trimmingCharacters(in: .whitespacesAndNewlines)
+                        ideaCell.descriptionLabel.text = title[1].trimmingCharacters(in: .whitespacesAndNewlines)
+                    } else {
+                        ideaCell.titleLabel.text = idea?.title
+                        ideaCell.descriptionLabel.text = idea?.description
+                    }
+                    return ideaCell
+                }
             }
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell", for: indexPath) as? ProjectTableViewCell {
@@ -205,7 +236,7 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 66
+        return UITableViewAutomaticDimension
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
