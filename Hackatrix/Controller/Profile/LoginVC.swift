@@ -21,6 +21,8 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      emailInput.text = "diegoveloper@gmail.com"
+      passwordInput.text = "a324"
     }
 
     @IBAction func donePressed(_ sender: Any) {
