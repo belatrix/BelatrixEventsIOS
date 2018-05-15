@@ -150,7 +150,7 @@
 		932FC8D520AB52F100B84A62 /* CustomTextFieldCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FC8D420AB52F100B84A62 /* CustomTextFieldCombo.swift */; };
 		932FC8D720AB570900B84A62 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FC8D620AB570900B84A62 /* Role.swift */; };
 		932FC8DC20AB6C3F00B84A62 /* AttendanceListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FC8DB20AB6C3F00B84A62 /* AttendanceListVC.swift */; };
-		932FC8DE20AB6CE800B84A62 /* Organizer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932FC8DD20AB6CE800B84A62 /* Organizer.storyboard */; };
+		932FC8DE20AB6CE800B84A62 /* Staff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932FC8DD20AB6CE800B84A62 /* Staff.storyboard */; };
 		932FC8E020AB756A00B84A62 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FC8DF20AB756A00B84A62 /* Meeting.swift */; };
 		9555632B3FE4DC1A0E78225F /* Pods_HackatrixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868A775811D05CFEE19B8EC6 /* Pods_HackatrixTests.framework */; };
 		ED0B7EC1207FBF4400F4A26B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC0207FBF4400F4A26B /* ServiceManager.swift */; };
@@ -260,7 +260,7 @@
 		932FC8D420AB52F100B84A62 /* CustomTextFieldCombo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldCombo.swift; sourceTree = "<group>"; };
 		932FC8D620AB570900B84A62 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		932FC8DB20AB6C3F00B84A62 /* AttendanceListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceListVC.swift; sourceTree = "<group>"; };
-		932FC8DD20AB6CE800B84A62 /* Organizer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Organizer.storyboard; sourceTree = "<group>"; };
+		932FC8DD20AB6CE800B84A62 /* Staff.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Staff.storyboard; sourceTree = "<group>"; };
 		932FC8DF20AB756A00B84A62 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		9485E9A8E92AF9DC74FA3E16 /* Pods-HackatrixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackatrixUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackatrixUITests/Pods-HackatrixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DCB0EB9098F46B99F587D518 /* Pods_Hackatrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackatrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,7 +392,7 @@
 				7B4DE9C8208F6C01007C4BF6 /* Events.storyboard */,
 				F31E93C720A3F1B1000B27B2 /* Profile.storyboard */,
 				F55B9CA120A9335800456228 /* More.storyboard */,
-				932FC8DD20AB6CE800B84A62 /* Organizer.storyboard */,
+				932FC8DD20AB6CE800B84A62 /* Staff.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,13 +526,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		932FC8D820AB690800B84A62 /* Organizer */ = {
+		932FC8D820AB690800B84A62 /* Staff */ = {
 			isa = PBXGroup;
 			children = (
 				F50DD15D20A93EDD00CDF913 /* QRReaderVC.swift */,
 				932FC8DB20AB6C3F00B84A62 /* AttendanceListVC.swift */,
 			);
-			path = Organizer;
+			path = Staff;
 			sourceTree = "<group>";
 		};
 		ED0B7EBF207FBF3400F4A26B /* Managers */ = {
@@ -574,7 +574,7 @@
 		F55B9CA320A936DC00456228 /* More */ = {
 			isa = PBXGroup;
 			children = (
-				932FC8D820AB690800B84A62 /* Organizer */,
+				932FC8D820AB690800B84A62 /* Staff */,
 				F55B9CA420A936F400456228 /* MoreVC.swift */,
 			);
 			path = More;
@@ -711,7 +711,7 @@
 				6634187F1EC0CD1000B26A7D /* Main.storyboard in Resources */,
 				F31E93C820A3F1B1000B27B2 /* Profile.storyboard in Resources */,
 				7B4DE9CA208F6C01007C4BF6 /* Events.storyboard in Resources */,
-				932FC8DE20AB6CE800B84A62 /* Organizer.storyboard in Resources */,
+				932FC8DE20AB6CE800B84A62 /* Staff.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

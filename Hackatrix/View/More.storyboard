@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyx-F3-KaL">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyx-F3-KaL">
                                 <rect key="frame" x="0.0" y="64" width="375" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQq-He-9uD">
@@ -29,7 +29,7 @@
                                             <color key="titleColor" red="0.12293704599999999" green="0.2824874818" blue="0.56914299729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="37o-9U-BUQ" kind="show" id="hJb-Qj-emG"/>
+                                            <segue destination="37o-9U-BUQ" kind="show" identifier="showStaffSegue" id="hJb-Qj-emG"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="rxI-fa-xW4">
@@ -61,7 +61,7 @@
                                     <constraint firstItem="OQq-He-9uD" firstAttribute="top" secondItem="Gyx-F3-KaL" secondAttribute="top" constant="5" id="x3j-rf-orw"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTY-se-hrt">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTY-se-hrt">
                                 <rect key="frame" x="0.0" y="144" width="375" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Prr-xc-q1x">
@@ -117,6 +117,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Más opciones" id="PFp-fT-KCi"/>
                     <connections>
+                        <outlet property="staffConstraint" destination="02D-8P-8oj" id="U8C-rk-4Hr"/>
                         <segue destination="evJ-tp-hpW" kind="show" identifier="showAboutSegue" id="DbV-2c-2xc"/>
                     </connections>
                 </viewController>
@@ -124,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="-348" y="-31.03448275862069"/>
         </scene>
-        <!--Organizer-->
+        <!--Staff-->
         <scene sceneID="dQE-q1-Cuw">
             <objects>
-                <viewControllerPlaceholder storyboardName="Organizer" id="37o-9U-BUQ" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Staff" id="37o-9U-BUQ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOA-bs-YX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="174" y="-259"/>
