@@ -27,6 +27,7 @@ struct K {
         static let project = "projectSegue"
         static let login = "loginSegue"
         static let createAccount = "createAccountSegue"
+        static let  forgotPassword = "forgotPasswordSegue"
     }
     struct cell {
         static let menu = "itemMenuCell"

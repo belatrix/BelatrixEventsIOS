@@ -44,7 +44,9 @@ class UserManager: NSObject {
             if let json = json {
                 if let completion = completion {
                     completion(Auth(data: json))
-                }
+                } else {
+                  error()
+              }
             } else {
                 error()
             }
@@ -64,28 +66,30 @@ class UserManager: NSObject {
     }
   }
 
-    func createNewUser(email: String, error: @escaping () -> Void, completion: ((_ user: User) -> Void)? = nil) {
-        self.serviceManager.useService(url: api.url.user.create, method: .post, parameters: ["email": email]) { (json) in
+  func createNewUser(email: String, error:((String) -> ())? = nil, completion: ((_ user: User) -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.user.create, method: .post, parameters: ["email": email], completion: nil, result: { (json, errorMessage) in
             if let json = json {
                 if let completion = completion {
                     completion(User(data: json))
                 }
             } else {
-                error()
+              error?(errorMessage!)
             }
-        }
+    })
     }
+  
 
-    func recoverUser(email: String, completion: (() -> Void)? = nil) {
-        //TODO: Check response and handle it
-        self.serviceManager.useService(url: api.url.user.recover, method: .post, parameters: ["email": email]) { (json) in
-            if let json = json {
-                if let completion = completion {
-                    completion()
-                }
-            }
+  func recoverUser(email: String, error:((String) -> ())? = nil ,completion: (() -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.user.recover, method: .post, parameters: ["email": email], completion: nil, result: { (json, errorMessage) in
+      if let json = json {
+        if let completion = completion {
+          completion()
         }
-    }
+      } else {
+        error?(errorMessage!)
+      }
+    })
+  }
 
     func recoverPassword(userID: Int, completion: (() -> Void)? = nil) {
         //TODO: Check response and handle it

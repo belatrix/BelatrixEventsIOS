@@ -16,6 +16,7 @@ target 'Hackatrix' do
   pod 'KMPlaceholderTextView'
   pod 'SwiftKeychainWrapper'
   pod 'SwiftQRCode', '>= 3.0.2'
+  pod 'SVProgressHUD'
 
   target 'HackatrixTests' do
     inherit! :search_paths

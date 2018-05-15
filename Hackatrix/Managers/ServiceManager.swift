@@ -15,9 +15,14 @@ class ServiceManager: NSObject {
     static let shared = ServiceManager()
     var sessionManager: Alamofire.SessionManager?
     let debugLog = true
+  
+  func useService(url: String, method: HTTPMethod, parameters: Parameters?, token: String? = nil,  completion: ((_ response: JSON?) -> Void)? = nil ){
+    useService(url: url, method: method, parameters: parameters, token: token , completion: completion , result: nil)
+  }
     
-  func useService(url: String, method: HTTPMethod, parameters: Parameters?, token: String? = nil,  completion: ((_ response: JSON?) -> Void)? = nil) {
-    
+  func useService(url: String, method: HTTPMethod, parameters: Parameters?, token: String? = nil,  completion: ((_ response: JSON?) -> Void)? = nil,
+                  result: ((_ response: JSON?, _ error: String? ) -> Void)? = nil
+                  ) {
         var headers : HTTPHeaders?
         if let customToken = token {
           headers = [
@@ -25,25 +30,35 @@ class ServiceManager: NSObject {
           ]
         }
     Alamofire.request(url, method: method, parameters: parameters, headers: headers).responseJSON { response in
-            if let completion = completion {
                 if self.debugLog {
                     print(url)
                     print(parameters)
                 }
-              
-                if let responseServer = response.result.value, let code = response.response?.statusCode {
+                let responseServer = response.result.value
+                if let code = response.response?.statusCode {
                   if self.debugLog {
                     print(responseServer)
                   }
                   
-                    switch response.result {
-                    case .success:
+                    switch code {
+                    case 200, 201 , 202:
                         let json = JSON(responseServer)
-                        completion(json)
+                        if let currentResult = result {
+                           currentResult(json, nil)
+                        } else {
+                           completion?(json)
+                        }
+                       
                         break
-                    case .failure(_):
-                        ServiceError(errorCode: code, urlRequest: url).printMessage()
-                        completion(nil)
+                    default:
+                         let json = JSON(responseServer)
+                         let message =  json["detail"].stringValue
+                         ServiceError(errorCode: code, urlRequest: url, message:message).printMessage()
+                         if let currentResult = result {
+                            currentResult(nil, message)
+                         } else {
+                            completion?(nil)
+                         }
                         break
                     }
                 } else {
@@ -51,12 +66,12 @@ class ServiceManager: NSObject {
                    if self.debugLog {
                     print("error : \(response.response)")
                   }
-                    if let code = response.response?.statusCode {
-                        ServiceError(errorCode: code, urlRequest: url).printMessage()
-                    }
-                    completion(nil)
+                  if let currentResult = result {
+                    currentResult(nil, "error inesperado")
+                  } else {
+                    completion?(nil)
+                  }
                 }
-            }
         }
     }
     
