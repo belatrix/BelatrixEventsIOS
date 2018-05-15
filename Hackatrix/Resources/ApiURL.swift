@@ -36,6 +36,8 @@ struct api {
             static func ideaList(eventID id:Int) -> String {
                 return "\(root)/event/\(id)/idea/list/"
             }
+            static let meetingList = "\(root)/event/meeting/list/"
+            static let meetingAttendance = "\(root)/event/meeting/attendance/"
         }
         struct notifications {
             static let all = "\(root)/notifications/all/"
@@ -55,6 +57,8 @@ struct api {
                 return "\(root)/user/recover/\(id)/"
             }
             static let logout = "\(root)/user/logout/"
+            static let updateProfile = "\(root)/user/update/"
+            static let roles = "\(root)/user/role/list/"
         }
         struct idea {
             static let create = "\(root)/idea/create/"

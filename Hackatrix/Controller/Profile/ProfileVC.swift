@@ -56,6 +56,13 @@ class ProfileVC: UIViewController {
     print("go to edit")
   }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == K.segue.updateProfile {
+      let dvc = segue.destination as! UpdateProfileVC
+      dvc.updateProfileDelegate = self
+    }
+  }
+  
   func authenticate(username: String, password: String, completion: ((_ auth: Auth) -> Void)? = nil) {
     UserManager.shared.authenticate(username: username, password: password, error: { [weak self] in
       SVProgressHUD.dismiss()
@@ -82,17 +89,27 @@ class ProfileVC: UIViewController {
   }
   
   @IBAction func logOutButtonPressed(_ sender: Any) {
-    SVProgressHUD.show()
-     let token: String = KeychainWrapper.standard.string(forKey: K.keychain.tokenKey)!
-    UserManager.shared.logout(token: token, error: { () in
-      SVProgressHUD.dismiss()
-      KeychainWrapper.standard.removeObject(forKey: K.keychain.tokenKey)
-      self.setupUI(fromRefresh: false)
-    }){ () in
+    let alertController = UIAlertController(title: "Hackatrix", message: "¿Deseas cerrar sesión?", preferredStyle: .alert)
+    
+    alertController.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
+      SVProgressHUD.show()
+      let token: String = KeychainWrapper.standard.string(forKey: K.keychain.tokenKey)!
+      UserManager.shared.logout(token: token, error: { () in
+        SVProgressHUD.dismiss()
+        KeychainWrapper.standard.removeObject(forKey: K.keychain.tokenKey)
+        self.setupUI(fromRefresh: false)
+      }){ () in
         KeychainWrapper.standard.removeObject(forKey: K.keychain.tokenKey)
         SVProgressHUD.dismiss()
-     self.setupUI(fromRefresh: false)
-    }
+        self.setupUI(fromRefresh: false)
+      }
+    }))
+    
+    alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel ))
+    
+    self.present(alertController, animated: true, completion: nil)
+    
+   
   }
     
     private func refreshProfile()  {
@@ -120,7 +137,7 @@ class ProfileVC: UIViewController {
             })
             fullName.text = user.fullName
             email.text = user.email
-            role.text = user.role
+            role.text = user.role?.name
             phone.text = user.phoneNumber
             qrImageView.image = QRCode.generateImage(user.email!, avatarImage: nil)
           if !fromRefresh {
@@ -142,5 +159,13 @@ extension ProfileVC: UITextFieldDelegate {
     textField.resignFirstResponder()
     return true
   }
+}
+
+extension ProfileVC: UpdateProfileDelegate {
+  
+  func onUserUpdated() {
+      self.setupUI(fromRefresh: false)
+  }
+  
 }
 

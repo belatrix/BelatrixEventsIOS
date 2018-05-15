@@ -57,7 +57,8 @@ class UserManager: NSObject {
     self.serviceManager.useService(url: api.url.user.profile, method: .get, parameters: nil, token: token) { (json) in
       if let json = json {
         if let completion = completion {
-          self.saveJSON(j: json)
+          let jsonUser = json.dictionaryValue["user"]
+          self.saveJSON(j: jsonUser!)
           completion()
         }
       } else {
@@ -113,6 +114,43 @@ class UserManager: NSObject {
             }
         }
     }
+  
+  func updateUser(token: String, fullName: String, phoneNumber: String, roleId : Int, error:((String) -> ())? = nil, completion: ((_ user: User) -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.user.updateProfile, method: .patch,
+                                   parameters: ["full_name": fullName,
+                                                "phone_number": phoneNumber,
+                                                "role_id": roleId
+                                                ], token: token, 
+                                   completion: nil, result: { (json, errorMessage) in
+      if let json = json {
+        if let completion = completion {
+          self.saveJSON(j: json)
+          completion(User(data: json))
+        }
+      } else {
+        error?(errorMessage!)
+      }
+    })
+  }
+  
+  func getRoles(token: String?, error:((String) -> ())? = nil, completion: ((_ roles: [Role]) -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.user.roles, method: .get, parameters:nil, token : token , completion: nil, result: { (json, errorMessage) in
+      if let json = json {
+        if let completion = completion {
+          let arrayRoles = json.arrayValue
+          var values : [Role] = [Role]()
+          for item in arrayRoles {
+            values.append(Role(data: item))
+          }
+          completion(values.sorted(by: {(role1, role2) -> Bool in
+                  return role1.id < role2.id
+            }))
+        }
+      } else {
+        error?(errorMessage!)
+      }
+    })
+  }
   
   public func saveJSON(j: JSON) {
     let defaults = UserDefaults.standard

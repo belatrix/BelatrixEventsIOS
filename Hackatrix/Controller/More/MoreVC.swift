@@ -14,8 +14,12 @@ class MoreVC : UIViewController {
     super.viewDidLoad()
   }
   
-  @IBAction func actionReadQR() {
-    performSegue(withIdentifier: "showQRReader", sender: "test")
+  @IBAction func actionOrganizer() {
+    performSegue(withIdentifier: "showOrganizerSegue", sender: "test")
+  }
+  
+  @IBAction func actionAbout() {
+    performSegue(withIdentifier: "showAboutSegue", sender: nil)
   }
 
   

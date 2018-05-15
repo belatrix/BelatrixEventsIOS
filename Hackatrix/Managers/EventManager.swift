@@ -95,4 +95,34 @@ class EventManager: NSObject {
             }
         }
     }
+  
+  func getMeetingList(token: String?, error:((String) -> ())? = nil, completion: ((_ meetings: [Meeting]) -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.event.meetingList, method: .get, parameters:nil, token : token , completion: nil, result: { (json, errorMessage) in
+      if let json = json {
+        if let completion = completion {
+          let arrayValues = json.arrayValue
+          var values : [Meeting] = [Meeting]()
+          for item in arrayValues {
+            values.append(Meeting(data: item))
+          }
+          completion(values)
+        }
+      } else {
+        error?(errorMessage!)
+      }
+    })
+  }
+  
+  func registerAttendance(token: String?, email: String, meetingId: Int, error:((String) -> ())? = nil, completion: ((_ user: User) -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.event.meetingAttendance, method: .post, parameters: ["user_email": email, "meeting_id": meetingId], completion: nil, result: { (json, errorMessage) in
+      if let json = json {
+        if let completion = completion {
+          let jsonUser = json.dictionaryValue["user"]!
+          completion(User(data: jsonUser))
+        }
+      } else {
+        error?(errorMessage!)
+      }
+    })
+  }
 }

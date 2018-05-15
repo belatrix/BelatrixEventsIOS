@@ -19,7 +19,7 @@ class User: NSObject {
     var isActive: Bool?
     var isModerator: Bool?
     var isPasswordResetRequired: Bool?
-    var role: String?
+    var role: Role?
   
     /*
      {
@@ -44,7 +44,11 @@ class User: NSObject {
         self.email = data["email"].string
         self.fullName = data["full_name"].string
         self.phoneNumber = data["phone_number"].string
-        self.role = data["role"].dictionaryValue["name"]?.string
+        if let currentRole = data["role"].dictionary {
+          if let currentRoleName = currentRole["name"]{
+            self.role = Role(_id: currentRole["id"]!.int!, _name: currentRoleName.string!)
+          }
+        }
         self.isStaff = data["is_staff"].bool
         self.isJury = data["is_jury"].bool
         self.isModerator = data["is_moderator"].bool

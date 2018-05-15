@@ -475,16 +475,16 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nno-xd-8gO">
                                 <rect key="frame" x="50" y="367" width="220" height="50"/>
-                                <color key="backgroundColor" red="0.1215686275" green="0.28235294119999998" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.12293704599999999" green="0.2824874818" blue="0.56914299729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="U7q-Bt-7ZL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="ACTUALIZAR">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="createAccountPressed:" destination="rdc-0q-0I3" eventType="touchUpInside" id="RNh-rX-ehM"/>
+                                    <action selector="updateProfilePressed:" destination="rdc-0q-0I3" eventType="touchUpInside" id="jys-D1-t42"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMedium" translatesAutoresizingMaskIntoConstraints="NO" id="IcW-ha-FP2">
@@ -524,7 +524,7 @@
                                     <outlet property="delegate" destination="rdc-0q-0I3" id="4Sp-GM-RRB"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rol" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J6X-2i-t6s">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rol" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J6X-2i-t6s" customClass="CustomTextFieldCombo" customModule="Hackatrix" customModuleProvider="target">
                                 <rect key="frame" x="20" y="297" width="280" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="CAC-5W-Yiw"/>
@@ -562,9 +562,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Actualizar Info" id="vaL-tN-3cn"/>
                     <connections>
+                        <outlet property="emailLabel" destination="Sg4-Ir-CWn" id="Jgl-BG-oXh"/>
                         <outlet property="fullNameInput" destination="cyZ-Bm-1a9" id="Knp-rz-hAh"/>
                         <outlet property="phoneInput" destination="WRE-SA-2Yw" id="SNw-vc-xgx"/>
                         <outlet property="roleInput" destination="J6X-2i-t6s" id="FT6-14-iGa"/>
+                        <outlet property="updateButton" destination="Nno-xd-8gO" id="LuR-sB-Ugn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JvN-ui-qyv" userLabel="First Responder" sceneMemberID="firstResponder"/>

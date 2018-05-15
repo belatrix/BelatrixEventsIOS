@@ -29,6 +29,7 @@ struct K {
         static let createAccount = "createAccountSegue"
         static let forgotPassword = "forgotPasswordSegue"
         static let updateProfile = "updateProfileSegue"
+        static let qrReader = "showQRReaderSegue"
     }
     struct cell {
         static let menu = "itemMenuCell"
