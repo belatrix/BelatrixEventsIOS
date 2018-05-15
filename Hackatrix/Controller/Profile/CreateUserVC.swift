@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class CreateUserVC: UIViewController {
 
@@ -18,7 +19,7 @@ class CreateUserVC: UIViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func dondePressed(_ sender: Any) {
+    @IBAction func createAccountPressed(_ sender: Any) {
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailReg)
         guard let email = emailInput.text else {
             return
@@ -30,18 +31,29 @@ class CreateUserVC: UIViewController {
             present(alertController, animated: true, completion: nil)
         }else{
             createUserWithEmail(email) {
+              
+              let alertController = UIAlertController(title: "Cuenta creada", message: "Te enviamos la clave a tu email", preferredStyle: .alert)
+              
+              alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                 self.navigationController?.popViewController(animated: true)
+              }))
+              
+              self.present(alertController, animated: true, completion: nil)
+              
             }
         }
     }
     
     func createUserWithEmail(_ email: String, completion: (() -> Void)? = nil) {
-        UserManager.shared.createNewUser(email: email, error: { [weak self] in
-            let alertController = UIAlertController(title: "Error", message: "No se pudo crear la cuenta", preferredStyle: .alert)
+      SVProgressHUD.show()
+        UserManager.shared.createNewUser(email: email, error: { errorMessage in
+            let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
-            self?.present(alertController, animated: true, completion: nil)
+          self.present(alertController, animated: true, completion: nil)
+          SVProgressHUD.dismiss()
         }) {(user) in
+          SVProgressHUD.dismiss()
             if let completion = completion {
                 completion()
             }

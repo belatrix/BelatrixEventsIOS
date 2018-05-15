@@ -13,13 +13,15 @@ import FirebaseInstanceID
 import FirebaseMessaging
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var userDefaults = UserDefaults.standard
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+      
+      SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.gradient)
         if userDefaults.object(forKey: K.key.showedWelcomeAlertInteraction) == nil {
             self.userDefaults.set(true, forKey: K.key.showedWelcomeAlertInteraction)
         }
