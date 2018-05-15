@@ -17,16 +17,20 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var profileContainer: UIView!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    @IBOutlet weak var role: UILabel!
     @IBOutlet weak var qrImageView: UIImageView!
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
+    //@IBOutlet var editBarButtonItem: UIBarButtonItem!
+  
     var currentUser : User?  {
         return UserManager.shared.currentUser
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+       // editBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editButtonPressed(_:)))
         setupUI(fromRefresh: false)
     }
 
@@ -44,9 +48,13 @@ class ProfileVC: UIViewController {
       }
   }
   
-     @IBAction func forgetPasswordButtonPressed(_ sender: Any) {
-       performSegue(withIdentifier: K.segue.forgotPassword, sender: self)
-    }
+  @IBAction func forgetPasswordButtonPressed(_ sender: Any) {
+      performSegue(withIdentifier: K.segue.forgotPassword, sender: self)
+  }
+  
+  @IBAction func editButtonPressed(_ sender: Any) {
+    print("go to edit")
+  }
   
   func authenticate(username: String, password: String, completion: ((_ auth: Auth) -> Void)? = nil) {
     UserManager.shared.authenticate(username: username, password: password, error: { [weak self] in
@@ -57,6 +65,8 @@ class ProfileVC: UIViewController {
       self?.present(alertController, animated: true, completion: nil)
     }){ (auth) in
       if let completion = completion {
+        self.emailInput.resignFirstResponder()
+        self.passwordInput.resignFirstResponder()
         completion(auth)
         SVProgressHUD.dismiss()
       }
@@ -66,6 +76,24 @@ class ProfileVC: UIViewController {
     @IBAction func createButtonPressed(_ sender: Any) {
          performSegue(withIdentifier: K.segue.createAccount, sender: self)
     }
+  
+  @IBAction func updateProfileButtonPressed(_ sender: Any) {
+    performSegue(withIdentifier: K.segue.updateProfile, sender: self)
+  }
+  
+  @IBAction func logOutButtonPressed(_ sender: Any) {
+    SVProgressHUD.show()
+     let token: String = KeychainWrapper.standard.string(forKey: K.keychain.tokenKey)!
+    UserManager.shared.logout(token: token, error: { () in
+      SVProgressHUD.dismiss()
+      KeychainWrapper.standard.removeObject(forKey: K.keychain.tokenKey)
+      self.setupUI(fromRefresh: false)
+    }){ () in
+        KeychainWrapper.standard.removeObject(forKey: K.keychain.tokenKey)
+        SVProgressHUD.dismiss()
+     self.setupUI(fromRefresh: false)
+    }
+  }
     
     private func refreshProfile()  {
         let token: String? = KeychainWrapper.standard.string(forKey: K.keychain.tokenKey)
@@ -83,23 +111,36 @@ class ProfileVC: UIViewController {
     
     open func setupUI(fromRefresh: Bool) {
         if let user  = currentUser {
+            emailInput.text =  ""
+            passwordInput.text = ""
+            //self.navigationItem.rightBarButtonItem = self.editBarButtonItem
             loginContainer.isHidden = true
-            profileContainer.isHidden = false
+            UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+               self.profileContainer.isHidden = false
+            })
             fullName.text = user.fullName
             email.text = user.email
+            role.text = user.role
+            phone.text = user.phoneNumber
             qrImageView.image = QRCode.generateImage(user.email!, avatarImage: nil)
           if !fromRefresh {
             refreshProfile()
           }
         } else{
-          loginContainer.isHidden = false
+          //self.navigationItem.rightBarButtonItem = nil
           profileContainer.isHidden = true
+          UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+             self.loginContainer.isHidden = false
+          })
         }
     }
-    
-    private func logout() {
-        KeychainWrapper.standard.removeObject(forKey: K.keychain.tokenKey)
-        //setupUI()
-    }
+  
+}
+
+extension ProfileVC: UITextFieldDelegate {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
 }
 

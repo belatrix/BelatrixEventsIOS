@@ -78,6 +78,18 @@ class UserManager: NSObject {
     })
     }
   
+  func logout(token: String, error: @escaping () -> Void, completion: (() -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.user.logout, method: .post, parameters: nil, token: token) { (json) in
+      if let json = json {
+        if let completion = completion {
+          self.removeJSON()
+          completion()
+        }
+      } else {
+        error()
+      }
+    }
+  }
 
   func recoverUser(email: String, error:((String) -> ())? = nil ,completion: (() -> Void)? = nil) {
     self.serviceManager.useService(url: api.url.user.recover, method: .post, parameters: ["email": email], completion: nil, result: { (json, errorMessage) in
@@ -105,6 +117,12 @@ class UserManager: NSObject {
   public func saveJSON(j: JSON) {
     let defaults = UserDefaults.standard
     defaults.setValue(j.rawString()!, forKey: "jsonUSER")
+    defaults.synchronize()
+  }
+  
+  public func removeJSON() {
+    let defaults = UserDefaults.standard
+    defaults.removeObject(forKey: "jsonUSER")
     defaults.synchronize()
   }
   

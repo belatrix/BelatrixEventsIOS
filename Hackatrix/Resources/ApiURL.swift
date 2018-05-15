@@ -54,6 +54,7 @@ struct api {
             static func recoverPasswordWithID(_ id:Int) -> String {
                 return "\(root)/user/recover/\(id)/"
             }
+            static let logout = "\(root)/user/logout/"
         }
         struct idea {
             static let create = "\(root)/idea/create/"
