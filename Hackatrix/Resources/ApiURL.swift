@@ -57,6 +57,24 @@ struct api {
         }
         struct idea {
             static let create = "\(root)/idea/create/"
+            static func participants(_ id:Int) -> String {
+                return "\(root)/idea/\(id)/participants/"
+            }
+            static func registerParticipant(_ id: Int) -> String {
+                return "\(root)/idea/\(id)/register/"
+            }
+            static func unregisterParticipant(_ id: Int) -> String {
+                return "\(root)/idea/\(id)/unregister/"
+            }
+            static func candidates(_ id:Int) -> String {
+                return "\(root)/idea/\(id)/candidates/"
+            }
+            static func registerCandidate(_ id:Int) -> String {
+                return "\(root)/idea/\(id)/register/candidate/"
+            }
+            static func unregisterCandidate(_ id: Int) -> String {
+                return "\(root)/idea/\(id)/unregister/candidate/"
+            }
         }
     }
 }

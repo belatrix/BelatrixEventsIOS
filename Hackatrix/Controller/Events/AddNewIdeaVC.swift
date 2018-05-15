@@ -46,9 +46,14 @@ class AddNewIdeaVC: UIViewController {
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
             self?.present(alertController, animated: true, completion: nil)
-        }){ (idea) in 
+        }){ [weak self] (idea) in
             //idea created
-            self.navigationController?.popViewController(animated: true)
+            let alertController = UIAlertController(title: "", message: "La idea fue ingresada exitosamente y será revisada por los moderadores en breve.", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .default){ (action:UIAlertAction!) in
+                self?.navigationController?.popViewController(animated: true)
+            }
+            alertController.addAction(defaultAction)
+            self?.present(alertController, animated: true, completion: nil)
         }
     }
 }

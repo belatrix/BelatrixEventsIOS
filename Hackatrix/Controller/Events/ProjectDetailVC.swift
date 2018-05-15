@@ -9,30 +9,110 @@
 import UIKit
 
 class ProjectDetailVC: UIViewController {
+    
     @IBOutlet weak var lblDescription: UILabel!
-
+    @IBOutlet weak var tableView: UITableView!
     var idea: Idea?
-    var participants: [Employee] = []
+    var currentUser: User?
+    var participants: Participants? {
+        didSet {
+          tableView.reloadData()
+        }
+    }
+    var candidates: Candidates? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    var isUserLogged = false
 
     override func viewDidLoad() {
         self.getParticipants()
         super.viewDidLoad()
+        //load logged user
+        currentUser = UserManager.shared.currentUser
+        isUserLogged = currentUser != nil
+        tableView.estimatedRowHeight = 66
         self.setUIElements()
     }
 
     func setUIElements() {
-        let title = self.idea?.title?.split(separator: "-")[0].trimmingCharacters(in: .whitespacesAndNewlines)
-        let description = self.idea?.title?.split(separator: "-")[1].trimmingCharacters(in: .whitespacesAndNewlines)
-        self.title = title
-        self.lblDescription.text = description
+        self.title = idea?.title
+        self.lblDescription.text = idea?.description
     }
 
     func getParticipants() {
-        //TODO: call get participants and refresh tableview
+        guard let id = idea?.id else {
+            return
+        }
+        ProjectManager.shared.getParticipants(ideaId: id) { [weak self] (participants) in
+            self?.participants = participants
+        }
+    }
+    
+    func getCandidates() {
+        guard let id = idea?.id else {
+            return
+        }
+        ProjectManager.shared.getCandidates(ideaId: id) { [weak self] (candidates) in
+            self?.candidates = candidates
+        }
+    }
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: "Error", message: "No se pudo completar su solicitud", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     func subscribe() {
-        //TODO: call subscribe method and refresh tableview
+        guard let id = idea?.id, let userLoggedId = currentUser?.id else {
+            return
+        }
+        if participants?.isRegistered ?? false {
+            //unregister user as participant
+            ProjectManager.shared.unregisterParticipantWithId(userLoggedId, ideaId: id) { (participants) in
+                if let participants = participants {
+                    self.participants = participants
+                    let alertController = UIAlertController(title: "", message: "Su registro ha sido cancelado", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                } else {
+                    self.showErrorAlert()
+                }
+            }
+        } else if candidates?.isCandidate ?? false {
+            //unregister user as candidate
+            ProjectManager.shared.unregisterAsCandidate(ideaId: id) { (candidates) in
+                if let candidates = candidates {
+                    self.candidates = candidates
+                    let alertController = UIAlertController(title: "Solictud cancelada", message: "Su solicitud de ingreso ha sido cancelada", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                } else {
+                    self.showErrorAlert()
+                }
+            }
+        } else {
+            //register user as candidate
+            ProjectManager.shared.registerAsCandidate(ideaId: id) { (candidates) in
+                if let candidates = candidates {
+                    self.candidates = candidates
+                    let alertController = UIAlertController(title: "Solictud enviada", message: "Su solicitud de ingreso ha sido enviada correctamente", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                } else {
+                    let alertController = UIAlertController(title: "Error", message: "No se pudo completar su solicitud de ingreso", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
     }
 }
 
@@ -40,20 +120,47 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Participantes"
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.participants.count
+        let participantsCount = participants?.teamMembers.count ?? 0
+        if isUserLogged {
+            return participantsCount + 1
+        } else{
+            return participantsCount
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == self.participants.count {
+        if indexPath.row == 0 && isUserLogged {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectSubscribeTableViewCell", for: indexPath) as? ProjectSubscribeTableViewCell {
                 cell.btnSubscribe.addTarget(self, action: #selector(ProjectDetailVC.subscribe), for: .touchUpInside)
+                
+                if participants?.isRegistered ?? false {
+                    //user registered
+                    cell.btnSubscribe.setTitle("Eliminar registro", for: .normal)
+                    cell.btnSubscribe.tintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                } else if candidates?.isCandidate ?? false {
+                    //user candidate
+                    cell.btnSubscribe.setTitle("Cancelar Solicitud", for: .normal)
+                    cell.btnSubscribe.tintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                } else {
+                    //user not candidate
+                    cell.btnSubscribe.setTitle("Solicitar Ingreso", for: .normal)
+                    cell.btnSubscribe.tintColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
+                }
                 return cell
             }
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectParticipantTableViewCell", for: indexPath) as? ProjectParticipantTableViewCell {
-                cell.lblParticipant.text = ""
+                let offset = isUserLogged ? 1 : 0
+                let participant = participants?.teamMembers[indexPath.row - offset]
+                cell.name.text = participant?.fullName
+                cell.email.text = participant?.email
+                cell.phone.text = participant?.phoneNumber
                 return cell
             }
         }
@@ -61,6 +168,6 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 66
+        return UITableViewAutomaticDimension
     }
 }

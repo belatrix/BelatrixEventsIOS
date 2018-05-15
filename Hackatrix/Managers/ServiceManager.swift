@@ -60,7 +60,7 @@ class ServiceManager: NSObject {
         }
     }
     
-    func useAuthService(url: String, method: HTTPMethod, parameters: Parameters?, completion: ((_ response: JSON?) -> Void)? = nil) {
+    func useAuthService(url: String, method: HTTPMethod, parameters: Parameters? = nil, completion: ((_ response: JSON?) -> Void)? = nil) {
         
         if  sessionManager == nil {
             // get the default headers

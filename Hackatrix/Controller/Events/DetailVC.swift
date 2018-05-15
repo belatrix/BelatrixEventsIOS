@@ -207,13 +207,8 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
             } else {
                 if let ideaCell = tableView.dequeueReusableCell(withIdentifier: "IdeaTableViewCell", for: indexPath) as? IdeaTableViewCell {
                     let idea = self.ideas?[indexPath.row]
-                    if let title = idea?.title?.split(separator: "-"), title.count > 1 {
-                        ideaCell.titleLabel.text = title[0].trimmingCharacters(in: .whitespacesAndNewlines)
-                        ideaCell.descriptionLabel.text = title[1].trimmingCharacters(in: .whitespacesAndNewlines)
-                    } else {
-                        ideaCell.titleLabel.text = idea?.title
-                        ideaCell.descriptionLabel.text = idea?.description
-                    }
+                    ideaCell.titleLabel.text = idea?.title
+                    ideaCell.descriptionLabel.text = idea?.description
                     return ideaCell
                 }
             }

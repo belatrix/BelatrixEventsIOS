@@ -9,5 +9,10 @@
 import UIKit
 
 class ProjectParticipantTableViewCell: UITableViewCell {
-    @IBOutlet weak var lblParticipant: UILabel!
+    
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    @IBOutlet weak var role: UILabel!
+    
 }
