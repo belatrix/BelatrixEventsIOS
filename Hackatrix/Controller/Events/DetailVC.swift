@@ -208,7 +208,7 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
                 if let ideaCell = tableView.dequeueReusableCell(withIdentifier: "IdeaTableViewCell", for: indexPath) as? IdeaTableViewCell {
                     let idea = self.ideas?[indexPath.row]
                     ideaCell.titleLabel.text = idea?.title
-                    ideaCell.descriptionLabel.text = idea?.description
+                    ideaCell.descriptionLabel.text = idea?.ideaDescription
                     return ideaCell
                 }
             }
@@ -240,6 +240,7 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if self.currentTab == .Ideas {
             self.performSegue(withIdentifier: K.segue.project, sender: indexPath)
         } else {

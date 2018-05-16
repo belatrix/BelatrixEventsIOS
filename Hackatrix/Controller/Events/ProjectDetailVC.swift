@@ -8,9 +8,14 @@
 
 import UIKit
 
+enum IdeaVCSections: Int {
+    case details = 0
+    case participants = 1
+    case candidates = 2
+}
+
 class ProjectDetailVC: UIViewController {
     
-    @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var idea: Idea?
     var currentUser: User?
@@ -38,7 +43,6 @@ class ProjectDetailVC: UIViewController {
 
     func setUIElements() {
         self.title = idea?.title
-        self.lblDescription.text = idea?.description
     }
 
     func getParticipants() {
@@ -118,53 +122,84 @@ class ProjectDetailVC: UIViewController {
 
 extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Participantes"
+        if section == IdeaVCSections.details.rawValue {
+            return "Sobre la idea"
+        } else if section == IdeaVCSections.participants.rawValue {
+            return "Participantes"
+        } else {
+            return ""
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let participantsCount = participants?.teamMembers.count ?? 0
-        if isUserLogged {
-            return participantsCount + 1
-        } else{
-            return participantsCount
+        if section == IdeaVCSections.details.rawValue {
+            //details cell
+            return 1
+        } else if section == IdeaVCSections.participants.rawValue {
+            //participants
+            let participantsCount = participants?.teamMembers.count ?? 0
+            if isUserLogged {
+                return participantsCount + 1
+            } else{
+                return participantsCount
+            }
+        } else {
+            return 0
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 && isUserLogged {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectSubscribeTableViewCell", for: indexPath) as? ProjectSubscribeTableViewCell {
-                cell.btnSubscribe.addTarget(self, action: #selector(ProjectDetailVC.subscribe), for: .touchUpInside)
-                
-                if participants?.isRegistered ?? false {
-                    //user registered
-                    cell.btnSubscribe.setTitle("Eliminar registro", for: .normal)
-                    cell.btnSubscribe.tintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-                } else if candidates?.isCandidate ?? false {
-                    //user candidate
-                    cell.btnSubscribe.setTitle("Cancelar Solicitud", for: .normal)
-                    cell.btnSubscribe.tintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-                } else {
-                    //user not candidate
-                    cell.btnSubscribe.setTitle("Solicitar Ingreso", for: .normal)
-                    cell.btnSubscribe.tintColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
+        let section = indexPath.section
+        switch section {
+        case IdeaVCSections.details.rawValue:
+            if let detailsCell = tableView.dequeueReusableCell(withIdentifier: "IdeaDetailsTableViewCell", for: indexPath) as? IdeaDetailsTableViewCell {
+                detailsCell.ideaDescription.text = idea?.ideaDescription
+                let author = idea?.author
+                detailsCell.authorName.text = author?.fullName
+                detailsCell.authorEmail.text = author?.email
+                detailsCell.authorRole.text = author?.role?.name
+                return detailsCell
+            }
+            return UITableViewCell()
+        case IdeaVCSections.participants.rawValue:
+            if indexPath.row == 0 && isUserLogged {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectSubscribeTableViewCell", for: indexPath) as? ProjectSubscribeTableViewCell {
+                    cell.btnSubscribe.addTarget(self, action: #selector(ProjectDetailVC.subscribe), for: .touchUpInside)
+                    
+                    if participants?.isRegistered ?? false {
+                        //user registered
+                        cell.btnSubscribe.setTitle("Eliminar registro", for: .normal)
+                        cell.btnSubscribe.tintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                    } else if candidates?.isCandidate ?? false {
+                        //user candidate
+                        cell.btnSubscribe.setTitle("Cancelar Solicitud", for: .normal)
+                        cell.btnSubscribe.tintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                    } else {
+                        //user not candidate
+                        cell.btnSubscribe.setTitle("Solicitar Ingreso", for: .normal)
+                        cell.btnSubscribe.tintColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
+                    }
+                    return cell
                 }
-                return cell
+            } else {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectParticipantTableViewCell", for: indexPath) as? ProjectParticipantTableViewCell {
+                    let offset = isUserLogged ? 1 : 0
+                    let participant = participants?.teamMembers[indexPath.row - offset]
+                    cell.name.text = participant?.fullName
+                    cell.email.text = participant?.email
+                    cell.phone.text = participant?.phoneNumber
+                    cell.role.text = participant?.role?.name
+                    return cell
+                }
             }
-        } else {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectParticipantTableViewCell", for: indexPath) as? ProjectParticipantTableViewCell {
-                let offset = isUserLogged ? 1 : 0
-                let participant = participants?.teamMembers[indexPath.row - offset]
-                cell.name.text = participant?.fullName
-                cell.email.text = participant?.email
-                cell.phone.text = participant?.phoneNumber
-                return cell
-            }
+            return UITableViewCell()
+        default:
+            return UITableViewCell()
         }
-        return UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
