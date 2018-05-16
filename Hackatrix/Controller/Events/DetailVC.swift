@@ -13,6 +13,7 @@ import AlamofireImage
 import SwiftyJSON
 import SafariServices
 import MapKit
+import SVProgressHUD
 
 enum DetailTab {
     case Information
@@ -126,8 +127,10 @@ class DetailVC: UIViewController {
     }
 
     func getProjects() {
+        SVProgressHUD.show()
         if let eventID = self.detailEvent?.id {
             ProjectManager.shared.getProjects(eventID: eventID) { (projects) in
+                SVProgressHUD.dismiss()
                 self.projects = projects
                 self.sortedProjects = projects.sorted(by: { (p1, p2) -> Bool in
                     let votes1 = p1.votes ?? 0

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 enum IdeaVCSections: Int {
     case details = 0
@@ -49,7 +50,9 @@ class ProjectDetailVC: UIViewController {
         guard let id = idea?.id else {
             return
         }
+        SVProgressHUD.show()
         ProjectManager.shared.getParticipants(ideaId: id) { [weak self] (participants) in
+            SVProgressHUD.dismiss()
             self?.participants = participants
         }
     }
