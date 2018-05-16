@@ -313,7 +313,9 @@
                         <viewLayoutGuide key="safeArea" id="ATy-GW-4NU"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="FJH-hb-RzZ" userLabel="Navigation item"/>
+                    <navigationItem key="navigationItem" id="FJH-hb-RzZ" userLabel="Navigation item">
+                        <barButtonItem key="backBarButtonItem" title=" " id="daF-Jx-G5H"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="email" destination="bA4-kY-xRy" id="jn6-Rl-eNM"/>
