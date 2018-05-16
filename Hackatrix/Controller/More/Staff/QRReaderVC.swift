@@ -23,16 +23,21 @@ class QRReaderVC : UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+ 
+    //scanner.scanFrame = scanView.bounds
+    nameLabel.text = meeting.name
+    print("MEETTING ID : \(meeting.id)")
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    scanner.scanFrame = scanView.bounds
     if !isSimulator {
       scanner.prepareScan(scanView) { (stringValue) -> () in
         print(stringValue)
         self.registerAttendance(email: stringValue)
       }
     }
-    
-    scanner.scanFrame = scanView.bounds
-    nameLabel.text = meeting.name
-    print("MEETTING ID : \(meeting.id)")
   }
   
   override func viewDidAppear(_ animated: Bool) {
