@@ -37,7 +37,7 @@ struct api {
                 return "\(root)/event/\(id)/idea/list/"
             }
             static let meetingList = "\(root)/event/meeting/list/"
-            static let meetingAttendance = "\(root)/event/meeting/attendance/"
+            static let meetingAttendance = "\(root)/event/register/attendance/"
         }
         struct notifications {
             static let all = "\(root)/notifications/all/"

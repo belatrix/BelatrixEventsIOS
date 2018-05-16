@@ -23,20 +23,26 @@ class QRReaderVC : UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if !isSimulator {
-      scanner.prepareScan(scanView) { (stringValue) -> () in
-        print(stringValue)
-      }
-    }
-    scanner.scanFrame = scanView.bounds
-    
+ 
+    //scanner.scanFrame = scanView.bounds
     nameLabel.text = meeting.name
     print("MEETTING ID : \(meeting.id)")
   }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    scanner.scanFrame = scanView.bounds
+    if !isSimulator {
+      scanner.prepareScan(scanView) { (stringValue) -> () in
+        print(stringValue)
+        self.registerAttendance(email: stringValue)
+      }
+    }
+  }
+  
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-  
+    startScanning()
   }
   
   func startScanning(){
@@ -63,17 +69,13 @@ class QRReaderVC : UIViewController {
       self.present(alertController, animated: true, completion: nil)
       SVProgressHUD.dismiss()
     }) {(user) in
-      self.startScanning()
       SVProgressHUD.dismiss()
-      
       let alertController = UIAlertController(title: "Hackatrix", message: "\(user.email!) registrado satisfactoriamente", preferredStyle: .alert)
       alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {  action in
        self.startScanning()
       }))
         self.present(alertController, animated: true, completion: nil)
         SVProgressHUD.dismiss()
-      
-      
     }
   }
   
