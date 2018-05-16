@@ -14,7 +14,7 @@ import SVProgressHUD
 class ProfileVC: UIViewController {
 
     @IBOutlet weak var loginContainer: UIScrollView!
-    @IBOutlet weak var profileContainer: UIView!
+    @IBOutlet weak var profileContainer: UIScrollView!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var phone: UILabel!
