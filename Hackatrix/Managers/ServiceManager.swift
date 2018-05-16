@@ -23,8 +23,10 @@ class ServiceManager: NSObject {
   func useService(url: String, method: HTTPMethod, parameters: Parameters?, token: String? = nil,  completion: ((_ response: JSON?) -> Void)? = nil,
                   result: ((_ response: JSON?, _ error: String? ) -> Void)? = nil
                   ) {
+    
+        let tokenFromLocal: String? = KeychainWrapper.standard.string(forKey: K.keychain.tokenKey)
         var headers : HTTPHeaders?
-        if let customToken = token {
+        if let customToken = tokenFromLocal {
           headers = [
           "Authorization": "Token \(customToken)"
           ]
@@ -74,43 +76,6 @@ class ServiceManager: NSObject {
                 }
         }
     }
-    
-    func useAuthService(url: String, method: HTTPMethod, parameters: Parameters? = nil, completion: ((_ response: JSON?) -> Void)? = nil) {
-        
-        if  sessionManager == nil {
-            // get the default headers
-            var headers = Alamofire.SessionManager.defaultHTTPHeaders
-            let token = Utils.auth.getToken()
-            headers["Authorization"] = "Token \(token)"
-            // create a custom session configuration
-            let configuration = URLSessionConfiguration.default
-            // add the headers
-            configuration.httpAdditionalHeaders = headers
-            // create a session manager with the configuration
-            self.sessionManager = Alamofire.SessionManager(configuration: configuration)
-        }
-       
-        sessionManager?.request(url, method: method, parameters: parameters).validate().responseJSON { response in
-            if let completion = completion {
-                if let responseServer = response.result.value, let code = response.response?.statusCode {
-                    switch response.result {
-                    case .success:
-                        let json = JSON(responseServer)
-                        completion(json)
-                        break
-                    case .failure(_):
-                        ServiceError(errorCode: code, urlRequest: url).printMessage()
-                        completion(nil)
-                        break
-                    }
-                } else {
-                    if let code = response.response?.statusCode {
-                        ServiceError(errorCode: code, urlRequest: url).printMessage()
-                    }
-                    completion(nil)
-                }
-            }
-        }
-    }
+  
     
 }

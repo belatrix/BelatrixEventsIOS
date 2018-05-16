@@ -864,7 +864,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Sgx-G0-FfZ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="aVN-7b-2p0">
+                    <navigationItem key="navigationItem" title="Agregar Idea" id="aVN-7b-2p0">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="3t9-DC-oWm">
                             <connections>
                                 <action selector="cancelPressed:" destination="pNV-In-ZCD" id="FFs-Cn-xEt"/>

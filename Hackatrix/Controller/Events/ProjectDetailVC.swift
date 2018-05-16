@@ -66,8 +66,8 @@ class ProjectDetailVC: UIViewController {
         }
     }
     
-    func showErrorAlert() {
-        let alertController = UIAlertController(title: "Error", message: "No se pudo completar su solicitud", preferredStyle: .alert)
+  func showErrorAlert(errorMessage: String? = "No se pudo completar su solicitud") {
+        let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true, completion: nil)
@@ -79,46 +79,41 @@ class ProjectDetailVC: UIViewController {
         }
         if participants?.isRegistered ?? false {
             //unregister user as participant
-            ProjectManager.shared.unregisterParticipantWithId(userLoggedId, ideaId: id) { (participants) in
-                if let participants = participants {
-                    self.participants = participants
-                    let alertController = UIAlertController(title: "", message: "Su registro ha sido cancelado", preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
-                } else {
-                    self.showErrorAlert()
-                }
-            }
+          ProjectManager.shared.unregisterParticipantWithId(userLoggedId, ideaId: id, success: {
+            (participants) in
+              self.participants = participants
+              let alertController = UIAlertController(title: "", message: "Su registro ha sido cancelado", preferredStyle: .alert)
+              let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+              alertController.addAction(defaultAction)
+              self.present(alertController, animated: true, completion: nil)
+            
+          }, error: { (errorMessage) in
+                self.showErrorAlert(errorMessage: errorMessage)
+              })
         } else if candidates?.isCandidate ?? false {
             //unregister user as candidate
-            ProjectManager.shared.unregisterAsCandidate(ideaId: id) { (candidates) in
-                if let candidates = candidates {
+          ProjectManager.shared.unregisterAsCandidate(ideaId: id , success: { (candidates) in
                     self.candidates = candidates
                     let alertController = UIAlertController(title: "Solictud cancelada", message: "Su solicitud de ingreso ha sido cancelada", preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
                     self.present(alertController, animated: true, completion: nil)
-                } else {
-                    self.showErrorAlert()
-                }
-            }
+            
+          }, error: { (errorMessage) in
+             self.showErrorAlert(errorMessage: errorMessage)
+          })
         } else {
             //register user as candidate
-            ProjectManager.shared.registerAsCandidate(ideaId: id) { (candidates) in
-                if let candidates = candidates {
+          ProjectManager.shared.registerAsCandidate(ideaId: id , success:  { (candidates) in
                     self.candidates = candidates
                     let alertController = UIAlertController(title: "Solictud enviada", message: "Su solicitud de ingreso ha sido enviada correctamente", preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
                     self.present(alertController, animated: true, completion: nil)
-                } else {
-                    let alertController = UIAlertController(title: "Error", message: "No se pudo completar su solicitud de ingreso", preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
-                }
-            }
+          } , error : {
+            (errorMessage) in
+             self.showErrorAlert(errorMessage: errorMessage)
+          })
         }
     }
 }

@@ -33,7 +33,7 @@ class ProjectManager: NSObject {
     }
     
     func getIdeas(eventID: Int, completion: ((_ response: [Idea]) -> Void)? = nil) {
-        self.serviceManager.useService(url: api.url.event.ideaList(eventID: eventID), method: .get, parameters: nil) { (json) in
+      self.serviceManager.useService(url: api.url.event.ideaList(eventID: eventID), method: .get, parameters: nil) { (json) in
             if let completion = completion {
                 var ideaList: [Idea] = []
                 if let json = json, json.array?.count ?? 0 > 0 {
@@ -54,7 +54,7 @@ class ProjectManager: NSObject {
     func createIdea(eventID: Int, title: String, description: String, error: @escaping () -> (), success: @escaping (Idea) -> ()) {
         if let userId = UserManager.shared.currentUser?.id {
             let paramenters: [String: Any] = ["author": userId, "event": eventID, "title": title, "description": description]
-            self.serviceManager.useAuthService(url: api.url.idea.create, method: .post, parameters: paramenters) { (json) in
+            self.serviceManager.useService(url: api.url.idea.create, method: .post, parameters: paramenters) { (json) in
                 if let json = json {
                     success(Idea(data: json))
                 } else {
@@ -77,64 +77,60 @@ class ProjectManager: NSObject {
     }
     
     func getCandidates(ideaId: Int, success: @escaping (Candidates?) -> ()) {
-        self.serviceManager.useAuthService(url: api.url.idea.candidates(ideaId), method: .get) { (json) in
+      self.serviceManager.useService(url: api.url.idea.candidates(ideaId), method: .get, parameters: nil, completion: { (json) in
             if let json = json {
                 success(Candidates(data: json))
             } else {
                 success(nil)
             }
-        }
+        })
     }
     
-    func registerAsCandidate(ideaId: Int, success: @escaping (Candidates?)->()) {
+  func registerAsCandidate(ideaId: Int, success: @escaping (Candidates?)->(), error:((String) -> ())? = nil) {
         if let userId = UserManager.shared.currentUser?.id {
             let paramenters: [String: Any] = ["user_id": userId, "idea_id": ideaId]
-            self.serviceManager.useAuthService(url: api.url.idea.registerCandidate(ideaId), method: .post, parameters: paramenters) { (json) in
+          self.serviceManager.useService(url: api.url.idea.registerCandidate(ideaId), method: .post, parameters: paramenters , completion: nil , result: { (json, errorMessage) in
                 if let json = json {
                     success(Candidates(data: json))
                 } else {
-                    success(nil)
+                  error?(errorMessage!)
                 }
-            }
-        }else{
-            success(nil)
-        }
+            })
+      }
     }
     
-    func unregisterAsCandidate(ideaId: Int, success: @escaping (Candidates?)->()) {
+  func unregisterAsCandidate(ideaId: Int, success: @escaping (Candidates?)->(), error:((String) -> ())? = nil) {
         if let userId = UserManager.shared.currentUser?.id {
             let paramenters: [String: Any] = ["user_id": userId, "idea_id": ideaId]
-            self.serviceManager.useAuthService(url: api.url.idea.unregisterCandidate(ideaId), method: .post, parameters: paramenters) { (json) in
+          self.serviceManager.useService(url: api.url.idea.unregisterCandidate(ideaId), method: .post, parameters: paramenters, completion: nil , result: { (json, errorMessage) in
                 if let json = json {
                      success(Candidates(data: json))
                 } else {
-                    success(nil)
+                  error?(errorMessage!)
                 }
-            }
-        }else{
-            success(nil)
-        }
+            })
+      }
     }
     
-    func unregisterParticipantWithId(_ userId: Int, ideaId: Int, success: @escaping (Participants?)->()) {
+  func unregisterParticipantWithId(_ userId: Int, ideaId: Int, success: @escaping (Participants?)->(), error:((String) -> ())? = nil) {
         let paramenters: [String: Any] = ["user_id": userId, "idea_id": ideaId]
-        self.serviceManager.useAuthService(url: api.url.idea.unregisterParticipant(ideaId), method: .post, parameters: paramenters) { (json) in
+      self.serviceManager.useService(url: api.url.idea.unregisterParticipant(ideaId), method: .post, parameters: paramenters , completion: nil , result: { (json, errorMessage) in
             if let json = json {
                 success(Participants(data: json))
             } else {
-                success(nil)
+                error?(errorMessage!)
             }
-        }
+        })
     }
     
-    func registerParticipantWithId(_ userId: Int, ideaId: Int, success: @escaping (Participants?)->()) {
+  func registerParticipantWithId(_ userId: Int, ideaId: Int, success: @escaping (Participants?)->(), error:((String) -> ())? = nil) {
         let paramenters: [String: Any] = ["user_id": userId, "idea_id": ideaId]
-        self.serviceManager.useAuthService(url: api.url.idea.registerParticipant(ideaId), method: .post, parameters: paramenters) { (json) in
+      self.serviceManager.useService(url: api.url.idea.registerParticipant(ideaId), method: .post, parameters: paramenters, completion: nil , result: { (json, errorMessage) in
             if let json = json {
                 success(Participants(data: json))
             } else {
-                success(nil)
+               error?(errorMessage!)
             }
-        }
+        })
     }
 }

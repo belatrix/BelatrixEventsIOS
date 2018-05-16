@@ -11,6 +11,7 @@ import UIKit
 class MoreVC : UIViewController {
   
   @IBOutlet weak var staffConstraint : NSLayoutConstraint!
+  @IBOutlet weak var moderatorConstraint : NSLayoutConstraint!
   let constantHeight : CGFloat = 70.0
   
   var currentUser : User?  {
@@ -29,23 +30,11 @@ class MoreVC : UIViewController {
   
   func setupViews(){
     if let user = currentUser {
-      if user.isStaff! {
-        staffConstraint.constant = constantHeight
-      } else {
-        staffConstraint.constant = 0
-      }
+       staffConstraint.constant = user.isStaff! ? constantHeight : 0
+       moderatorConstraint.constant = user.isModerator! ? constantHeight : 0
     } else {
       staffConstraint.constant = 0
     }
   }
-  
-  @IBAction func actionOrganizer() {
-    performSegue(withIdentifier: "showStaffSegue", sender: "test")
-  }
-  
-  @IBAction func actionAbout() {
-    performSegue(withIdentifier: "showAboutSegue", sender: nil)
-  }
-
-  
+ 
 }
