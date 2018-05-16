@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -115,7 +115,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pZ3-ps-bXR"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Más opciones" id="PFp-fT-KCi"/>
+                    <navigationItem key="navigationItem" title="Más opciones" id="PFp-fT-KCi">
+                        <barButtonItem key="backBarButtonItem" title=" " id="NjF-xJ-d8y"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="staffConstraint" destination="02D-8P-8oj" id="U8C-rk-4Hr"/>
                         <segue destination="evJ-tp-hpW" kind="show" identifier="showAboutSegue" id="DbV-2c-2xc"/>
@@ -272,14 +274,14 @@
                                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                                     <subviews>
                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tft-wQ-zZl">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                                                            <rect key="frame" x="20" y="0.0" width="60" height="60"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="width" constant="60" id="7hD-Vh-zvg"/>
                                                                                                 <constraint firstAttribute="height" constant="60" id="RE2-mj-o1S"/>
                                                                                             </constraints>
                                                                                         </imageView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IU4-Kr-AjK">
-                                                                                            <rect key="frame" x="0.0" y="65" width="0.0" height="35"/>
+                                                                                            <rect key="frame" x="34.5" y="65" width="31" height="35"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
@@ -340,7 +342,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HSd-jU-YXP"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Acerca de" id="Xhz-9P-sFY"/>
+                    <navigationItem key="navigationItem" title="Acerca de" id="Xhz-9P-sFY">
+                        <barButtonItem key="backBarButtonItem" title=" " id="3TT-lw-9DQ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionViewContributors" destination="KRM-0C-xh9" id="PRk-6v-dvX"/>
                     </connections>

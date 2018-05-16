@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JV3-l9-YHu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JV3-l9-YHu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,7 +42,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cfl-IE-fP0"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Escanear código" id="ECP-I6-oqp"/>
+                    <navigationItem key="navigationItem" title="Escanear código" id="ECP-I6-oqp">
+                        <barButtonItem key="backBarButtonItem" title=" " id="3yd-9v-IlN"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="KVQ-EH-Lp7" id="1ko-uj-4OO"/>
                         <outlet property="scanView" destination="6Sn-DJ-vg7" id="Dk6-Go-WpT"/>
@@ -70,9 +72,7 @@
                                             <color key="titleColor" red="0.12293704599999999" green="0.2824874818" blue="0.56914299729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Hf7-Wv-0kn" kind="show" id="Zz1-zJ-9RI">
-                                                <nil key="action"/>
-                                            </segue>
+                                            <segue destination="Hf7-Wv-0kn" kind="show" id="Zz1-zJ-9RI"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="qWX-FV-WBi">
@@ -114,7 +114,7 @@
                         <viewLayoutGuide key="safeArea" id="7y7-dh-2BI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Organizador" id="S1H-T1-MVN">
-                        <barButtonItem key="backBarButtonItem" title=" " id="Tpy-Ye-Kt7"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="Qws-0E-WIm"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9s-SU-2rO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -168,7 +168,7 @@
                         <viewLayoutGuide key="safeArea" id="Qhs-Lm-TGT"/>
                     </view>
                     <navigationItem key="navigationItem" title="Registrar asistencia" id="oBr-UK-sYQ">
-                        <barButtonItem key="backBarButtonItem" title=" " id="eYo-Lh-vbE"/>
+                        <barButtonItem key="backBarButtonItem" title="  " id="eYo-Lh-vbE"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="LSd-kS-KqO" id="p5q-Vk-kuK"/>

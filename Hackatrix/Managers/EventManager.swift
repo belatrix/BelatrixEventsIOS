@@ -114,7 +114,7 @@ class EventManager: NSObject {
   }
   
   func registerAttendance(token: String?, email: String, meetingId: Int, error:((String) -> ())? = nil, completion: ((_ user: User) -> Void)? = nil) {
-    self.serviceManager.useService(url: api.url.event.meetingAttendance, method: .post, parameters: ["user_email": email, "meeting_id": meetingId], completion: nil, result: { (json, errorMessage) in
+    self.serviceManager.useService(url: api.url.event.meetingAttendance, method: .post, parameters: ["user_email": email, "meeting_id": meetingId], token: token, completion: nil, result: { (json, errorMessage) in
       if let json = json {
         if let completion = completion {
           let jsonUser = json.dictionaryValue["user"]!
