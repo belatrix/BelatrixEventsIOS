@@ -13,6 +13,7 @@ import AlamofireImage
 import SwiftyJSON
 import SafariServices
 import MapKit
+import SVProgressHUD
 
 enum DetailTab {
     case Information
@@ -126,8 +127,10 @@ class DetailVC: UIViewController {
     }
 
     func getProjects() {
+        SVProgressHUD.show()
         if let eventID = self.detailEvent?.id {
             ProjectManager.shared.getProjects(eventID: eventID) { (projects) in
+                SVProgressHUD.dismiss()
                 self.projects = projects
                 self.sortedProjects = projects.sorted(by: { (p1, p2) -> Bool in
                     let votes1 = p1.votes ?? 0
@@ -208,7 +211,7 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
                 if let ideaCell = tableView.dequeueReusableCell(withIdentifier: "IdeaTableViewCell", for: indexPath) as? IdeaTableViewCell {
                     let idea = self.ideas?[indexPath.row]
                     ideaCell.titleLabel.text = idea?.title
-                    ideaCell.descriptionLabel.text = idea?.description
+                    ideaCell.descriptionLabel.text = idea?.ideaDescription
                     return ideaCell
                 }
             }
@@ -240,6 +243,7 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if self.currentTab == .Ideas {
             self.performSegue(withIdentifier: K.segue.project, sender: indexPath)
         } else {

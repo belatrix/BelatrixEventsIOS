@@ -8,19 +8,21 @@
 
 import SwiftyJSON
 
-struct Idea: Codable {
+class Idea: NSObject {
     
     let id: Int?
     let title: String?
-    var description: String?
+    var ideaDescription: String?
     var isCompleted: Bool?
     var isValid: Bool?
+    var author: User?
     
     init(data: JSON) {
         self.id = data["id"].int
         self.title = data["title"].string
-        self.description = data["description"].string
+        self.ideaDescription = data["description"].string
         self.isValid = data["is_valid"].bool
         self.isCompleted = data["is_completed"].bool
+        self.author = User(data: data["author"])
     }
 }
