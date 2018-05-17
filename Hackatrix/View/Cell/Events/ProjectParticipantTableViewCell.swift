@@ -14,5 +14,6 @@ class ProjectParticipantTableViewCell: UITableViewCell {
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var role: UILabel!
-    
+    @IBOutlet weak var isActive: UISwitch!
+
 }

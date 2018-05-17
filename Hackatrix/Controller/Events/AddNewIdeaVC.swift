@@ -8,11 +8,15 @@
 
 import UIKit
 
+protocol AddNewIdeaDelegate: class {
+    func complete()
+}
 class AddNewIdeaVC: UIViewController {
     
     @IBOutlet weak var txtTitle: UITextField!
     @IBOutlet weak var txtDescription: UITextView!
     var eventId: Int?
+    weak var delegate: AddNewIdeaDelegate?
     
     //MARK: - IBActions
 
@@ -50,6 +54,7 @@ class AddNewIdeaVC: UIViewController {
             //idea created
             let alertController = UIAlertController(title: "", message: "La idea fue ingresada exitosamente y será revisada por los moderadores en breve.", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .default){ (action:UIAlertAction!) in
+                self?.delegate?.complete()
                 self?.navigationController?.popViewController(animated: true)
             }
             alertController.addAction(defaultAction)

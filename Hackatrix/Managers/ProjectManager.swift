@@ -51,6 +51,25 @@ class ProjectManager: NSObject {
         }
     }
     
+    func getUserIdeas(completion: ((_ response: [Idea]) -> Void)? = nil) {
+        self.serviceManager.useService(url: api.url.user.ideas, method: .get, parameters: nil) { (json) in
+            if let completion = completion {
+                var ideaList: [Idea] = []
+                if let json = json, json.array?.count ?? 0 > 0 {
+                    guard let _ = json.error else {
+                        for (_, subJson): (String, JSON) in json {
+                            ideaList.append(Idea(data: subJson))
+                        }
+                        completion(ideaList)
+                        return
+                    }
+                    completion(ideaList)
+                }
+                completion(ideaList)
+            }
+        }
+    }
+    
     func createIdea(eventID: Int, title: String, description: String, error: @escaping () -> (), success: @escaping (Idea) -> ()) {
         if let userId = UserManager.shared.currentUser?.id {
             let paramenters: [String: Any] = ["author": userId, "event": eventID, "title": title, "description": description]
@@ -123,14 +142,26 @@ class ProjectManager: NSObject {
         })
     }
     
-  func registerParticipantWithId(_ userId: Int, ideaId: Int, success: @escaping (Participants?)->(), error:((String) -> ())? = nil) {
+    func registerParticipantWithId(_ userId: Int, ideaId: Int, success: @escaping (Participants?)->(), error:((String) -> ())? = nil) {
         let paramenters: [String: Any] = ["user_id": userId, "idea_id": ideaId]
-      self.serviceManager.useService(url: api.url.idea.registerParticipant(ideaId), method: .post, parameters: paramenters, completion: nil , result: { (json, errorMessage) in
+        self.serviceManager.useService(url: api.url.idea.registerParticipant(ideaId), method: .post, parameters: paramenters, completion: nil , result: { (json, errorMessage) in
             if let json = json {
                 success(Participants(data: json))
             } else {
-               error?(errorMessage!)
+                error?(errorMessage!)
             }
         })
     }
+    
+    func approveCandidateWithId(_ userId: Int, ideaId: Int, success: @escaping (Bool)->(), error:((String) -> ())? = nil) {
+        let paramenters: [String: Any] = ["user_id": userId, "idea_id": ideaId]
+        self.serviceManager.useService(url: api.url.idea.approveCandidateWithIdeaId(ideaId), method: .post, parameters: paramenters, completion: nil , result: { (json, errorMessage) in
+            if let _ = json {
+                success(true)
+            } else {
+                error?(errorMessage!)
+            }
+        })
+    }
+    
 }

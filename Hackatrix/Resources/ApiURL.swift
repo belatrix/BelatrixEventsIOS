@@ -59,6 +59,7 @@ struct api {
             static let logout = "\(root)/user/logout/"
             static let updateProfile = "\(root)/user/update/"
             static let roles = "\(root)/user/role/list/"
+            static let ideas = "\(root)/user/ideas/"
         }
         struct idea {
             static let create = "\(root)/idea/create/"
@@ -79,6 +80,9 @@ struct api {
             }
             static func unregisterCandidate(_ id: Int) -> String {
                 return "\(root)/idea/\(id)/unregister/candidate/"
+            }
+            static func approveCandidateWithIdeaId(_ id: Int) -> String {
+                return "\(root)/idea/\(id)/candidate/approval/switch/"
             }
         }
     }

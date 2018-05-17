@@ -25,6 +25,7 @@ struct K {
         static let selectCity = "selectCitySegue"
         static let newIdea = "newIdeaSegue"
         static let project = "projectSegue"
+        static let myIdeas = "myIdeasSegue"
         static let login = "loginSegue"
         static let createAccount = "createAccountSegue"
         static let forgotPassword = "forgotPasswordSegue"

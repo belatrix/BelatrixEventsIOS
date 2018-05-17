@@ -60,8 +60,8 @@ class DetailVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ProjectDetailVC, segue.identifier == K.segue.project, let indexPath = sender as? IndexPath {
             destination.idea = self.ideas?[indexPath.row]
-        } else if let addNewIdeaVC = segue.destination as? AddNewIdeaVC, segue.identifier == K.segue.newIdea {
-            addNewIdeaVC.eventId = detailEvent?.id
+        } else if let myIdeasVC = segue.destination as? MyIdeasVC, segue.identifier == K.segue.myIdeas {
+            myIdeasVC.detailEvent = detailEvent
         }
     }
     
@@ -178,8 +178,8 @@ class DetailVC: UIViewController {
         }
     }
 
-    func addNewIdea() {
-        self.performSegue(withIdentifier: K.segue.newIdea, sender: nil)
+    func goToMyIdeas() {
+        self.performSegue(withIdentifier: K.segue.myIdeas, sender: nil)
     }
 }
 
@@ -204,7 +204,7 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
         if self.currentTab == .Ideas {
             if indexPath.row == ideas?.count {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "AddIdeaTableViewCell", for: indexPath) as? AddIdeaTableViewCell {
-                    cell.btnAddIdea.addTarget(self, action: #selector(DetailVC.addNewIdea), for: .touchUpInside)
+                    cell.btnAddIdea.addTarget(self, action: #selector(DetailVC.goToMyIdeas), for: .touchUpInside)
                     return cell
                 }
             } else {
