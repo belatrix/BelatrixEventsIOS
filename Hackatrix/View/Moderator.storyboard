@@ -81,7 +81,7 @@
         <!--Gestionar Ideas-->
         <scene sceneID="eLv-om-OfM">
             <objects>
-                <viewController id="mVL-4P-rzx" customClass="AttendanceListVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mVL-4P-rzx" customClass="ModeratorEventListVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwu-w6-rUm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +90,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="eventRegisterCell" textLabel="Gqf-hy-dp3" rowHeight="80" style="IBUITableViewCellStyleDefault" id="eER-yb-Ns3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="eventCell" textLabel="Gqf-hy-dp3" rowHeight="80" style="IBUITableViewCellStyleDefault" id="eER-yb-Ns3">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eER-yb-Ns3" id="0Ur-Ef-F49">
@@ -139,16 +139,16 @@
         <!--Ideas-->
         <scene sceneID="ENU-ph-ZWM">
             <objects>
-                <viewController id="Uip-YZ-ass" customClass="AttendanceListVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Uip-YZ-ass" customClass="ModeratorIdeaListVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D1Y-WW-Iym">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BXh-jJ-Acd">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="67" width="375" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="eventRegisterCell" textLabel="bw8-kY-LtR" rowHeight="80" style="IBUITableViewCellStyleDefault" id="HeA-wL-wLy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ideaCell" textLabel="bw8-kY-LtR" rowHeight="80" style="IBUITableViewCellStyleDefault" id="HeA-wL-wLy">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HeA-wL-wLy" id="PGG-iq-aen">
@@ -172,11 +172,20 @@
                                     <outlet property="delegate" destination="Uip-YZ-ass" id="QuJ-22-KaS"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6e-rP-bG1">
+                                <rect key="frame" x="20" y="28" width="335" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="K6J-Vi-jYt" firstAttribute="trailing" secondItem="K6e-rP-bG1" secondAttribute="trailing" constant="20" id="4yu-EI-Wjd"/>
+                            <constraint firstItem="BXh-jJ-Acd" firstAttribute="top" secondItem="K6e-rP-bG1" secondAttribute="bottom" constant="15" id="7Vs-bn-rjC"/>
                             <constraint firstItem="BXh-jJ-Acd" firstAttribute="leading" secondItem="K6J-Vi-jYt" secondAttribute="leading" id="O5j-f0-Age"/>
-                            <constraint firstItem="BXh-jJ-Acd" firstAttribute="top" secondItem="K6J-Vi-jYt" secondAttribute="top" id="asV-Kw-JDx"/>
+                            <constraint firstItem="K6e-rP-bG1" firstAttribute="top" secondItem="K6J-Vi-jYt" secondAttribute="top" constant="8" id="UkD-cc-MxO"/>
+                            <constraint firstItem="K6e-rP-bG1" firstAttribute="leading" secondItem="K6J-Vi-jYt" secondAttribute="leading" constant="20" id="aOn-Oh-LeS"/>
                             <constraint firstItem="K6J-Vi-jYt" firstAttribute="trailing" secondItem="BXh-jJ-Acd" secondAttribute="trailing" id="lx6-Du-aCg"/>
                             <constraint firstItem="K6J-Vi-jYt" firstAttribute="bottom" secondItem="BXh-jJ-Acd" secondAttribute="bottom" id="o77-N5-Dtj"/>
                         </constraints>
@@ -187,12 +196,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="BXh-jJ-Acd" id="EM4-ak-YAK"/>
+                        <outlet property="titleLabel" destination="K6e-rP-bG1" id="yQs-c2-d7q"/>
                         <segue destination="88Y-n7-bv4" kind="show" identifier="showDetailIdea" id="xqu-aw-bw6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbG-gq-99s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1822" y="-397"/>
+            <point key="canvasLocation" x="1821.5999999999999" y="-397.15142428785612"/>
         </scene>
         <!--Detalle-->
         <scene sceneID="Ixt-xz-e88">

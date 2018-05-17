@@ -96,8 +96,8 @@ class EventManager: NSObject {
         }
     }
   
-  func getMeetingList(token: String?, error:((String) -> ())? = nil, completion: ((_ meetings: [Meeting]) -> Void)? = nil) {
-    self.serviceManager.useService(url: api.url.event.meetingList, method: .get, parameters:nil, token : token , completion: nil, result: { (json, errorMessage) in
+  func getMeetingList(error:((String) -> ())? = nil, completion: ((_ meetings: [Meeting]) -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.event.meetingList, method: .get, parameters:nil, completion: nil, result: { (json, errorMessage) in
       if let json = json {
         if let completion = completion {
           let arrayValues = json.arrayValue

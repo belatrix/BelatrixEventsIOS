@@ -1,8 +1,8 @@
 //
-//  AttendanceListVC.swift
+//  ModeratorIdeaListVC.swift
 //  Hackatrix
 //
-//  Created by Diego Enrique Velasquez Lopez on 5/15/18.
+//  Created by Diego Velasquez on 5/16/18.
 //  Copyright © 2018 Belatrix. All rights reserved.
 //
 
@@ -10,10 +10,12 @@ import UIKit
 import SVProgressHUD
 import SwiftKeychainWrapper
 
-class AttendanceListVC : UIViewController {
+class ModeratorIdeaListVC : UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-  var elements: [Meeting] = [] {
+  @IBOutlet weak var titleLabel: UILabel!
+  var event: Event!
+  var elements: [Idea] = [] {
     didSet {
       tableView.reloadData()
     }
@@ -21,41 +23,39 @@ class AttendanceListVC : UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    getMeetingList()
+    titleLabel.text = event.title
+    getIdeaList()
   }
   
-  func getMeetingList() {
+  func getIdeaList() {
     SVProgressHUD.show()
-    EventManager.shared.getMeetingList(error: { errorMessage in
-      print("error")
+    ProjectManager.shared.getIdeas(eventID: event.id!) {(ideaList) in
       SVProgressHUD.dismiss()
-    }) {(meetingList) in
-      SVProgressHUD.dismiss()
-      self.elements = meetingList
-    
+      self.elements = ideaList
     }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*
     if segue.identifier == K.segue.qrReader {
       let dvc = segue.destination as! QRReaderVC
       dvc.meeting = sender as! Meeting
-    }
+    }*/
   }
 }
 
 
-extension AttendanceListVC: UITableViewDataSource , UITableViewDelegate {
+extension ModeratorIdeaListVC: UITableViewDataSource , UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let meeting  = elements[indexPath.row]
-        performSegue(withIdentifier: K.segue.qrReader, sender: meeting)
+    let meeting  = elements[indexPath.row]
+    performSegue(withIdentifier: K.segue.qrReader, sender: meeting)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "eventRegisterCell", for: indexPath)
-    let meeting  = elements[indexPath.row]
-    cell.textLabel?.text = meeting.name
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ideaCell", for: indexPath)
+    let idea  = elements[indexPath.row]
+    cell.textLabel?.text = idea.title
     return cell
   }
   
@@ -63,3 +63,4 @@ extension AttendanceListVC: UITableViewDataSource , UITableViewDelegate {
     return elements.count
   }
 }
+

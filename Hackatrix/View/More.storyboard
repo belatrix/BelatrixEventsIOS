@@ -134,7 +134,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Prr-xc-q1x" firstAttribute="top" secondItem="dTY-se-hrt" secondAttribute="top" constant="5" id="4cq-0U-CJm"/>
-                                    <constraint firstAttribute="height" constant="70" id="5fF-iK-eOv"/>
+                                    <constraint firstAttribute="height" constant="70" id="6xj-9o-VTK"/>
                                     <constraint firstAttribute="trailing" secondItem="Prr-xc-q1x" secondAttribute="trailing" constant="5" id="Hdv-6l-mGL"/>
                                     <constraint firstAttribute="bottom" secondItem="Prr-xc-q1x" secondAttribute="bottom" constant="5" id="Jzd-eE-NFf"/>
                                     <constraint firstAttribute="bottom" secondItem="h6D-yU-4gp" secondAttribute="bottom" id="Roc-KL-8fP"/>
@@ -164,7 +164,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="NjF-xJ-d8y"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="moderatorConstraint" destination="5fF-iK-eOv" id="qlg-k6-0AS"/>
+                        <outlet property="moderatorConstraint" destination="5Rf-Uk-wZV" id="xLN-l9-egk"/>
                         <outlet property="staffConstraint" destination="02D-8P-8oj" id="U8C-rk-4Hr"/>
                     </connections>
                 </viewController>

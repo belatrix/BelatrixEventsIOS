@@ -34,6 +34,7 @@ class MoreVC : UIViewController {
        moderatorConstraint.constant = user.isModerator! ? constantHeight : 0
     } else {
       staffConstraint.constant = 0
+      moderatorConstraint.constant = 0
     }
   }
  

@@ -30,6 +30,7 @@ struct K {
         static let forgotPassword = "forgotPasswordSegue"
         static let updateProfile = "updateProfileSegue"
         static let qrReader = "showQRReaderSegue"
+        static let moderatorIdeas = "showIdeasSegue"
     }
     struct cell {
         static let menu = "itemMenuCell"
