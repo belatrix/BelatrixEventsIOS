@@ -74,6 +74,10 @@ class ProjectDetailVC: UIViewController {
         return false
     }
     
+    func isRegisterButtonEnable() -> Bool {
+        return isUserLogged && !isAuthor() && !(participants?.isRegistered ?? false)
+    }
+    
     func setUIElements() {
         self.title = idea?.title
         if(!isAuthor()) {
@@ -227,7 +231,7 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
         } else if section == IdeaVCSections.participants.rawValue {
             //participants
             let participantsCount = participants?.teamMembers.count ?? 0
-            if isUserLogged && !isAuthor() && candidates?.isCandidate ?? false {
+            if isRegisterButtonEnable() {
                 return participantsCount + 1
             } else{
                 return participantsCount
@@ -263,7 +267,7 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         case IdeaVCSections.participants.rawValue:
-            if indexPath.row == 0 && isUserLogged && !isAuthor() {
+            if indexPath.row == 0 && isRegisterButtonEnable() {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectSubscribeTableViewCell", for: indexPath) as? ProjectSubscribeTableViewCell {
                     cell.btnSubscribe.addTarget(self, action: #selector(ProjectDetailVC.subscribe), for: .touchUpInside)
                     if candidates?.isCandidate ?? false {
@@ -279,7 +283,7 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
                 }
             } else {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectParticipantTableViewCell", for: indexPath) as? ProjectParticipantTableViewCell {
-                    let offset = (isUserLogged && !isAuthor()) ? 1 : 0
+                    let offset = isRegisterButtonEnable() ? 1 : 0
                     let participant = participants?.teamMembers[indexPath.row - offset]
                     cell.name.text = participant?.fullName
                     cell.email.text = participant?.email
