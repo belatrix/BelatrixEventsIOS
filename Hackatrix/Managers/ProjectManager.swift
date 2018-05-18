@@ -50,6 +50,25 @@ class ProjectManager: NSObject {
             }
         }
     }
+  
+  func getIdeasWithoutFilter(eventID: Int, completion: ((_ response: [Idea]) -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.idea.ideaWithoutFilterList(eventID: eventID), method: .get, parameters: nil) { (json) in
+      if let completion = completion {
+        var ideaList: [Idea] = []
+        if let json = json, json.array?.count ?? 0 > 0 {
+          guard let _ = json.error else {
+            for (_, subJson): (String, JSON) in json {
+              ideaList.append(Idea(data: subJson))
+            }
+            completion(ideaList)
+            return
+          }
+          completion(ideaList)
+        }
+        completion(ideaList)
+      }
+    }
+  }
     
     func getUserIdeas(completion: ((_ response: [Idea]) -> Void)? = nil) {
         self.serviceManager.useService(url: api.url.user.ideas, method: .get, parameters: nil) { (json) in

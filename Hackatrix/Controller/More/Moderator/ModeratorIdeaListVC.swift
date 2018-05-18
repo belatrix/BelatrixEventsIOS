@@ -29,7 +29,7 @@ class ModeratorIdeaListVC : UIViewController {
   
   func getIdeaList() {
     SVProgressHUD.show()
-    ProjectManager.shared.getIdeas(eventID: event.id!) {(ideaList) in
+    ProjectManager.shared.getIdeasWithoutFilter(eventID: event.id!) {(ideaList) in
       SVProgressHUD.dismiss()
       self.elements = ideaList
     }

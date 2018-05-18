@@ -27,6 +27,9 @@ class ServiceManager: NSObject {
         let tokenFromLocal: String? = KeychainWrapper.standard.string(forKey: K.keychain.tokenKey)
         var headers : HTTPHeaders?
         if let customToken = tokenFromLocal {
+          if self.debugLog {
+            print("token: \(customToken)")
+          }
           headers = [
           "Authorization": "Token \(customToken)"
           ]

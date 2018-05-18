@@ -49,7 +49,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDD-ST-Cko">
                                                 <rect key="frame" x="50" y="314" width="220" height="50"/>
-                                                <color key="backgroundColor" red="0.12156862745098039" green="0.28235294117647058" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.8980392157" green="0.2470588235" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="fZR-mH-xfL"/>
                                                 </constraints>
@@ -61,7 +61,7 @@
                                                     <action selector="loginButtonPressed:" destination="Eo2-Zw-TGT" eventType="touchUpInside" id="OrZ-K2-7D1"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMedium" translatesAutoresizingMaskIntoConstraints="NO" id="AtN-fx-k2s">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_logo" translatesAutoresizingMaskIntoConstraints="NO" id="AtN-fx-k2s">
                                                 <rect key="frame" x="123" y="0.0" width="75" height="77"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="d9c-bx-3bs"/>
@@ -216,7 +216,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zec-Rg-XSS">
                                                 <rect key="frame" x="50" y="345" width="220" height="50"/>
-                                                <color key="backgroundColor" red="0.1215686275" green="0.28235294119999998" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.89803921568627454" green="0.24705882352941178" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Hlk-xg-dfn"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="wub-77-jF4"/>
@@ -240,7 +240,7 @@
                                                     <action selector="logOutButtonPressed:" destination="Eo2-Zw-TGT" eventType="touchUpInside" id="jOY-pT-4jD"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMedium" translatesAutoresizingMaskIntoConstraints="NO" id="DHN-NG-tAQ">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_logo" translatesAutoresizingMaskIntoConstraints="NO" id="DHN-NG-tAQ">
                                                 <rect key="frame" x="123" y="0.0" width="75" height="77"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="DHN-NG-tAQ" secondAttribute="height" multiplier="83:85" id="3tv-sy-F2f"/>
@@ -352,7 +352,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzp-Mo-Zxh">
                                 <rect key="frame" x="50" y="323" width="220" height="50"/>
-                                <color key="backgroundColor" red="0.1215686275" green="0.28235294119999998" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.2470588235" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kBN-Jm-P4S"/>
                                 </constraints>
@@ -364,7 +364,7 @@
                                     <action selector="createAccountPressed:" destination="UyO-IJ-wxg" eventType="touchUpInside" id="cMS-xZ-3V3"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMedium" translatesAutoresizingMaskIntoConstraints="NO" id="kEw-4P-iCn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_logo" translatesAutoresizingMaskIntoConstraints="NO" id="kEw-4P-iCn">
                                 <rect key="frame" x="123" y="74" width="75" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kEw-4P-iCn" secondAttribute="height" multiplier="83:85" id="GQs-VH-j3i"/>
@@ -426,7 +426,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFA-O6-HCr">
                                 <rect key="frame" x="50" y="323" width="220" height="50"/>
-                                <color key="backgroundColor" red="0.1215686275" green="0.28235294119999998" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.2470588235" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gNY-kV-kM6"/>
                                 </constraints>
@@ -438,7 +438,7 @@
                                     <action selector="fogotPasswordPressed:" destination="beB-am-Z5E" eventType="touchUpInside" id="Stc-y7-YZA"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMedium" translatesAutoresizingMaskIntoConstraints="NO" id="4vn-fn-vhs">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_logo" translatesAutoresizingMaskIntoConstraints="NO" id="4vn-fn-vhs">
                                 <rect key="frame" x="123" y="74" width="75" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Tig-KO-U8V"/>
@@ -494,7 +494,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nno-xd-8gO">
                                 <rect key="frame" x="50" y="367" width="220" height="50"/>
-                                <color key="backgroundColor" red="0.12293704599999999" green="0.2824874818" blue="0.56914299729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.2470588235" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="U7q-Bt-7ZL"/>
                                 </constraints>
@@ -506,7 +506,7 @@
                                     <action selector="updateProfilePressed:" destination="rdc-0q-0I3" eventType="touchUpInside" id="jys-D1-t42"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMedium" translatesAutoresizingMaskIntoConstraints="NO" id="IcW-ha-FP2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_logo" translatesAutoresizingMaskIntoConstraints="NO" id="IcW-ha-FP2">
                                 <rect key="frame" x="123" y="74" width="75" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="HwN-Yl-fEG"/>
@@ -594,6 +594,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LogoMedium" width="150" height="151"/>
+        <image name="app_logo" width="114" height="114"/>
     </resources>
 </document>

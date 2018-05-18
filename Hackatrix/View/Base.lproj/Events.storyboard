@@ -371,7 +371,7 @@
                                             <segment title="Ideas"/>
                                             <segment title="Votación"/>
                                         </segments>
-                                        <color key="tintColor" red="0.1019607843" green="0.30980392159999998" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.8980392157" green="0.2470588235" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="segmentedControlValueChanged:" destination="49V-1t-foI" eventType="valueChanged" id="Mdk-25-3ef"/>
                                         </connections>
