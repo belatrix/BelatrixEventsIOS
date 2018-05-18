@@ -22,7 +22,7 @@ class ProjectDetailVC: UIViewController {
     var currentUser: User?
     var participants: Participants? {
         didSet {
-          tableView.reloadData()
+            tableView.reloadData()
         }
     }
     var candidates: Candidates? {
@@ -31,28 +31,71 @@ class ProjectDetailVC: UIViewController {
         }
     }
     var isUserLogged = false
-
+    var isFromModarator = false
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ProjectDetailVC.handleRefresh(_:)),for: UIControlEvents.valueChanged)
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         self.getParticipants()
+        self.getCandidates()
         super.viewDidLoad()
         //load logged user
         currentUser = UserManager.shared.currentUser
         isUserLogged = currentUser != nil
         tableView.estimatedRowHeight = 66
+        tableView.addSubview(refreshControl)
         self.setUIElements()
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? AddNewIdeaVC, segue.identifier == K.segue.editIdea {
+            destination.idea = idea
+            destination.delegate = self
+        }
+    }
+    
+    @IBAction func editPressed(_ sender: Any) {
+        performSegue(withIdentifier: K.segue.editIdea, sender: self)
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.getParticipants(pullToRefresh: true)
+        self.getCandidates()
+    }
+    
+    func isAuthor() -> Bool {
+        if let userId = currentUser?.id, let authorId = idea?.author?.id {
+            return userId == authorId
+        }
+        return false
+    }
+    
     func setUIElements() {
         self.title = idea?.title
+        if(!isAuthor()) {
+            navigationItem.rightBarButtonItem = nil
+        }
     }
-
-    func getParticipants() {
+    
+    func getParticipants(pullToRefresh:Bool = false) {
         guard let id = idea?.id else {
             return
         }
-        SVProgressHUD.show()
+        
+        if !pullToRefresh {
+            SVProgressHUD.show()
+        }
         ProjectManager.shared.getParticipants(ideaId: id) { [weak self] (participants) in
             SVProgressHUD.dismiss()
+            if pullToRefresh {
+                self?.refreshControl.endRefreshing()
+            } else {
+                SVProgressHUD.dismiss()
+            }
             self?.participants = participants
         }
     }
@@ -66,61 +109,106 @@ class ProjectDetailVC: UIViewController {
         }
     }
     
-  func showErrorAlert(errorMessage: String? = "No se pudo completar su solicitud") {
+    func approveCandidate(_ user: User) {
+        guard let id = idea?.id, let userId = user.id else {
+            return
+        }
+        ProjectManager.shared.approveCandidateWithId(userId, ideaId: id, success: {[weak self] (sucess) in
+            //refresh participants
+            self?.getParticipants()
+        }) {[weak self] (error) in
+            self?.showErrorAlert(errorMessage: error)
+        }
+    }
+    
+    func unregisterParticipant(_ user: User) {
+        guard let id = idea?.id, let userId = user.id else {
+            return
+        }
+        ProjectManager.shared.unregisterParticipantWithId(userId, ideaId: id, success: {
+            (participants) in
+            self.participants = participants
+        }, error: { (errorMessage) in
+            self.showErrorAlert(errorMessage: errorMessage)
+        })
+    }
+    
+    func validateIdea(sender: AnyObject) {
+        //        validate idea
+    }
+    
+    func approveCandidate(sender: AnyObject) {
+        let uiSwitch = sender as! UISwitch
+        let row = uiSwitch.tag
+        if let candidate = candidates?.teamMembers[row] {
+            approveCandidate(candidate)
+        }
+    }
+    
+    func showErrorAlert(errorMessage: String? = "No se pudo completar su solicitud") {
         let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true, completion: nil)
     }
-
+    
     func subscribe() {
         guard let id = idea?.id, let userLoggedId = currentUser?.id else {
             return
         }
         if participants?.isRegistered ?? false {
             //unregister user as participant
-          ProjectManager.shared.unregisterParticipantWithId(userLoggedId, ideaId: id, success: {
-            (participants) in
-              self.participants = participants
-              let alertController = UIAlertController(title: "", message: "Su registro ha sido cancelado", preferredStyle: .alert)
-              let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-              alertController.addAction(defaultAction)
-              self.present(alertController, animated: true, completion: nil)
-            
-          }, error: { (errorMessage) in
+            ProjectManager.shared.unregisterParticipantWithId(userLoggedId, ideaId: id, success: {
+                (participants) in
+                self.participants = participants
+                let alertController = UIAlertController(title: "", message: "Su registro ha sido cancelado", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+            }, error: { (errorMessage) in
                 self.showErrorAlert(errorMessage: errorMessage)
-              })
+            })
         } else if candidates?.isCandidate ?? false {
             //unregister user as candidate
-          ProjectManager.shared.unregisterAsCandidate(ideaId: id , success: { (candidates) in
-                    self.candidates = candidates
-                    let alertController = UIAlertController(title: "Solictud cancelada", message: "Su solicitud de ingreso ha sido cancelada", preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
-            
-          }, error: { (errorMessage) in
-             self.showErrorAlert(errorMessage: errorMessage)
-          })
+            ProjectManager.shared.unregisterAsCandidate(ideaId: id , success: { (candidates) in
+                self.candidates = candidates
+                let alertController = UIAlertController(title: "Solictud cancelada", message: "Su solicitud de ingreso ha sido cancelada", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+            }, error: { (errorMessage) in
+                self.showErrorAlert(errorMessage: errorMessage)
+            })
         } else {
             //register user as candidate
-          ProjectManager.shared.registerAsCandidate(ideaId: id , success:  { (candidates) in
-                    self.candidates = candidates
-                    let alertController = UIAlertController(title: "Solictud enviada", message: "Su solicitud de ingreso ha sido enviada correctamente", preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
-          } , error : {
-            (errorMessage) in
-             self.showErrorAlert(errorMessage: errorMessage)
-          })
+            ProjectManager.shared.registerAsCandidate(ideaId: id , success:  { (candidates) in
+                self.candidates = candidates
+                let alertController = UIAlertController(title: "Solictud enviada", message: "Su solicitud de ingreso ha sido enviada correctamente", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+            } , error : {
+                (errorMessage) in
+                self.showErrorAlert(errorMessage: errorMessage)
+            })
         }
+    }
+}
+
+extension ProjectDetailVC: AddNewIdeaDelegate {
+    func complete(idea: Idea) {
+        //on idea edited complete
+        self.idea = idea
+        setUIElements()
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: UITableViewRowAnimation.automatic)
     }
 }
 
 extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return isAuthor() ? 3 : 2
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -128,46 +216,59 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
             return "Sobre la idea"
         } else if section == IdeaVCSections.participants.rawValue {
             return "Participantes"
+        } else if section == IdeaVCSections.candidates.rawValue {
+            return "Candidatos"
         } else {
             return ""
         }
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == IdeaVCSections.details.rawValue {
             //details cell
-            return 1
+            return isFromModarator ? 2 : 1
         } else if section == IdeaVCSections.participants.rawValue {
             //participants
             let participantsCount = participants?.teamMembers.count ?? 0
-            if isUserLogged {
+            if isUserLogged && !isAuthor() {
                 return participantsCount + 1
             } else{
                 return participantsCount
             }
+        } else if section == IdeaVCSections.candidates.rawValue {
+            //participants
+            return candidates?.teamMembers.count ?? 0
         } else {
             return 0
         }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         switch section {
         case IdeaVCSections.details.rawValue:
-            if let detailsCell = tableView.dequeueReusableCell(withIdentifier: "IdeaDetailsTableViewCell", for: indexPath) as? IdeaDetailsTableViewCell {
-                detailsCell.ideaDescription.text = idea?.ideaDescription
-                let author = idea?.author
-                detailsCell.authorName.text = author?.fullName
-                detailsCell.authorEmail.text = author?.email
-                detailsCell.authorRole.text = author?.role?.name
-                return detailsCell
+            if indexPath.row == 0 {
+                if let detailsCell = tableView.dequeueReusableCell(withIdentifier: "IdeaDetailsTableViewCell", for: indexPath) as? IdeaDetailsTableViewCell {
+                    detailsCell.ideaDescription.text = idea?.ideaDescription
+                    let author = idea?.author
+                    detailsCell.authorName.text = author?.fullName
+                    detailsCell.authorEmail.text = author?.email
+                    detailsCell.authorPhoneNumber.text = author?.phoneNumber
+                    detailsCell.authorRole.text = author?.role?.name
+                    return detailsCell
+                }
+            } else {
+                if let detailsCell = tableView.dequeueReusableCell(withIdentifier: "IdeaValidationTableViewCell", for: indexPath) as? IdeaValidationTableViewCell {
+                    let isIdeaValid = idea?.isValid ?? false
+                    detailsCell.ideaValidSwitch.setOn(isIdeaValid, animated: false)
+                    detailsCell.ideaValidSwitch.addTarget(self, action: #selector(self.validateIdea(sender:)), for: .valueChanged)
+                    return detailsCell
+                }
             }
-            return UITableViewCell()
         case IdeaVCSections.participants.rawValue:
-            if indexPath.row == 0 && isUserLogged {
+            if indexPath.row == 0 && isUserLogged && !isAuthor() {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectSubscribeTableViewCell", for: indexPath) as? ProjectSubscribeTableViewCell {
                     cell.btnSubscribe.addTarget(self, action: #selector(ProjectDetailVC.subscribe), for: .touchUpInside)
-                    
                     if participants?.isRegistered ?? false {
                         //user registered
                         cell.btnSubscribe.setTitle("Eliminar registro", for: .normal)
@@ -185,22 +286,40 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
                 }
             } else {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectParticipantTableViewCell", for: indexPath) as? ProjectParticipantTableViewCell {
-                    let offset = isUserLogged ? 1 : 0
+                    let offset = (isUserLogged && !isAuthor()) ? 1 : 0
                     let participant = participants?.teamMembers[indexPath.row - offset]
                     cell.name.text = participant?.fullName
                     cell.email.text = participant?.email
                     cell.phone.text = participant?.phoneNumber
                     cell.role.text = participant?.role?.name
+                    cell.isActive.isHidden = true
                     return cell
                 }
             }
-            return UITableViewCell()
+        case IdeaVCSections.candidates.rawValue:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectParticipantTableViewCell", for: indexPath) as? ProjectParticipantTableViewCell {
+                let candidate = candidates?.teamMembers[indexPath.row]
+                cell.name.text = candidate?.fullName
+                cell.email.text = candidate?.email
+                cell.phone.text = candidate?.phoneNumber
+                cell.role.text = candidate?.role?.name
+                let isParticipant = participants?.teamMembers.filter { $0.id == candidate?.id}.count ?? 0 > 0
+                cell.isActive.setOn(isParticipant, animated: false)
+                cell.isActive.isHidden = false
+                cell.isActive.tag = indexPath.row
+                cell.isActive.addTarget(self, action: #selector(self.approveCandidate(sender:)), for: .valueChanged)
+                return cell
+            }
+            break
         default:
             return UITableViewCell()
         }
+        return UITableViewCell()
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+
 }
+

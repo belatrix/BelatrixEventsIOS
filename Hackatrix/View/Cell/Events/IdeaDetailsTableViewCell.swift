@@ -17,3 +17,9 @@ class IdeaDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var authorRole: UILabel!
     
 }
+
+class IdeaValidationTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var ideaValidSwitch: UISwitch!
+    
+}

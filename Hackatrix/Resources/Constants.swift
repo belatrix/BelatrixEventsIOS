@@ -25,12 +25,14 @@ struct K {
         static let selectCity = "selectCitySegue"
         static let newIdea = "newIdeaSegue"
         static let project = "projectSegue"
+        static let myIdeas = "myIdeasSegue"
         static let login = "loginSegue"
         static let createAccount = "createAccountSegue"
         static let forgotPassword = "forgotPasswordSegue"
         static let updateProfile = "updateProfileSegue"
         static let qrReader = "showQRReaderSegue"
         static let moderatorIdeas = "showIdeasSegue"
+        static let editIdea = "editIdeaSegue"
     }
     struct cell {
         static let menu = "itemMenuCell"
