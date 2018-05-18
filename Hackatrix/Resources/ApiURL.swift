@@ -90,6 +90,9 @@ struct api {
             static func ideaValidationSwitch(_ id: Int) -> String {
               return "\(root)/idea/\(id)/validation/switch/"
             }
+            static func ideaWithoutFilterList(eventID id:Int) -> String {
+              return "\(root)/idea/draft/event/\(id)/list/"
+            }
         }
     }
 }

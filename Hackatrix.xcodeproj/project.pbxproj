@@ -179,6 +179,7 @@
 		F55B9CA520A936F400456228 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B9CA420A936F400456228 /* MoreVC.swift */; };
 		F5688CC020AE949A00B8AEE8 /* StaffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */; };
 		F56B87CB20AF24FB0055FF08 /* Notification+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B87CA20AF24FB0055FF08 /* Notification+Login.swift */; };
+		F574D55520AF7A3F00273446 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F574D55420AF7A3F00273446 /* Images.xcassets */; };
 		F58BD6D320ACD2F900C6C65C /* Moderator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */; };
 		F58BD6D420ACDFA900C6C65C /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32199CD20A7EA0C007C7457 /* Idea.swift */; };
 		F58BD6D520ACDFAA00C6C65C /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32199CD20A7EA0C007C7457 /* Idea.swift */; };
@@ -303,6 +304,7 @@
 		F55B9CA420A936F400456228 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffVC.swift; sourceTree = "<group>"; };
 		F56B87CA20AF24FB0055FF08 /* Notification+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Login.swift"; sourceTree = "<group>"; };
+		F574D55420AF7A3F00273446 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Moderator.storyboard; sourceTree = "<group>"; };
 		F593057320AD0B9D00A0415A /* ModeratorEventListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeratorEventListVC.swift; sourceTree = "<group>"; };
 		F593057520AD0DD900A0415A /* ModeratorIdeaListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeratorIdeaListVC.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				663418AA1EC0CD3200B26A7D /* View */,
 				663418791EC0CD1000B26A7D /* AppDelegate.swift */,
 				666F6ED51ECA042D0044A298 /* Hackatrix.entitlements */,
+				F574D55420AF7A3F00273446 /* Images.xcassets */,
 			);
 			path = Hackatrix;
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 				F55B9CA220A9335800456228 /* More.storyboard in Resources */,
 				66E68E511EC1FC5B00CCA811 /* GoogleService-Info.plist in Resources */,
 				663418841EC0CD1000B26A7D /* Assets.xcassets in Resources */,
+				F574D55520AF7A3F00273446 /* Images.xcassets in Resources */,
 				66DCA64E1ECCB6C300D86F9A /* Contributors.json in Resources */,
 				6634187F1EC0CD1000B26A7D /* Main.storyboard in Resources */,
 				F58BD6D320ACD2F900C6C65C /* Moderator.storyboard in Resources */,
