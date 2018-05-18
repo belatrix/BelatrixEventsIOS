@@ -14,7 +14,12 @@ import SwiftKeychainWrapper
 class ServiceManager: NSObject {
     static let shared = ServiceManager()
     var sessionManager: Alamofire.SessionManager?
+  #if DEBUG
     let debugLog = true
+  #else
+    let debugLog = false
+  #endif
+  
   
   func useService(url: String, method: HTTPMethod, parameters: Parameters?, token: String? = nil,  completion: ((_ response: JSON?) -> Void)? = nil ){
     useService(url: url, method: method, parameters: parameters, token: token , completion: completion , result: nil)
