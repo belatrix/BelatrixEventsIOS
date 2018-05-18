@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Se requiere usar la cámara para leer QR</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -27,6 +25,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Se requiere usar la cámara para leer QR</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
@@ -39,6 +39,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<false/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>
 	<key>UISupportedInterfaceOrientations</key>
