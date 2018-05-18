@@ -14,6 +14,7 @@ import FirebaseMessaging
 import Alamofire
 import SwiftyJSON
 import SVProgressHUD
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -49,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                selector: #selector(tokenRefreshNotification(notification:)),
                                                name: NSNotification.Name.InstanceIDTokenRefresh,
                                                object: nil)
-        
+        IQKeyboardManager.shared.enable = true
         return true
     }
     

@@ -30,6 +30,7 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
+  - IQKeyboardManagerSwift (6.0.3)
   - KMPlaceholderTextView (1.3.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - Firebase/Core
   - Firebase/Messaging
+  - IQKeyboardManagerSwift
   - KMPlaceholderTextView
   - PTPopupWebView
   - SideMenu
@@ -69,6 +71,7 @@ SPEC REPOS:
     - FirebaseInstanceID
     - FirebaseMessaging
     - GoogleToolboxForMac
+    - IQKeyboardManagerSwift
     - KMPlaceholderTextView
     - nanopb
     - Protobuf
@@ -89,6 +92,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
   FirebaseMessaging: f2360a966ecfb0d14facf0fbdf306efc2df0ddbe
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
   KMPlaceholderTextView: 2bbcd19a273648a80a61e1e48f9743a24d8930e3
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
@@ -99,6 +103,6 @@ SPEC CHECKSUMS:
   SwiftQRCode: 280589699d84195c2c573011aa52f2c015c31c34
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 1ea52f598f4e1f0a1ef9788e3fb7f4ec8bdfa176
+PODFILE CHECKSUM: c4beef2fe3028b5b41f03e91fdae80eaaffe2691
 
 COCOAPODS: 1.5.2
