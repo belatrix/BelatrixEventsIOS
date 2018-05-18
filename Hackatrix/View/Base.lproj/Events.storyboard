@@ -20,11 +20,11 @@
                         <viewControllerLayoutGuide type="bottom" id="AW4-4n-SAR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="n3T-80-bZf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k9P-Vu-Zhe">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-5O-sEN" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
@@ -335,11 +335,11 @@
             <objects>
                 <viewController id="49V-1t-foI" customClass="DetailVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Evv-Rw-SMf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0r8-Iw-t66">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k6v-HE-uNh">
                                         <rect key="frame" x="16" y="16" width="132" height="105.5"/>
@@ -627,11 +627,11 @@
             <objects>
                 <viewController title="Mis ideas" id="beK-rk-cSX" customClass="MyIdeasVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZBY-oI-vT8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W2V-Rd-Kn0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="xIb-qo-h3X">
                                     <rect key="frame" x="0.0" y="132" width="375" height="44"/>
@@ -743,16 +743,16 @@
             </objects>
             <point key="canvasLocation" x="1785" y="-767"/>
         </scene>
-        <!--Project DetailVC-->
+        <!--Title-->
         <scene sceneID="Zd9-wv-waA">
             <objects>
                 <viewController id="whO-la-xkr" customClass="ProjectDetailVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FmT-bT-tJy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1a4-bV-Zp0">
-                                <rect key="frame" x="10" y="0.0" width="355" height="603"/>
+                                <rect key="frame" x="10" y="64" width="355" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="GP3-LD-XAM">
                                     <rect key="frame" x="0.0" y="340" width="355" height="44"/>
@@ -971,8 +971,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ToZ-qd-enz"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="5sm-QF-enO">
+                        <barButtonItem key="rightBarButtonItem" title="Editar" id="PMg-Rq-aQY">
+                            <connections>
+                                <action selector="editPressed:" destination="whO-la-xkr" id="kkd-EX-tCa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="1a4-bV-Zp0" id="tIC-X9-WXU"/>
+                        <segue destination="pNV-In-ZCD" kind="show" identifier="editIdeaSegue" id="8Fn-0e-5A7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJ9-Md-MV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -984,11 +992,11 @@
             <objects>
                 <viewController storyboardIdentifier="AddNewIdeaVC" title="New Idea" id="pNV-In-ZCD" customClass="AddNewIdeaVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N74-SL-S3o">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Título" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hqZ-a2-f3r">
-                                <rect key="frame" x="24" y="16" width="327" height="35"/>
+                                <rect key="frame" x="24" y="80" width="327" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Wo6-dP-JXG"/>
                                 </constraints>
@@ -997,14 +1005,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Syl-pA-OVz">
-                                <rect key="frame" x="24" y="51" width="327" height="1"/>
+                                <rect key="frame" x="24" y="115" width="327" height="1"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="hfC-iw-ar9"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="X2t-SQ-ve2" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
-                                <rect key="frame" x="24" y="68" width="327" height="300"/>
+                                <rect key="frame" x="24" y="132" width="327" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="SwC-JM-pfx"/>
@@ -1155,7 +1163,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="EyE-ye-gEx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="swf-bc-Eik">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="swf-bc-Eik">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1185,6 +1193,7 @@
         <image name="TimeIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8Fn-0e-5A7"/>
         <segue reference="92P-g6-fiz"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -63,6 +63,9 @@ struct api {
         }
         struct idea {
             static let create = "\(root)/idea/create/"
+            static func edit(_ id:Int) -> String {
+                return "\(root)/idea/\(id)/"
+            }
             static func participants(_ id:Int) -> String {
                 return "\(root)/idea/\(id)/participants/"
             }

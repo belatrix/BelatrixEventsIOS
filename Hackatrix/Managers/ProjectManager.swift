@@ -85,6 +85,17 @@ class ProjectManager: NSObject {
         }
     }
     
+    func editIdea(ideaId: Int, title: String, description: String, error:((String) -> ())? = nil, success: @escaping (Idea) -> ()) {
+        let paramenters: [String: Any] = ["idea_id": ideaId, "title": title, "description": description]
+        self.serviceManager.useService(url: api.url.idea.edit(ideaId), method: .patch, parameters: paramenters, completion: nil , result: { (json, errorMessage) in
+            if let json = json {
+               success(Idea(data: json))
+            } else {
+                error?(errorMessage!)
+            }
+        })
+    }
+    
     func getParticipants(ideaId: Int, success: @escaping (Participants?) -> ()) {
         self.serviceManager.useService(url: api.url.idea.participants(ideaId), method: .get, parameters: nil) { (json) in
             if let json = json {

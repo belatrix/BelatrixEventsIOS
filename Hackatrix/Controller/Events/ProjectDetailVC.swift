@@ -33,6 +33,12 @@ class ProjectDetailVC: UIViewController {
     var isUserLogged = false
     var isFromModarator = false
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ProjectDetailVC.handleRefresh(_:)),for: UIControlEvents.valueChanged)
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         self.getParticipants()
         self.getCandidates()
@@ -41,7 +47,24 @@ class ProjectDetailVC: UIViewController {
         currentUser = UserManager.shared.currentUser
         isUserLogged = currentUser != nil
         tableView.estimatedRowHeight = 66
+        tableView.addSubview(refreshControl)
         self.setUIElements()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? AddNewIdeaVC, segue.identifier == K.segue.editIdea {
+            destination.idea = idea
+            destination.delegate = self
+        }
+    }
+    
+    @IBAction func editPressed(_ sender: Any) {
+        performSegue(withIdentifier: K.segue.editIdea, sender: self)
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.getParticipants(pullToRefresh: true)
+        self.getCandidates()
     }
     
     func isAuthor() -> Bool {
@@ -53,15 +76,26 @@ class ProjectDetailVC: UIViewController {
     
     func setUIElements() {
         self.title = idea?.title
+        if(!isAuthor()) {
+            navigationItem.rightBarButtonItem = nil
+        }
     }
     
-    func getParticipants() {
+    func getParticipants(pullToRefresh:Bool = false) {
         guard let id = idea?.id else {
             return
         }
-        SVProgressHUD.show()
+        
+        if !pullToRefresh {
+            SVProgressHUD.show()
+        }
         ProjectManager.shared.getParticipants(ideaId: id) { [weak self] (participants) in
             SVProgressHUD.dismiss()
+            if pullToRefresh {
+                self?.refreshControl.endRefreshing()
+            } else {
+                SVProgressHUD.dismiss()
+            }
             self?.participants = participants
         }
     }
@@ -160,6 +194,15 @@ class ProjectDetailVC: UIViewController {
                 self.showErrorAlert(errorMessage: errorMessage)
             })
         }
+    }
+}
+
+extension ProjectDetailVC: AddNewIdeaDelegate {
+    func complete(idea: Idea) {
+        //on idea edited complete
+        self.idea = idea
+        setUIElements()
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: UITableViewRowAnimation.automatic)
     }
 }
 

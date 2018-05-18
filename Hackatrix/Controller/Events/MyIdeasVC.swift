@@ -50,8 +50,8 @@ class MyIdeasVC: UIViewController {
 }
 
 extension MyIdeasVC: AddNewIdeaDelegate {
-    func complete() {
-        getUserIdeas()
+    func complete(idea: Idea) {
+        ideas?.append(idea)
     }
 }
 

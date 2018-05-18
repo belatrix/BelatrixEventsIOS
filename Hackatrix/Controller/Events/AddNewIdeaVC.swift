@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 protocol AddNewIdeaDelegate: class {
-    func complete()
+    func complete(idea: Idea)
 }
 class AddNewIdeaVC: UIViewController {
     
@@ -17,25 +18,29 @@ class AddNewIdeaVC: UIViewController {
     @IBOutlet weak var txtDescription: UITextView!
     var eventId: Int?
     weak var delegate: AddNewIdeaDelegate?
+    var idea: Idea?
     
     //MARK: - IBActions
-
     @IBAction func cancelPressed(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func donePressed(_ sender: Any) {
-        //TODO: Call save idea method and go back on completion
-      createIdea()
-    }
-    //MARK: - Private
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        createOrEditIdea()
     }
     
-    func createIdea() {
-        guard let title = txtTitle.text?.trimmingCharacters(in: .whitespacesAndNewlines), let eventId = eventId else {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let idea = idea {
+            txtTitle.text = idea.title
+            txtDescription.text = idea.ideaDescription
+            navigationItem.title = "Editar idea"
+        }
+    }
+    
+    //MARK: - Private
+    private func createOrEditIdea() {
+        guard let title = txtTitle.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
             let alertController = UIAlertController(title: "Inválido", message: "Por favor ingrese un tíltulo correcto", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
@@ -44,21 +49,43 @@ class AddNewIdeaVC: UIViewController {
         }
         let description = txtDescription.text ?? ""
         
-        ProjectManager.shared.createIdea(eventID: eventId, title: title, description: description, error: { [weak self] in
-            //something wents wrong
-            let alertController = UIAlertController(title: "Error", message: "No se puedo ingresar la idea correctamente", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            self?.present(alertController, animated: true, completion: nil)
-        }){ [weak self] (idea) in
-            //idea created
-            let alertController = UIAlertController(title: "", message: "La idea fue ingresada exitosamente y será revisada por los moderadores en breve.", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .default){ (action:UIAlertAction!) in
-                self?.delegate?.complete()
+        if let idea = idea, let ideaId = idea.id {
+            SVProgressHUD.show()
+            //edit idea mode
+            ProjectManager.shared.editIdea(ideaId: ideaId, title: title, description: description, error: { [weak self](error) in
+                SVProgressHUD.dismiss()
+                //something wents wrong
+                let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self?.present(alertController, animated: true, completion: nil)
+            }) { [weak self] (idea) in
+                SVProgressHUD.dismiss()
+                //idea created
+                self?.delegate?.complete(idea: idea)
                 self?.navigationController?.popViewController(animated: true)
             }
-            alertController.addAction(defaultAction)
-            self?.present(alertController, animated: true, completion: nil)
+        } else if let eventId = eventId {
+            SVProgressHUD.show()
+            //create idea mode
+            ProjectManager.shared.createIdea(eventID: eventId, title: title, description: description, error: { [weak self] in
+                SVProgressHUD.dismiss()
+                //something wents wrong
+                let alertController = UIAlertController(title: "Error", message: "No se puedo ingresar la idea correctamente", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self?.present(alertController, animated: true, completion: nil)
+            }){ [weak self] (idea) in
+                SVProgressHUD.dismiss()
+                //idea created
+                let alertController = UIAlertController(title: "", message: "La idea fue ingresada exitosamente y será revisada por los moderadores en breve.", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .default){ (action:UIAlertAction!) in
+                    self?.delegate?.complete(idea: idea)
+                    self?.navigationController?.popViewController(animated: true)
+                }
+                alertController.addAction(defaultAction)
+                self?.present(alertController, animated: true, completion: nil)
+            }
         }
     }
 }
