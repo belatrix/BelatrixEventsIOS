@@ -116,11 +116,19 @@ class UserManager: NSObject {
     }
   
   func updateUser(token: String, fullName: String, phoneNumber: String, roleId : Int, error:((String) -> ())? = nil, completion: ((_ user: User) -> Void)? = nil) {
+    
+    var params = [String: Any]()
+    if !fullName.trimmingCharacters(in: .whitespaces).isEmpty {
+      params["full_name"] = fullName as AnyObject
+    }
+    if !phoneNumber.trimmingCharacters(in: .whitespaces).isEmpty {
+      params["phone_number"] = phoneNumber as AnyObject
+    }
+    params["role_id"] = roleId as AnyObject
+    
+    
     self.serviceManager.useService(url: api.url.user.updateProfile, method: .patch,
-                                   parameters: ["full_name": fullName,
-                                                "phone_number": phoneNumber,
-                                                "role_id": roleId
-                                                ], token: token, 
+                                   parameters: params, token: token,
                                    completion: nil, result: { (json, errorMessage) in
       if let json = json {
         if let completion = completion {

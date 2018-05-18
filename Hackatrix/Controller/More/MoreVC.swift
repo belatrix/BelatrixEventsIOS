@@ -12,6 +12,7 @@ class MoreVC : UIViewController {
   
   @IBOutlet weak var staffConstraint : NSLayoutConstraint!
   @IBOutlet weak var moderatorConstraint : NSLayoutConstraint!
+  @IBOutlet weak var ideasConstraint : NSLayoutConstraint!
   let constantHeight : CGFloat = 70.0
   
   var currentUser : User?  {
@@ -32,9 +33,21 @@ class MoreVC : UIViewController {
     if let user = currentUser {
        staffConstraint.constant = user.isStaff! ? constantHeight : 0
        moderatorConstraint.constant = user.isModerator! ? constantHeight : 0
+       ideasConstraint.constant = constantHeight
     } else {
-      staffConstraint.constant = 0
-      moderatorConstraint.constant = 0
+       staffConstraint.constant = 0
+       moderatorConstraint.constant = 0
+       ideasConstraint.constant = 0
+    }
+  }
+  
+  @IBAction func actionHelp() {
+    if let url = URL(string: "http://hackatrix.belatrixsf.com/") {
+      if #available(iOS 10.0, *) {
+        UIApplication.shared.open(url, options: [:])
+      } else {
+        UIApplication.shared.openURL(url)
+      }
     }
   }
  
