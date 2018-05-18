@@ -18,6 +18,7 @@ target 'Hackatrix' do
   pod 'SwiftQRCode', '>= 3.0.2'
   pod 'SVProgressHUD'
   pod "PTPopupWebView"
+  pod 'IQKeyboardManagerSwift'
 
   target 'HackatrixTests' do
     inherit! :search_paths
