@@ -371,6 +371,7 @@
                                             <segment title="Ideas"/>
                                             <segment title="Votación"/>
                                         </segments>
+                                        <color key="tintColor" red="0.12941176469999999" green="0.31372549020000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="segmentedControlValueChanged:" destination="49V-1t-foI" eventType="valueChanged" id="Mdk-25-3ef"/>
                                         </connections>
@@ -1194,6 +1195,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8Fn-0e-5A7"/>
-        <segue reference="92P-g6-fiz"/>
+        <segue reference="LMB-jg-BVm"/>
     </inferredMetricsTieBreakers>
 </document>
