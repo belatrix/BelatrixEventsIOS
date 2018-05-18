@@ -87,6 +87,9 @@ struct api {
             static func approveCandidateWithIdeaId(_ id: Int) -> String {
                 return "\(root)/idea/\(id)/candidate/approval/switch/"
             }
+            static func ideaValidationSwitch(_ id: Int) -> String {
+              return "\(root)/idea/\(id)/validation/switch/"
+            }
         }
     }
 }

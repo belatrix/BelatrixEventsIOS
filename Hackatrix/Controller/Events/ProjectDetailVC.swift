@@ -133,9 +133,18 @@ class ProjectDetailVC: UIViewController {
         })
     }
     
-    func validateIdea(sender: AnyObject) {
-        //        validate idea
-      print("asdffsf")
+    func validateIdea(sender: UISwitch) {
+       SVProgressHUD.show()
+      ProjectManager.shared.validationIdea(ideaId: idea!.id!, success: {
+        (value) in
+        
+        self.idea!.isValid = sender.isOn
+        self.tableView.reloadData()
+        SVProgressHUD.dismiss()
+      }, error: { (errorMessage) in
+        SVProgressHUD.dismiss()
+        self.showErrorAlert(errorMessage: errorMessage)
+      })
     }
     
     func approveCandidate(sender: AnyObject) {

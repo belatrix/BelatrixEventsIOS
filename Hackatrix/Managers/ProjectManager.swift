@@ -174,5 +174,16 @@ class ProjectManager: NSObject {
             }
         })
     }
+  
+  func validationIdea( ideaId: Int, success: @escaping (Participants?)->(), error:((String) -> ())? = nil) {
+    let paramenters: [String: Any] = ["idea_id": ideaId]
+    self.serviceManager.useService(url: api.url.idea.ideaValidationSwitch(ideaId), method: .patch, parameters: paramenters , completion: nil , result: { (json, errorMessage) in
+      if let json = json {
+        success(nil)
+      } else {
+        error?(errorMessage!)
+      }
+    })
+  }
     
 }

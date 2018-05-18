@@ -870,7 +870,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ideaValidSwitch" destination="ry6-F4-7yT" id="lNl-dR-WV4"/>
+                                            <outlet property="ideaValidSwitch" destination="ry6-F4-7yT" id="QPK-er-Iue"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProjectParticipantTableViewCell" rowHeight="84" id="YRM-eY-2L1" customClass="ProjectParticipantTableViewCell" customModule="Hackatrix" customModuleProvider="target">
