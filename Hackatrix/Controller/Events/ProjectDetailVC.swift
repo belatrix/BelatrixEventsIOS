@@ -163,23 +163,10 @@ class ProjectDetailVC: UIViewController {
     }
     
     func subscribe() {
-        guard let id = idea?.id, let userLoggedId = currentUser?.id else {
+        guard let id = idea?.id else {
             return
         }
-        if participants?.isRegistered ?? false {
-            //unregister user as participant
-            ProjectManager.shared.unregisterParticipantWithId(userLoggedId, ideaId: id, success: {
-                (participants) in
-                self.participants = participants
-                let alertController = UIAlertController(title: "", message: "Su registro ha sido cancelado", preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                alertController.addAction(defaultAction)
-                self.present(alertController, animated: true, completion: nil)
-                
-            }, error: { (errorMessage) in
-                self.showErrorAlert(errorMessage: errorMessage)
-            })
-        } else if candidates?.isCandidate ?? false {
+        if candidates?.isCandidate ?? false {
             //unregister user as candidate
             ProjectManager.shared.unregisterAsCandidate(ideaId: id , success: { (candidates) in
                 self.candidates = candidates
@@ -240,7 +227,7 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
         } else if section == IdeaVCSections.participants.rawValue {
             //participants
             let participantsCount = participants?.teamMembers.count ?? 0
-            if isUserLogged && !isAuthor() {
+            if isUserLogged && !isAuthor() && candidates?.isCandidate ?? false {
                 return participantsCount + 1
             } else{
                 return participantsCount
@@ -279,11 +266,7 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 && isUserLogged && !isAuthor() {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectSubscribeTableViewCell", for: indexPath) as? ProjectSubscribeTableViewCell {
                     cell.btnSubscribe.addTarget(self, action: #selector(ProjectDetailVC.subscribe), for: .touchUpInside)
-                    if participants?.isRegistered ?? false {
-                        //user registered
-                        cell.btnSubscribe.setTitle("Eliminar registro", for: .normal)
-                        cell.btnSubscribe.tintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-                    } else if candidates?.isCandidate ?? false {
+                    if candidates?.isCandidate ?? false {
                         //user candidate
                         cell.btnSubscribe.setTitle("Cancelar Solicitud", for: .normal)
                         cell.btnSubscribe.tintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
@@ -330,6 +313,26 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
-
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return (isFromModarator && indexPath.section == IdeaVCSections.participants.rawValue)
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+       return UITableViewCellEditingStyle.delete;
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remover"
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete && indexPath.section == IdeaVCSections.participants.rawValue {
+            if let participant = participants?.teamMembers[indexPath.row] {
+                unregisterParticipant(participant)
+                self.participants?.teamMembers.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+    }
 }
 

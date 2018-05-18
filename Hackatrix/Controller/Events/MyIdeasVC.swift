@@ -21,17 +21,34 @@ class MyIdeasVC: UIViewController {
         }
     }
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(MyIdeasVC.handleRefresh(_:)),for: UIControlEvents.valueChanged)
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         getUserIdeas()
         super.viewDidLoad()
         tableView.estimatedRowHeight = 66
+        tableView.addSubview(refreshControl)
     }
     
-    func getUserIdeas() {
-        SVProgressHUD.show()
-        ProjectManager.shared.getUserIdeas() { (ideas) in
-            SVProgressHUD.dismiss()
-            self.ideas = ideas
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.getUserIdeas(pullToRefresh: true)
+    }
+    
+    func getUserIdeas(pullToRefresh:Bool = false) {
+        if !pullToRefresh {
+            SVProgressHUD.show()
+        }
+        ProjectManager.shared.getUserIdeas() {[weak self] (ideas) in
+            if pullToRefresh {
+                self?.refreshControl.endRefreshing()
+            } else {
+                SVProgressHUD.dismiss()
+            }
+            self?.ideas = ideas
         }
     }
     func addNewIdea() {
