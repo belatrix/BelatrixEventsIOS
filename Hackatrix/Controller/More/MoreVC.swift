@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PTPopupWebView
 
 class MoreVC : UIViewController {
   
@@ -42,13 +43,23 @@ class MoreVC : UIViewController {
   }
   
   @IBAction func actionHelp() {
-    if let url = URL(string: "http://hackatrix.belatrixsf.com/") {
-      if #available(iOS 10.0, *) {
-        UIApplication.shared.open(url, options: [:])
-      } else {
-        UIApplication.shared.openURL(url)
-      }
-    }
+    let popupvc = PTPopupWebViewController()
+    let urlString = "http://hackatrix.belatrixsf.com/"
+    popupvc.popupView.URL(string: urlString)
+      // add custom action button
+      .addButton(
+        PTPopupWebViewButton(type: .custom)
+          .title("Abrir en safari").handler() {
+            if let url = URL(string: urlString) {
+              if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:])
+              } else {
+                UIApplication.shared.openURL(url)
+              }
+            }
+      })
+      .addButton(PTPopupWebViewButton(type: .close).title("Cerrar"))
+    popupvc.show()
   }
  
 }

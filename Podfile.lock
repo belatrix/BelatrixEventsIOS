@@ -37,6 +37,7 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Protobuf (3.5.0)
+  - PTPopupWebView (0.4.0)
   - SideMenu (3.1.5)
   - SVProgressHUD (2.2.5)
   - SwiftKeychainWrapper (3.0.1)
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
   - KMPlaceholderTextView
+  - PTPopupWebView
   - SideMenu
   - SVProgressHUD
   - SwiftKeychainWrapper
@@ -70,6 +72,7 @@ SPEC REPOS:
     - KMPlaceholderTextView
     - nanopb
     - Protobuf
+    - PTPopupWebView
     - SideMenu
     - SVProgressHUD
     - SwiftKeychainWrapper
@@ -89,12 +92,13 @@ SPEC CHECKSUMS:
   KMPlaceholderTextView: 2bbcd19a273648a80a61e1e48f9743a24d8930e3
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  PTPopupWebView: 9db92ddc0629ed735dee23d4388d67b18158d55c
   SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftQRCode: 280589699d84195c2c573011aa52f2c015c31c34
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: cf7a69f6e7a31bb77ed276dd8229a16973aaa751
+PODFILE CHECKSUM: 1ea52f598f4e1f0a1ef9788e3fb7f4ec8bdfa176
 
 COCOAPODS: 1.5.2

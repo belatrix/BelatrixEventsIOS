@@ -33,6 +33,7 @@ struct K {
         static let qrReader = "showQRReaderSegue"
         static let moderatorIdeas = "showIdeasSegue"
         static let editIdea = "editIdeaSegue"
+        static let moderatorIdeaDetail = "showIdeaSegue"
     }
     struct cell {
         static let menu = "itemMenuCell"

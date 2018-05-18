@@ -177,6 +177,7 @@
 		F50DD16120AA84B400CDF913 /* CustomWhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50DD16020AA84B400CDF913 /* CustomWhiteButton.swift */; };
 		F55B9CA220A9335800456228 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55B9CA120A9335800456228 /* More.storyboard */; };
 		F55B9CA520A936F400456228 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B9CA420A936F400456228 /* MoreVC.swift */; };
+		F5688CC020AE949A00B8AEE8 /* StaffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */; };
 		F58BD6D320ACD2F900C6C65C /* Moderator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */; };
 		F58BD6D420ACDFA900C6C65C /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32199CD20A7EA0C007C7457 /* Idea.swift */; };
 		F58BD6D520ACDFAA00C6C65C /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32199CD20A7EA0C007C7457 /* Idea.swift */; };
@@ -299,6 +300,7 @@
 		F50DD16020AA84B400CDF913 /* CustomWhiteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWhiteButton.swift; sourceTree = "<group>"; };
 		F55B9CA120A9335800456228 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		F55B9CA420A936F400456228 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffVC.swift; sourceTree = "<group>"; };
 		F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Moderator.storyboard; sourceTree = "<group>"; };
 		F593057320AD0B9D00A0415A /* ModeratorEventListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeratorEventListVC.swift; sourceTree = "<group>"; };
 		F593057520AD0DD900A0415A /* ModeratorIdeaListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeratorIdeaListVC.swift; sourceTree = "<group>"; };
@@ -553,6 +555,7 @@
 			children = (
 				F50DD15D20A93EDD00CDF913 /* QRReaderVC.swift */,
 				932FC8DB20AB6C3F00B84A62 /* AttendanceListVC.swift */,
+				F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */,
 			);
 			path = Staff;
 			sourceTree = "<group>";
@@ -857,6 +860,7 @@
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/PTPopupWebView/PTPopupWebView.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
@@ -872,6 +876,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PTPopupWebView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
@@ -894,6 +899,7 @@
 			files = (
 				66AA966F1EC246E600C3C351 /* AboutVC.swift in Sources */,
 				932FC8D520AB52F100B84A62 /* CustomTextFieldCombo.swift in Sources */,
+				F5688CC020AE949A00B8AEE8 /* StaffVC.swift in Sources */,
 				7B4DE9EF208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift in Sources */,
 				ED0B7EC7207FC7D100F4A26B /* VoteManager.swift in Sources */,
 				F31C683220AAAD9A00FC43E6 /* Candidates.swift in Sources */,

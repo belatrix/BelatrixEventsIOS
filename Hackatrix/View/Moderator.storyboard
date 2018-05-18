@@ -197,30 +197,20 @@
                     <connections>
                         <outlet property="tableView" destination="BXh-jJ-Acd" id="EM4-ak-YAK"/>
                         <outlet property="titleLabel" destination="K6e-rP-bG1" id="yQs-c2-d7q"/>
-                        <segue destination="88Y-n7-bv4" kind="show" identifier="showDetailIdea" id="xqu-aw-bw6"/>
+                        <segue destination="smV-Ji-fGW" kind="show" identifier="showIdeaSegue" id="jBw-uF-wOx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbG-gq-99s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1821.5999999999999" y="-397.15142428785612"/>
         </scene>
-        <!--Detalle-->
-        <scene sceneID="Ixt-xz-e88">
+        <!--ideaDetailVC-->
+        <scene sceneID="XA7-Mj-usC">
             <objects>
-                <viewController id="88Y-n7-bv4" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="x1m-QX-IS2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="pku-HZ-zhj"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Detalle" id="Z7g-Wb-vmn">
-                        <barButtonItem key="backBarButtonItem" title=" " id="GEo-qA-0Ti"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bP3-kc-3Vm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Events" referencedIdentifier="ideaDetailVC" id="smV-Ji-fGW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8k6-qb-9jH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2526" y="-397"/>
+            <point key="canvasLocation" x="2449" y="-450"/>
         </scene>
     </scenes>
     <resources>

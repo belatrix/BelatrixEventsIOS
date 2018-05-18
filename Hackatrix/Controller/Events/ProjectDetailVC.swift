@@ -135,6 +135,7 @@ class ProjectDetailVC: UIViewController {
     
     func validateIdea(sender: AnyObject) {
         //        validate idea
+      print("asdffsf")
     }
     
     func approveCandidate(sender: AnyObject) {

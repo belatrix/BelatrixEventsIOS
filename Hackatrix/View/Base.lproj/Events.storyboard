@@ -603,6 +603,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1yd-E6-Kq9"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Fct-yc-SvU">
+                        <barButtonItem key="backBarButtonItem" title=" " id="IYV-Nx-btW"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLbl" destination="om7-iz-Hqp" id="nCe-4Z-CJy"/>
                         <outlet property="descriptionLbl" destination="bpj-Uh-UK2" id="YRi-mc-PpH"/>
@@ -625,7 +628,7 @@
         <!--Mis ideas-->
         <scene sceneID="9Eb-Hp-xo0">
             <objects>
-                <viewController title="Mis ideas" id="beK-rk-cSX" customClass="MyIdeasVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myIdeasVC" title="Mis ideas" id="beK-rk-cSX" customClass="MyIdeasVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZBY-oI-vT8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -746,13 +749,13 @@
         <!--Title-->
         <scene sceneID="Zd9-wv-waA">
             <objects>
-                <viewController id="whO-la-xkr" customClass="ProjectDetailVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ideaDetailVC" id="whO-la-xkr" customClass="ProjectDetailVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FmT-bT-tJy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1a4-bV-Zp0">
-                                <rect key="frame" x="10" y="64" width="355" height="603"/>
+                                <rect key="frame" x="10" y="74" width="355" height="593"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="GP3-LD-XAM">
                                     <rect key="frame" x="0.0" y="340" width="355" height="44"/>
@@ -966,12 +969,13 @@
                         <constraints>
                             <constraint firstItem="ToZ-qd-enz" firstAttribute="trailing" secondItem="1a4-bV-Zp0" secondAttribute="trailing" constant="10" id="JyW-mp-jQI"/>
                             <constraint firstItem="ToZ-qd-enz" firstAttribute="bottom" secondItem="1a4-bV-Zp0" secondAttribute="bottom" id="PBC-yH-YwD"/>
-                            <constraint firstItem="1a4-bV-Zp0" firstAttribute="top" secondItem="ToZ-qd-enz" secondAttribute="top" id="cV2-Q6-k9T"/>
+                            <constraint firstItem="1a4-bV-Zp0" firstAttribute="top" secondItem="ToZ-qd-enz" secondAttribute="top" constant="10" id="cV2-Q6-k9T"/>
                             <constraint firstItem="1a4-bV-Zp0" firstAttribute="leading" secondItem="ToZ-qd-enz" secondAttribute="leading" constant="10" id="eo5-Dm-fmY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ToZ-qd-enz"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="5sm-QF-enO">
+                        <barButtonItem key="backBarButtonItem" title=" " id="HfI-ZM-qvX"/>
                         <barButtonItem key="rightBarButtonItem" title="Editar" id="PMg-Rq-aQY">
                             <connections>
                                 <action selector="editPressed:" destination="whO-la-xkr" id="kkd-EX-tCa"/>
@@ -1194,6 +1198,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8Fn-0e-5A7"/>
-        <segue reference="92P-g6-fiz"/>
+        <segue reference="LMB-jg-BVm"/>
     </inferredMetricsTieBreakers>
 </document>

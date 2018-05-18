@@ -28,6 +28,9 @@
                                         <state key="normal" title="Mis Ideas">
                                             <color key="titleColor" red="0.12293704599999999" green="0.2824874818" blue="0.56914299729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="3Z6-Th-T3Z" kind="show" id="5Oe-h8-A4Y"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="Khi-hB-3Lk">
                                         <rect key="frame" x="325" y="20.5" width="30" height="29"/>
@@ -275,6 +278,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hS6-vb-dxC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="224" y="-96"/>
+        </scene>
+        <!--myIdeasVC-->
+        <scene sceneID="dzH-Mo-AZh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Events" referencedIdentifier="myIdeasVC" id="3Z6-Th-T3Z" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t7L-Wf-Oeu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="196" y="84"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xwv-l5-3Ef">

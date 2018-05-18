@@ -36,11 +36,11 @@ class ModeratorIdeaListVC : UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    /*
-    if segue.identifier == K.segue.qrReader {
-      let dvc = segue.destination as! QRReaderVC
-      dvc.meeting = sender as! Meeting
-    }*/
+    if segue.identifier == K.segue.moderatorIdeaDetail {
+      let dvc = segue.destination as! ProjectDetailVC
+      dvc.isFromModarator = true
+      dvc.idea = sender as! Idea
+    }
   }
 }
 
@@ -48,8 +48,8 @@ class ModeratorIdeaListVC : UIViewController {
 extension ModeratorIdeaListVC: UITableViewDataSource , UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let meeting  = elements[indexPath.row]
-    performSegue(withIdentifier: K.segue.qrReader, sender: meeting)
+    let idea  = elements[indexPath.row]
+    performSegue(withIdentifier: K.segue.moderatorIdeaDetail, sender: idea)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
