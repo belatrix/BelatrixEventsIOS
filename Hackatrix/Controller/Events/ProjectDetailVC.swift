@@ -227,7 +227,7 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
         } else if section == IdeaVCSections.participants.rawValue {
             //participants
             let participantsCount = participants?.teamMembers.count ?? 0
-            if isUserLogged && !isAuthor() && candidates?.isCandidate ?? false {
+            if isUserLogged && !isAuthor() && !(participants?.isRegistered ?? false) {
                 return participantsCount + 1
             } else{
                 return participantsCount
