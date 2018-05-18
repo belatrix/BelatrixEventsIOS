@@ -48,6 +48,7 @@ class MainVC: UIViewController {
         self.addRefreshController()
         self.getEventOf(type: .upcoming)
         self.getEventOf(type: .past)
+       NotificationCenter.default.addObserver(self, selector: #selector(refreshTab(notification:)), name: .notification_event, object: nil)
     }
     
     //MARK: - Navigation
@@ -134,6 +135,10 @@ class MainVC: UIViewController {
         self.getEventOf(type: .past)
         sender.endRefreshing()
     }
+  
+  func refreshTab(notification: NSNotification) {
+    self.navigationController?.popToRootViewController(animated: false)
+  }
 }
 
 //MARK: - UICollectionViewDataSource

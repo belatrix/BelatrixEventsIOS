@@ -24,10 +24,16 @@ class MoreVC : UIViewController {
     super.viewDidLoad()
   }
   
+  func refreshTab(notification: NSNotification) {
+    self.navigationController?.popToRootViewController(animated: false)
+    viewDidAppear(false)
+  }
+  
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     print("user:  \(currentUser?.email)")
     setupViews()
+    NotificationCenter.default.addObserver(self, selector: #selector(refreshTab(notification:)), name: .notification_more, object: nil)
   }
   
   func setupViews(){

@@ -72,6 +72,7 @@ class ProfileVC: UIViewController {
       self?.present(alertController, animated: true, completion: nil)
     }){ (auth) in
       if let completion = completion {
+        self.refreshTabs()
         self.emailInput.resignFirstResponder()
         self.passwordInput.resignFirstResponder()
         completion(auth)
@@ -103,6 +104,7 @@ class ProfileVC: UIViewController {
         SVProgressHUD.dismiss()
         self.setupUI(fromRefresh: false)
       }
+      self.refreshTabs()
     }))
     
     alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel ))
@@ -151,6 +153,11 @@ class ProfileVC: UIViewController {
           })
         }
     }
+  
+  func refreshTabs(){
+    NotificationCenter.default.post(name: .notification_more, object: nil)
+    NotificationCenter.default.post(name: .notification_event, object: nil)
+  }
   
 }
 

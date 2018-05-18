@@ -178,6 +178,7 @@
 		F55B9CA220A9335800456228 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55B9CA120A9335800456228 /* More.storyboard */; };
 		F55B9CA520A936F400456228 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B9CA420A936F400456228 /* MoreVC.swift */; };
 		F5688CC020AE949A00B8AEE8 /* StaffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */; };
+		F56B87CB20AF24FB0055FF08 /* Notification+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B87CA20AF24FB0055FF08 /* Notification+Login.swift */; };
 		F58BD6D320ACD2F900C6C65C /* Moderator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */; };
 		F58BD6D420ACDFA900C6C65C /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32199CD20A7EA0C007C7457 /* Idea.swift */; };
 		F58BD6D520ACDFAA00C6C65C /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32199CD20A7EA0C007C7457 /* Idea.swift */; };
@@ -301,6 +302,7 @@
 		F55B9CA120A9335800456228 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		F55B9CA420A936F400456228 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffVC.swift; sourceTree = "<group>"; };
+		F56B87CA20AF24FB0055FF08 /* Notification+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Login.swift"; sourceTree = "<group>"; };
 		F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Moderator.storyboard; sourceTree = "<group>"; };
 		F593057320AD0B9D00A0415A /* ModeratorEventListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeratorEventListVC.swift; sourceTree = "<group>"; };
 		F593057520AD0DD900A0415A /* ModeratorIdeaListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeratorIdeaListVC.swift; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 			isa = PBXGroup;
 			children = (
 				932FC8D020AB2FEF00B84A62 /* UITextField+Toolbar.swift */,
+				F56B87CA20AF24FB0055FF08 /* Notification+Login.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -947,6 +950,7 @@
 				668896CB1ECF40CF00EA12C2 /* LocationCell.swift in Sources */,
 				ED0B7ECD207FD2E600F4A26B /* DeviceManager.swift in Sources */,
 				932FC8CD20AB2C1600B84A62 /* UpdateProfileVC.swift in Sources */,
+				F56B87CB20AF24FB0055FF08 /* Notification+Login.swift in Sources */,
 				6634187A1EC0CD1000B26A7D /* AppDelegate.swift in Sources */,
 				66AA96671EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66308CC91ECF32D3001B714B /* LocationVC.swift in Sources */,
