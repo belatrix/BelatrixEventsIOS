@@ -89,19 +89,18 @@ class ProjectManager: NSObject {
         }
     }
     
-    func createIdea(eventID: Int, title: String, description: String, error: @escaping () -> (), success: @escaping (Idea) -> ()) {
+    func createIdea(eventID: Int, title: String, description: String, error:((String) -> ())? = nil, success: @escaping (Idea) -> ()) {
         if let userId = UserManager.shared.currentUser?.id {
             let paramenters: [String: Any] = ["author": userId, "event": eventID, "title": title, "description": description]
-            self.serviceManager.useService(url: api.url.idea.create, method: .post, parameters: paramenters) { (json) in
+          self.serviceManager.useService(url: api.url.idea.create, method: .post, parameters: paramenters, completion: nil , result:  { (json, errorMessage) in
                 if let json = json {
                     success(Idea(data: json))
                 } else {
-                    error()
+                    error?(errorMessage!)
                 }
             }
-        } else {
-            error()
-        }
+        )
+      }
     }
     
     func editIdea(ideaId: Int, title: String, description: String, error:((String) -> ())? = nil, success: @escaping (Idea) -> ()) {

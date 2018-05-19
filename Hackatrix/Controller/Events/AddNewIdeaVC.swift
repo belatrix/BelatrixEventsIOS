@@ -68,10 +68,10 @@ class AddNewIdeaVC: UIViewController {
         } else if let eventId = eventId {
             SVProgressHUD.show()
             //create idea mode
-            ProjectManager.shared.createIdea(eventID: eventId, title: title, description: description, error: { [weak self] in
+            ProjectManager.shared.createIdea(eventID: eventId, title: title, description: description, error: { [weak self](error) in
                 SVProgressHUD.dismiss()
                 //something wents wrong
-                let alertController = UIAlertController(title: "Error", message: "No se puedo ingresar la idea correctamente", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alertController.addAction(defaultAction)
                 self?.present(alertController, animated: true, completion: nil)
