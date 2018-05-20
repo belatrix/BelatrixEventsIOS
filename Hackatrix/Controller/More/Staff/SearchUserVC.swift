@@ -43,9 +43,9 @@ class SearchUserVC : UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == K.segue.qrReader {
-      let dvc = segue.destination as! QRReaderVC
-      dvc.meeting = sender as! Meeting
+    if segue.identifier == K.segue.userDetail {
+      let dvc = segue.destination as! DetailUserVC
+      dvc.user = sender as! User
     }
   }
 }
@@ -58,8 +58,11 @@ extension SearchUserVC: UISearchBarDelegate {
       if currentText.count > 2 {
         self.searchUsers(criteria: currentText)
       } else {
+        let alertController = UIAlertController(title: "Error", message: "Debe ingresar por lo menos 3 letras", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        self.present(alertController, animated: true, completion: nil)
         elements = [User]()
-        
       }
     }
     searchBar.resignFirstResponder()
@@ -86,7 +89,7 @@ extension SearchUserVC: UITableViewDataSource , UITableViewDelegate {
     if isFromAddParticipant {
       onSelectUser(user: user)
     } else {
-      //performSegue(withIdentifier: K.segue.qrReader, sender: meeting)
+      performSegue(withIdentifier: K.segue.userDetail, sender: user)
     }
   }
   

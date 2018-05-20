@@ -178,6 +178,7 @@
 		F524E6DB20B12EAD0027AE30 /* MyIdeasEventListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524E6DA20B12EAD0027AE30 /* MyIdeasEventListVC.swift */; };
 		F524E6DD20B1314D0027AE30 /* SearchUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524E6DC20B1314D0027AE30 /* SearchUserVC.swift */; };
 		F524E6E120B139850027AE30 /* CustomCopyPasteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524E6E020B139850027AE30 /* CustomCopyPasteLabel.swift */; };
+		F524E6E320B14CCE0027AE30 /* DetailUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524E6E220B14CCE0027AE30 /* DetailUserVC.swift */; };
 		F55B9CA220A9335800456228 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55B9CA120A9335800456228 /* More.storyboard */; };
 		F55B9CA520A936F400456228 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B9CA420A936F400456228 /* MoreVC.swift */; };
 		F5688CC020AE949A00B8AEE8 /* StaffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */; };
@@ -306,6 +307,7 @@
 		F524E6DA20B12EAD0027AE30 /* MyIdeasEventListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIdeasEventListVC.swift; sourceTree = "<group>"; };
 		F524E6DC20B1314D0027AE30 /* SearchUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserVC.swift; sourceTree = "<group>"; };
 		F524E6E020B139850027AE30 /* CustomCopyPasteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCopyPasteLabel.swift; sourceTree = "<group>"; };
+		F524E6E220B14CCE0027AE30 /* DetailUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserVC.swift; sourceTree = "<group>"; };
 		F55B9CA120A9335800456228 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		F55B9CA420A936F400456228 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffVC.swift; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 				932FC8DB20AB6C3F00B84A62 /* AttendanceListVC.swift */,
 				F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */,
 				F524E6DC20B1314D0027AE30 /* SearchUserVC.swift */,
+				F524E6E220B14CCE0027AE30 /* DetailUserVC.swift */,
 			);
 			path = Staff;
 			sourceTree = "<group>";
@@ -935,6 +938,7 @@
 				7B20776C2088EDAB00F75143 /* EmployeeManager.swift in Sources */,
 				F32ADFCD20A420AA00528A78 /* Auth.swift in Sources */,
 				932FC8D120AB2FEF00B84A62 /* UITextField+Toolbar.swift in Sources */,
+				F524E6E320B14CCE0027AE30 /* DetailUserVC.swift in Sources */,
 				ED0B7EC5207FC2A700F4A26B /* ProjectManager.swift in Sources */,
 				66E880001EC378B5008E3C18 /* EventCell.swift in Sources */,
 				662A9A031ECB933200581622 /* Enums.swift in Sources */,

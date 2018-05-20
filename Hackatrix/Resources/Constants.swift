@@ -35,6 +35,7 @@ struct K {
         static let editIdea = "editIdeaSegue"
         static let moderatorIdeaDetail = "showIdeaSegue"
         static let searchUser = "searchUserSegue"
+        static let userDetail = "showUserDetailSegue"
     }
     struct cell {
         static let menu = "itemMenuCell"

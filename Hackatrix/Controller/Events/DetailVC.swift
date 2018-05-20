@@ -54,7 +54,20 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         self.setUIElements()
         projectTableView.estimatedRowHeight = 66
+        projectTableView.addSubview(refreshControl)
         //self.bussinesValidations()
+    }
+  
+    lazy var refreshControl: UIRefreshControl = {
+      let refreshControl = UIRefreshControl()
+      refreshControl.addTarget(self, action: #selector(handleRefresh(_:)),for: UIControlEvents.valueChanged)
+      return refreshControl
+    }()
+  
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+      self.getProjects()
+      self.getIdeaList()
+      refreshControl.endRefreshing()
     }
 
     //MARK: - Navigation

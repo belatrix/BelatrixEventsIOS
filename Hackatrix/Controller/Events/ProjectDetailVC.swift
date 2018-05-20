@@ -145,12 +145,30 @@ class ProjectDetailVC: UIViewController {
         guard let id = idea?.id, let userId = user.id else {
             return
         }
+       SVProgressHUD.show()
         ProjectManager.shared.unregisterParticipantWithId(userId, ideaId: id, success: {
             (participants) in
+          SVProgressHUD.dismiss()
             self.participants = participants
         }, error: { (errorMessage) in
+          SVProgressHUD.dismiss()
             self.showErrorAlert(errorMessage: errorMessage)
         })
+    }
+  
+    func registerParticipant(_ user: User) {
+      guard let id = idea?.id, let userId = user.id else {
+        return
+      }
+        SVProgressHUD.show()
+      ProjectManager.shared.registerParticipantWithId(userId, ideaId: id, success: {
+        (participants) in
+          SVProgressHUD.dismiss()
+        self.participants = participants
+      }, error: { (errorMessage) in
+        SVProgressHUD.dismiss()
+        self.showErrorAlert(errorMessage: errorMessage)
+      })
     }
     
     func validateIdea(sender: UISwitch) {
@@ -358,7 +376,7 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
 
 extension ProjectDetailVC : SearchUserVCDelegate {
   func onUserSelected(user: User) {
-    print("user selected : \(user.email)")
+    registerParticipant(user)
   }
   
 }

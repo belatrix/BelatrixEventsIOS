@@ -19,13 +19,19 @@ class UserManager: NSObject {
       return nil
     }
 
-    func getUser(userID: Int, completion: ((_ user: User) -> Void)? = nil) {
-        self.serviceManager.useService(url: api.url.user.ID(userID), method: .get, parameters: nil) { (json) in
+    func getUser(userID: Int, completion: ((_ user: User?) -> Void)? = nil) {
+      self.serviceManager.useService(url: api.url.user.profile, method: .get, parameters: ["id" : userID]) { (json) in
             if let json = json {
                 if let completion = completion {
-                    completion(User(data: json))
-                }
-            }
+                    let userData = User(data: json["user"])
+                    userData.parseExtraData(fullData: json)
+                    completion(userData)
+                }  else {
+                  completion!(nil)
+              }
+            } else {
+              completion!(nil)
+          }
         }
     }
   
@@ -43,6 +49,8 @@ class UserManager: NSObject {
               completion(userList)
               return
             }
+            completion(userList)
+          } else {
             completion(userList)
           }
         }
