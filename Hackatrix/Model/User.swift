@@ -88,7 +88,9 @@ class User: NSObject {
         participant?.append(object["title"]!.stringValue)
         participant?.append("\n")
       }
-      participant?.removeLast()
+      if !(participant?.isEmpty)! {
+        participant?.removeLast()
+      }
       
       let arrayParticipants = fullData["participant"].arrayValue
       for item in arrayParticipants {
@@ -96,7 +98,9 @@ class User: NSObject {
         member?.append(object["title"]!.stringValue)
         member?.append("\n")
       }
-      member?.removeLast()
+      if !(member?.isEmpty)! {
+        member?.removeLast()
+      }
       
       let cantidateArray = fullData["candidate"].arrayValue
       for item in cantidateArray {
@@ -104,7 +108,9 @@ class User: NSObject {
         candidate?.append(object["title"]!.stringValue)
         candidate?.append("\n")
       }
-      candidate?.removeLast()
+      if !(candidate?.isEmpty)! {
+        candidate?.removeLast()
+      }
       
       let attendanceArray = fullData["attendance"].arrayValue
       for item in attendanceArray {
@@ -112,7 +118,9 @@ class User: NSObject {
         attendance?.append(object["name"]!.stringValue)
         attendance?.append("\n")
       }
-      attendance?.removeLast()
+      if !(attendance?.isEmpty)! {
+        attendance?.removeLast()
+      }
     }
   
 }
