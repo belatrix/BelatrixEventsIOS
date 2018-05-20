@@ -28,6 +28,30 @@ class UserManager: NSObject {
             }
         }
     }
+  
+  func getUserList(search: String, completion: ((_ users: [User]) -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.user.userList, method: .get, parameters: ["search": search]) { (json) in
+      var userList: [User] = []
+      if let json = json {
+        if let completion = completion {
+          
+          if json.array?.count ?? 0 > 0 {
+            guard let _ = json.error else {
+              for (_, subJson): (String, JSON) in json {
+                userList.append(User(data: subJson))
+              }
+              completion(userList)
+              return
+            }
+            completion(userList)
+          }
+        }
+      }
+      else {
+        completion!(userList)
+      }
+    }
+  }
 
     func updateUserPassword(userID: Int, currentPassword: String, newPassword: String, completion: ((_ user: User) -> Void)? = nil) {
         self.serviceManager.useService(url: api.url.user.updatePasswordWithID(userID), method: .patch, parameters: ["current_password": currentPassword, "new_password": newPassword]) { (json) in

@@ -747,7 +747,7 @@
             </objects>
             <point key="canvasLocation" x="1785" y="-767"/>
         </scene>
-        <!--Title-->
+        <!--Detalle-->
         <scene sceneID="Zd9-wv-waA">
             <objects>
                 <viewController storyboardIdentifier="ideaDetailVC" id="whO-la-xkr" customClass="ProjectDetailVC" customModule="Hackatrix" customModuleProvider="target" sceneMemberID="viewController">
@@ -756,7 +756,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1a4-bV-Zp0">
-                                <rect key="frame" x="10" y="74" width="355" height="593"/>
+                                <rect key="frame" x="10" y="125.5" width="355" height="541.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="GP3-LD-XAM">
                                     <rect key="frame" x="0.0" y="340" width="355" height="44"/>
@@ -788,13 +788,13 @@
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="246" text="cmonzon@belatrixsf.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdN-CL-uGc">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="246" text="cmonzon@belatrixsf.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdN-CL-uGc" customClass="CustomCopyPasteLabel" customModule="Hackatrix" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="18" width="163" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9944459494" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GH-92-blA">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9944459494" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GH-92-blA" customClass="CustomCopyPasteLabel" customModule="Hackatrix" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="36" width="88" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -965,17 +965,26 @@
                                     <outlet property="delegate" destination="whO-la-xkr" id="MBE-c0-D24"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2s-ob-Dtg">
+                                <rect key="frame" x="15" y="84" width="345" height="21.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="p2s-ob-Dtg" firstAttribute="top" secondItem="ToZ-qd-enz" secondAttribute="top" constant="20" id="BAs-F5-Qm8"/>
                             <constraint firstItem="ToZ-qd-enz" firstAttribute="trailing" secondItem="1a4-bV-Zp0" secondAttribute="trailing" constant="10" id="JyW-mp-jQI"/>
                             <constraint firstItem="ToZ-qd-enz" firstAttribute="bottom" secondItem="1a4-bV-Zp0" secondAttribute="bottom" id="PBC-yH-YwD"/>
-                            <constraint firstItem="1a4-bV-Zp0" firstAttribute="top" secondItem="ToZ-qd-enz" secondAttribute="top" constant="10" id="cV2-Q6-k9T"/>
+                            <constraint firstItem="1a4-bV-Zp0" firstAttribute="top" secondItem="p2s-ob-Dtg" secondAttribute="bottom" constant="20" id="XdI-1u-xmq"/>
+                            <constraint firstItem="p2s-ob-Dtg" firstAttribute="leading" secondItem="ToZ-qd-enz" secondAttribute="leading" constant="15" id="ZvS-qn-WoM"/>
                             <constraint firstItem="1a4-bV-Zp0" firstAttribute="leading" secondItem="ToZ-qd-enz" secondAttribute="leading" constant="10" id="eo5-Dm-fmY"/>
+                            <constraint firstItem="ToZ-qd-enz" firstAttribute="trailing" secondItem="p2s-ob-Dtg" secondAttribute="trailing" constant="15" id="m08-Vd-axb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ToZ-qd-enz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="5sm-QF-enO">
+                    <navigationItem key="navigationItem" title="Detalle" id="5sm-QF-enO">
                         <barButtonItem key="backBarButtonItem" title=" " id="HfI-ZM-qvX"/>
                         <barButtonItem key="rightBarButtonItem" title="Editar" id="PMg-Rq-aQY">
                             <connections>
@@ -984,13 +993,23 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ideaTitleLabel" destination="p2s-ob-Dtg" id="Lpo-ZP-LKW"/>
                         <outlet property="tableView" destination="1a4-bV-Zp0" id="tIC-X9-WXU"/>
                         <segue destination="pNV-In-ZCD" kind="show" identifier="editIdeaSegue" id="8Fn-0e-5A7"/>
+                        <segue destination="8bT-ux-CJx" kind="show" identifier="searchUserSegue" id="1nA-3t-UsW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJ9-Md-MV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="78"/>
+            <point key="canvasLocation" x="1784.8" y="77.811094452773617"/>
+        </scene>
+        <!--searchUserVC-->
+        <scene sceneID="8lT-TD-QrQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Staff" referencedIdentifier="searchUserVC" id="8bT-ux-CJx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eI3-6k-XiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2440" y="311"/>
         </scene>
         <!--New Idea-->
         <scene sceneID="O6y-vF-JpM">

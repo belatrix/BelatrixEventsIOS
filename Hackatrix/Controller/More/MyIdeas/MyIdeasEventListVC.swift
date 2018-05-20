@@ -1,5 +1,5 @@
 //
-//  ModeratorEventListVC.swift
+//  MyIdeasEventListVC.swift
 //  Hackatrix
 //
 //  Created by Diego Velasquez on 5/16/18.
@@ -10,10 +10,9 @@ import UIKit
 import SVProgressHUD
 import SwiftKeychainWrapper
 
-class ModeratorEventListVC : UIViewController {
+class MyIdeasEventListVC : UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-  var isFromModarator = false
   var elements: [Event] = [] {
     didSet {
       tableView.reloadData()
@@ -29,20 +28,20 @@ class ModeratorEventListVC : UIViewController {
     SVProgressHUD.show()
     EventManager.shared.getEvents(){ eventList in
       SVProgressHUD.dismiss()
-       self.elements = eventList
+      self.elements = eventList
     }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == K.segue.moderatorIdeas {
-      let dvc = segue.destination as! ModeratorIdeaListVC
-      dvc.event = sender as! Event
+      let dvc = segue.destination as! MyIdeasVC
+      dvc.detailEvent = sender as! Event
     }
   }
 }
 
 
-extension ModeratorEventListVC: UITableViewDataSource , UITableViewDelegate {
+extension MyIdeasEventListVC: UITableViewDataSource , UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let event  = elements[indexPath.row]

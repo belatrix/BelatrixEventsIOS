@@ -13,11 +13,14 @@ class VoteManager: NSObject {
     static let shared = VoteManager()
     let serviceManager = ServiceManager.shared
     
-    func castVote(projectID: Int, completion: (() -> Void)? = nil) {
-        self.serviceManager.useService(url: api.url.event.voteWith(interactionID: projectID), method: .patch, parameters: nil) { (json) in
-            if let completion = completion {
-                completion()
-            }
-        }
+  func castVote(eventId: Int, projectID: Int, completion: (() -> Void)? = nil , error:((String) -> ())? = nil) {
+      self.serviceManager.useService(url: api.url.event.voteWith(eventID: eventId), method: .post, parameters:
+        ["event_id" : eventId , "idea_id": projectID], completion: nil , result : { (json, errorMessage) in
+            if let json = json {
+              completion!()
+            } else {
+              error?(errorMessage!)
+          }
+        })
     }
 }

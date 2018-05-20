@@ -16,6 +16,7 @@ class Idea: NSObject {
     var isCompleted: Bool?
     var isValid: Bool?
     var author: User?
+    var event: Event?
     
     init(data: JSON) {
         self.id = data["id"].int
@@ -24,5 +25,6 @@ class Idea: NSObject {
         self.isValid = data["is_valid"].bool
         self.isCompleted = data["is_completed"].bool
         self.author = User(data: data["author"])
+        self.event = Event(data: data["event"])
     }
 }

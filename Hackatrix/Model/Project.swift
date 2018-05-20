@@ -18,7 +18,7 @@ class Project: NSObject {
     
     init(data: JSON) {
         self.id = data["id"].int
-        self.text = data["text"].string
+        self.text = data["title"].string
         self.votes = data["votes"].int
         self.isActive = data["isActive"].bool
         self.event = data["event"].int

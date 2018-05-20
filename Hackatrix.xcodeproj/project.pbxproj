@@ -175,6 +175,9 @@
 		F3F9738320AC011800040FBE /* IdeaDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F9738220AC011800040FBE /* IdeaDetailsTableViewCell.swift */; };
 		F50DD15E20A93EDD00CDF913 /* QRReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50DD15D20A93EDD00CDF913 /* QRReaderVC.swift */; };
 		F50DD16120AA84B400CDF913 /* CustomWhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50DD16020AA84B400CDF913 /* CustomWhiteButton.swift */; };
+		F524E6DB20B12EAD0027AE30 /* MyIdeasEventListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524E6DA20B12EAD0027AE30 /* MyIdeasEventListVC.swift */; };
+		F524E6DD20B1314D0027AE30 /* SearchUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524E6DC20B1314D0027AE30 /* SearchUserVC.swift */; };
+		F524E6E120B139850027AE30 /* CustomCopyPasteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524E6E020B139850027AE30 /* CustomCopyPasteLabel.swift */; };
 		F55B9CA220A9335800456228 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55B9CA120A9335800456228 /* More.storyboard */; };
 		F55B9CA520A936F400456228 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B9CA420A936F400456228 /* MoreVC.swift */; };
 		F5688CC020AE949A00B8AEE8 /* StaffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */; };
@@ -300,6 +303,9 @@
 		F3F9738220AC011800040FBE /* IdeaDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		F50DD15D20A93EDD00CDF913 /* QRReaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderVC.swift; sourceTree = "<group>"; };
 		F50DD16020AA84B400CDF913 /* CustomWhiteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWhiteButton.swift; sourceTree = "<group>"; };
+		F524E6DA20B12EAD0027AE30 /* MyIdeasEventListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIdeasEventListVC.swift; sourceTree = "<group>"; };
+		F524E6DC20B1314D0027AE30 /* SearchUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserVC.swift; sourceTree = "<group>"; };
+		F524E6E020B139850027AE30 /* CustomCopyPasteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCopyPasteLabel.swift; sourceTree = "<group>"; };
 		F55B9CA120A9335800456228 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		F55B9CA420A936F400456228 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffVC.swift; sourceTree = "<group>"; };
@@ -562,6 +568,7 @@
 				F50DD15D20A93EDD00CDF913 /* QRReaderVC.swift */,
 				932FC8DB20AB6C3F00B84A62 /* AttendanceListVC.swift */,
 				F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */,
+				F524E6DC20B1314D0027AE30 /* SearchUserVC.swift */,
 			);
 			path = Staff;
 			sourceTree = "<group>";
@@ -598,13 +605,23 @@
 				932FC8CF20AB2FD500B84A62 /* Extensions */,
 				F50DD16020AA84B400CDF913 /* CustomWhiteButton.swift */,
 				932FC8D420AB52F100B84A62 /* CustomTextFieldCombo.swift */,
+				F524E6E020B139850027AE30 /* CustomCopyPasteLabel.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		F524E6D920B12E9C0027AE30 /* MyIdeas */ = {
+			isa = PBXGroup;
+			children = (
+				F524E6DA20B12EAD0027AE30 /* MyIdeasEventListVC.swift */,
+			);
+			path = MyIdeas;
 			sourceTree = "<group>";
 		};
 		F55B9CA320A936DC00456228 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				F524E6D920B12E9C0027AE30 /* MyIdeas */,
 				F593057220AD0B7E00A0415A /* Moderator */,
 				932FC8D820AB690800B84A62 /* Staff */,
 				F55B9CA420A936F400456228 /* MoreVC.swift */,
@@ -909,6 +926,7 @@
 				66AA966F1EC246E600C3C351 /* AboutVC.swift in Sources */,
 				932FC8D520AB52F100B84A62 /* CustomTextFieldCombo.swift in Sources */,
 				F5688CC020AE949A00B8AEE8 /* StaffVC.swift in Sources */,
+				F524E6E120B139850027AE30 /* CustomCopyPasteLabel.swift in Sources */,
 				7B4DE9EF208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift in Sources */,
 				ED0B7EC7207FC7D100F4A26B /* VoteManager.swift in Sources */,
 				F31C683220AAAD9A00FC43E6 /* Candidates.swift in Sources */,
@@ -925,6 +943,7 @@
 				7B4DE9E6208F81B6007C4BF6 /* AddIdeaTableViewCell.swift in Sources */,
 				ED0B7EC9207FCAE800F4A26B /* EventManager.swift in Sources */,
 				F5F57BAA20AAA25E00019635 /* ForgotPasswordVC.swift in Sources */,
+				F524E6DD20B1314D0027AE30 /* SearchUserVC.swift in Sources */,
 				66F452801EC204BC002D7D96 /* MainVC.swift in Sources */,
 				932FC8D720AB570900B84A62 /* Role.swift in Sources */,
 				66F2BB181EC495E600FB20DD /* Event.swift in Sources */,
@@ -961,6 +980,7 @@
 				66AA96671EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66308CC91ECF32D3001B714B /* LocationVC.swift in Sources */,
 				66E8800C1EC3BFF9008E3C18 /* InteractionVC.swift in Sources */,
+				F524E6DB20B12EAD0027AE30 /* MyIdeasEventListVC.swift in Sources */,
 				7B2077722088F75300F75143 /* Employee.swift in Sources */,
 				F3F9738320AC011800040FBE /* IdeaDetailsTableViewCell.swift in Sources */,
 				F31C683020AA933F00FC43E6 /* Participants.swift in Sources */,

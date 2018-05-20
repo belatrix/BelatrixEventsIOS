@@ -18,6 +18,7 @@ enum IdeaVCSections: Int {
 class ProjectDetailVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var ideaTitleLabel: UILabel!
     var idea: Idea?
     var currentUser: User?
     var participants: Participants? {
@@ -56,6 +57,12 @@ class ProjectDetailVC: UIViewController {
             destination.idea = idea
             destination.delegate = self
         }
+      
+      if let destination = segue.destination as? SearchUserVC, segue.identifier == K.segue.searchUser {
+        destination.isFromAddParticipant = true
+        destination.idea = idea
+        destination.delegate = self
+      }
     }
     
     @IBAction func editPressed(_ sender: Any) {
@@ -79,10 +86,19 @@ class ProjectDetailVC: UIViewController {
     }
     
     func setUIElements() {
-        self.title = idea?.title
-        if(!isAuthor()) {
+        self.ideaTitleLabel.text = idea?.title
+        if(!isAuthor() && !isFromModarator) {
             navigationItem.rightBarButtonItem = nil
         }
+      
+      if isFromModarator {
+        self.title = ""
+          navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "Agregar Participante", style: .plain, target: self, action: #selector(addParticipant))
+      }
+    }
+  
+    func addParticipant (){
+      performSegue(withIdentifier: K.segue.searchUser, sender: nil)
     }
     
     func getParticipants(pullToRefresh:Bool = false) {
@@ -338,5 +354,12 @@ extension ProjectDetailVC: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+}
+
+extension ProjectDetailVC : SearchUserVCDelegate {
+  func onUserSelected(user: User) {
+    print("user selected : \(user.email)")
+  }
+  
 }
 

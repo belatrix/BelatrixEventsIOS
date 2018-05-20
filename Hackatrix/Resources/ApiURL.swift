@@ -22,14 +22,11 @@ struct api {
             static func ID(_ id:Int) -> String {
                 return "\(root)/event/\(id)/"
             }
-            static func interactionWith(eventID id:Int) -> String {
-                return "\(root)/event/\(id)/interaction/list/"
+            static func voteWith(eventID id:Int) -> String {
+                return "\(root)/event/\(id)/idea/vote/"
             }
             static let city = "\(root)/event/city/list/"
             static let featured = "\(root)/event/featured/"
-            static func voteWith(interactionID id:Int) -> String {
-                return "\(root)/event/interaction/\(id)/vote"
-            }
             static let list = "\(root)/event/list/"
             static let upcoming = "\(root)/event/upcoming/list/"
             static let past = "\(root)/event/past/list/"
@@ -60,6 +57,7 @@ struct api {
             static let updateProfile = "\(root)/user/update/"
             static let roles = "\(root)/user/role/list/"
             static let ideas = "\(root)/user/ideas/"
+            static let userList = "\(root)/user/list/"
         }
         struct idea {
             static let create = "\(root)/idea/create/"

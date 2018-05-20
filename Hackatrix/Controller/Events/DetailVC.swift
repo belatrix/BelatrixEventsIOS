@@ -43,10 +43,12 @@ class DetailVC: UIViewController {
             projectTableView.reloadData()
         }
     }
-    
+  
+    var currentUser : User?
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
+        currentUser = UserManager.shared.currentUser
         self.getProjects()
         self.getIdeaList()
         super.viewDidLoad()
@@ -137,6 +139,7 @@ class DetailVC: UIViewController {
                     let votes2 = p2.votes ?? 0
                     return votes1 > votes2
                 })
+             self.projectTableView.reloadData()
             }
         }
     }
@@ -181,6 +184,24 @@ class DetailVC: UIViewController {
     func goToMyIdeas() {
         self.performSegue(withIdentifier: K.segue.myIdeas, sender: nil)
     }
+  
+  func castVote(projectId: Int, eventId: Int) {
+      SVProgressHUD.show()
+    VoteManager.shared.castVote(eventId: eventId , projectID: projectId , completion: {
+        SVProgressHUD.dismiss()
+        let alertController = UIAlertController(title: "Hackatrix", message: "Tu voto fue enviado correctamente", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+          self.getProjects()
+        }))
+          self.present(alertController, animated: true, completion: nil)
+      } , error:  { errorMessage in
+        SVProgressHUD.dismiss()
+        let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        self.present(alertController, animated: true, completion: nil)
+      })
+  }
 }
 
 extension DetailVC: UITableViewDelegate, UITableViewDataSource {
@@ -191,7 +212,7 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.currentTab == .Ideas {
             let ideasCount = ideas?.count ?? 0
-            if let _ = UserManager.shared.currentUser {
+            if let _ = currentUser {
                 //user is log in
                  return ideasCount + 1
             }
@@ -247,11 +268,12 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
         if self.currentTab == .Ideas {
             self.performSegue(withIdentifier: K.segue.project, sender: indexPath)
         } else {
-            if let title = self.detailEvent?.title {
+           let project = self.sortedProjects[indexPath.row]
+            if let title = project.text , currentUser != nil {
                 let alert = UIAlertController(title: "Hackatrix", message: "¿Estás seguro que deseas votar por: \(title)? No podrás corregir tu voto o eliminarlo luego de esta confirmación.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
                 alert.addAction(UIAlertAction(title: "Sí", style: .default, handler: { (action) in
-                    //TODO: Call add vote to project and refresh tableview
+                  self.castVote(projectId: project.id!, eventId: self.detailEvent!.id!)
                 }))
                 self.present(alert, animated: false, completion: nil)
             }

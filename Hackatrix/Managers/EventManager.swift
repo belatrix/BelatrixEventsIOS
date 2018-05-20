@@ -23,19 +23,6 @@ class EventManager: NSObject {
         }
     }
 
-    func getEventInteractions(eventID: Int, completion: ((_ interactions: [Project]) -> Void)? = nil) {
-        self.serviceManager.useService(url: api.url.event.interactionWith(eventID: eventID), method: .get, parameters: nil) { (json) in
-            if let json = json {
-                var interactions: [Project] = []
-                for (_, subJson): (String, JSON) in json {
-                    interactions.append(Project(data: subJson))
-                }
-                if let completion = completion {
-                    completion(interactions)
-                }
-            }
-        }
-    }
 
     func getFeaturedEvent(completion: ((_ event: Event) -> Void)? = nil) {
         self.serviceManager.useService(url: api.url.event.featured, method: .get, parameters: nil) { (json) in
