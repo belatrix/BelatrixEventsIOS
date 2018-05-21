@@ -13,13 +13,16 @@ import FirebaseInstanceID
 import FirebaseMessaging
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var userDefaults = UserDefaults.standard
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+       UIApplication.shared.isStatusBarHidden = false
+      SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.gradient)
         if userDefaults.object(forKey: K.key.showedWelcomeAlertInteraction) == nil {
             self.userDefaults.set(true, forKey: K.key.showedWelcomeAlertInteraction)
         }
@@ -47,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                selector: #selector(tokenRefreshNotification(notification:)),
                                                name: NSNotification.Name.InstanceIDTokenRefresh,
                                                object: nil)
-        
+        IQKeyboardManager.shared.enable = true
         return true
     }
     
@@ -69,6 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Connected to FCM.")
             }
         }
+      guard InstanceID.instanceID().token() != nil else {
+        return;
+      }
+       Messaging.messaging().shouldEstablishDirectChannel = true
     }
     
     func registerDeviceInBackEndWith(_ fcmToken:String) {
@@ -90,8 +97,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        InstanceID.instanceID().setAPNSToken(deviceToken, type: InstanceIDAPNSTokenType.sandbox)
-        InstanceID.instanceID().setAPNSToken(deviceToken, type: InstanceIDAPNSTokenType.prod)
+        Messaging.messaging().setAPNSToken(deviceToken, type: MessagingAPNSTokenType.sandbox)
+        Messaging.messaging().setAPNSToken(deviceToken, type: MessagingAPNSTokenType.prod)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

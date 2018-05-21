@@ -22,17 +22,19 @@ struct api {
             static func ID(_ id:Int) -> String {
                 return "\(root)/event/\(id)/"
             }
-            static func interactionWith(eventID id:Int) -> String {
-                return "\(root)/event/\(id)/interaction/list/"
+            static func voteWith(eventID id:Int) -> String {
+                return "\(root)/event/\(id)/idea/vote/"
             }
             static let city = "\(root)/event/city/list/"
             static let featured = "\(root)/event/featured/"
-            static func voteWith(interactionID id:Int) -> String {
-                return "\(root)/event/interaction/\(id)/vote"
-            }
             static let list = "\(root)/event/list/"
             static let upcoming = "\(root)/event/upcoming/list/"
             static let past = "\(root)/event/past/list/"
+            static func ideaList(eventID id:Int) -> String {
+                return "\(root)/event/\(id)/idea/list/"
+            }
+            static let meetingList = "\(root)/event/meeting/list/"
+            static let meetingAttendance = "\(root)/event/register/attendance/"
         }
         struct notifications {
             static let all = "\(root)/notifications/all/"
@@ -45,10 +47,52 @@ struct api {
                 return "\(root)/user/\(id)/update/password"
             }
             static let authenticate = "\(root)/user/authenticate/"
+            static let profile = "\(root)/user/profile/"
             static let create = "\(root)/user/create/"
             static let recover = "\(root)/user/recover/"
             static func recoverPasswordWithID(_ id:Int) -> String {
                 return "\(root)/user/recover/\(id)/"
+            }
+            static let logout = "\(root)/user/logout/"
+            static let updateProfile = "\(root)/user/update/"
+            static let roles = "\(root)/user/role/list/"
+            static let ideas = "\(root)/user/ideas/"
+            static let userList = "\(root)/user/list/"
+        }
+        struct idea {
+            static let create = "\(root)/idea/create/"
+            static func edit(_ id:Int) -> String {
+                return "\(root)/idea/\(id)/"
+            }
+            static func participants(_ id:Int) -> String {
+                return "\(root)/idea/\(id)/participants/"
+            }
+            static func registerParticipant(_ id: Int) -> String {
+                return "\(root)/idea/\(id)/register/"
+            }
+            static func unregisterParticipant(_ id: Int) -> String {
+                return "\(root)/idea/\(id)/unregister/"
+            }
+            static func candidates(_ id:Int) -> String {
+                return "\(root)/idea/\(id)/candidates/"
+            }
+            static func registerCandidate(_ id:Int) -> String {
+                return "\(root)/idea/\(id)/register/candidate/"
+            }
+            static func unregisterCandidate(_ id: Int) -> String {
+                return "\(root)/idea/\(id)/unregister/candidate/"
+            }
+            static func approveCandidateWithIdeaId(_ id: Int) -> String {
+                return "\(root)/idea/\(id)/candidate/approval/switch/"
+            }
+            static func ideaValidationSwitch(_ id: Int) -> String {
+              return "\(root)/idea/\(id)/validation/switch/"
+            }
+            static func ideaWithoutFilterList(eventID id:Int) -> String {
+              return "\(root)/idea/draft/event/\(id)/list/"
+            }
+            static func ideateRate(_ id:Int) -> String {
+              return "\(root)/idea/\(id)/rate/"
             }
         }
     }

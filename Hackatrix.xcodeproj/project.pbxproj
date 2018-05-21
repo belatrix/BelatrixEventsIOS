@@ -108,6 +108,50 @@
 		7B20776E2088F17400F75143 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20776D2088F17400F75143 /* UserManager.swift */; };
 		7B2077702088F32F00F75143 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20776F2088F32F00F75143 /* User.swift */; };
 		7B2077722088F75300F75143 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2077712088F75300F75143 /* Employee.swift */; };
+		7B4DE9CA208F6C01007C4BF6 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DE9C8208F6C01007C4BF6 /* Events.storyboard */; };
+		7B4DE9CE208F800C007C4BF6 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC0207FBF4400F4A26B /* ServiceManager.swift */; };
+		7B4DE9CF208F800C007C4BF6 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC0207FBF4400F4A26B /* ServiceManager.swift */; };
+		7B4DE9D0208F800E007C4BF6 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC4207FC2A700F4A26B /* ProjectManager.swift */; };
+		7B4DE9D1208F800F007C4BF6 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC4207FC2A700F4A26B /* ProjectManager.swift */; };
+		7B4DE9D2208F8011007C4BF6 /* VoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC6207FC7D100F4A26B /* VoteManager.swift */; };
+		7B4DE9D3208F8011007C4BF6 /* VoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC6207FC7D100F4A26B /* VoteManager.swift */; };
+		7B4DE9D4208F8013007C4BF6 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC8207FCAE800F4A26B /* EventManager.swift */; };
+		7B4DE9D5208F8013007C4BF6 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC8207FCAE800F4A26B /* EventManager.swift */; };
+		7B4DE9D6208F8016007C4BF6 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7ECA207FCE4800F4A26B /* NewsManager.swift */; };
+		7B4DE9D7208F8016007C4BF6 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7ECA207FCE4800F4A26B /* NewsManager.swift */; };
+		7B4DE9D8208F801A007C4BF6 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7ECC207FD2E600F4A26B /* DeviceManager.swift */; };
+		7B4DE9D9208F801A007C4BF6 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7ECC207FD2E600F4A26B /* DeviceManager.swift */; };
+		7B4DE9DA208F801C007C4BF6 /* EmployeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20776B2088EDAB00F75143 /* EmployeeManager.swift */; };
+		7B4DE9DB208F801D007C4BF6 /* EmployeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20776B2088EDAB00F75143 /* EmployeeManager.swift */; };
+		7B4DE9DC208F801F007C4BF6 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20776D2088F17400F75143 /* UserManager.swift */; };
+		7B4DE9DD208F801F007C4BF6 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20776D2088F17400F75143 /* UserManager.swift */; };
+		7B4DE9E2208F80F2007C4BF6 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9E1208F80F2007C4BF6 /* ProjectTableViewCell.swift */; };
+		7B4DE9E3208F80F8007C4BF6 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9E1208F80F2007C4BF6 /* ProjectTableViewCell.swift */; };
+		7B4DE9E4208F80F9007C4BF6 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9E1208F80F2007C4BF6 /* ProjectTableViewCell.swift */; };
+		7B4DE9E6208F81B6007C4BF6 /* AddIdeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9E5208F81B6007C4BF6 /* AddIdeaTableViewCell.swift */; };
+		7B4DE9E7208F81B6007C4BF6 /* AddIdeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9E5208F81B6007C4BF6 /* AddIdeaTableViewCell.swift */; };
+		7B4DE9E8208F81B6007C4BF6 /* AddIdeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9E5208F81B6007C4BF6 /* AddIdeaTableViewCell.swift */; };
+		7B4DE9EA208F9466007C4BF6 /* AddNewIdeaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9E9208F9466007C4BF6 /* AddNewIdeaVC.swift */; };
+		7B4DE9EB208F9466007C4BF6 /* AddNewIdeaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9E9208F9466007C4BF6 /* AddNewIdeaVC.swift */; };
+		7B4DE9EC208F9466007C4BF6 /* AddNewIdeaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9E9208F9466007C4BF6 /* AddNewIdeaVC.swift */; };
+		7B4DE9EF208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9EE208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift */; };
+		7B4DE9F0208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9EE208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift */; };
+		7B4DE9F1208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9EE208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift */; };
+		7B4DE9F3208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9F2208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift */; };
+		7B4DE9F4208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9F2208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift */; };
+		7B4DE9F5208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9F2208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift */; };
+		7B4DE9F7208FACC3007C4BF6 /* ProjectDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9F6208FACC3007C4BF6 /* ProjectDetailVC.swift */; };
+		7B4DE9F8208FACC3007C4BF6 /* ProjectDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9F6208FACC3007C4BF6 /* ProjectDetailVC.swift */; };
+		7B4DE9F9208FACC3007C4BF6 /* ProjectDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DE9F6208FACC3007C4BF6 /* ProjectDetailVC.swift */; };
+		7B4DE9FA208FAD04007C4BF6 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2077712088F75300F75143 /* Employee.swift */; };
+		7B4DE9FB208FAD04007C4BF6 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2077712088F75300F75143 /* Employee.swift */; };
+		932FC8CD20AB2C1600B84A62 /* UpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FC8CC20AB2C1600B84A62 /* UpdateProfileVC.swift */; };
+		932FC8D120AB2FEF00B84A62 /* UITextField+Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FC8D020AB2FEF00B84A62 /* UITextField+Toolbar.swift */; };
+		932FC8D520AB52F100B84A62 /* CustomTextFieldCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FC8D420AB52F100B84A62 /* CustomTextFieldCombo.swift */; };
+		932FC8D720AB570900B84A62 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FC8D620AB570900B84A62 /* Role.swift */; };
+		932FC8DC20AB6C3F00B84A62 /* AttendanceListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FC8DB20AB6C3F00B84A62 /* AttendanceListVC.swift */; };
+		932FC8DE20AB6CE800B84A62 /* Staff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932FC8DD20AB6CE800B84A62 /* Staff.storyboard */; };
+		932FC8E020AB756A00B84A62 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932FC8DF20AB756A00B84A62 /* Meeting.swift */; };
 		9555632B3FE4DC1A0E78225F /* Pods_HackatrixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868A775811D05CFEE19B8EC6 /* Pods_HackatrixTests.framework */; };
 		ED0B7EC1207FBF4400F4A26B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC0207FBF4400F4A26B /* ServiceManager.swift */; };
 		ED0B7EC3207FC05000F4A26B /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC2207FC05000F4A26B /* ServiceError.swift */; };
@@ -116,6 +160,44 @@
 		ED0B7EC9207FCAE800F4A26B /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7EC8207FCAE800F4A26B /* EventManager.swift */; };
 		ED0B7ECB207FCE4800F4A26B /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7ECA207FCE4800F4A26B /* NewsManager.swift */; };
 		ED0B7ECD207FD2E600F4A26B /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B7ECC207FD2E600F4A26B /* DeviceManager.swift */; };
+		F31C683020AA933F00FC43E6 /* Participants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31C682F20AA933F00FC43E6 /* Participants.swift */; };
+		F31C683220AAAD9A00FC43E6 /* Candidates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31C683120AAAD9A00FC43E6 /* Candidates.swift */; };
+		F31E93C820A3F1B1000B27B2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31E93C720A3F1B1000B27B2 /* Profile.storyboard */; };
+		F31E93CB20A3F703000B27B2 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31E93CA20A3F703000B27B2 /* ProfileVC.swift */; };
+		F31E93CD20A3F89D000B27B2 /* CreateUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31E93CC20A3F89D000B27B2 /* CreateUserVC.swift */; };
+		F32199CE20A7EA0C007C7457 /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32199CD20A7EA0C007C7457 /* Idea.swift */; };
+		F32199D020A7FA59007C7457 /* IdeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32199CF20A7FA59007C7457 /* IdeaTableViewCell.swift */; };
+		F32ADFCD20A420AA00528A78 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ADFCC20A420AA00528A78 /* Auth.swift */; };
+		F37D6C0D20AD49F80075C763 /* MyIdeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D6C0C20AD49F80075C763 /* MyIdeaTableViewCell.swift */; };
+		F37D6C0F20AD4B190075C763 /* MyIdeasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D6C0E20AD4B190075C763 /* MyIdeasVC.swift */; };
+		F37D6C1020AD4B350075C763 /* MyIdeasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D6C0E20AD4B190075C763 /* MyIdeasVC.swift */; };
+		F37D6C1120AD4B350075C763 /* MyIdeasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D6C0E20AD4B190075C763 /* MyIdeasVC.swift */; };
+		F3F9738320AC011800040FBE /* IdeaDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F9738220AC011800040FBE /* IdeaDetailsTableViewCell.swift */; };
+		F50DD15E20A93EDD00CDF913 /* QRReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50DD15D20A93EDD00CDF913 /* QRReaderVC.swift */; };
+		F50DD16120AA84B400CDF913 /* CustomWhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50DD16020AA84B400CDF913 /* CustomWhiteButton.swift */; };
+		F524E6DB20B12EAD0027AE30 /* MyIdeasEventListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524E6DA20B12EAD0027AE30 /* MyIdeasEventListVC.swift */; };
+		F524E6DD20B1314D0027AE30 /* SearchUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524E6DC20B1314D0027AE30 /* SearchUserVC.swift */; };
+		F524E6E120B139850027AE30 /* CustomCopyPasteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524E6E020B139850027AE30 /* CustomCopyPasteLabel.swift */; };
+		F524E6E320B14CCE0027AE30 /* DetailUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524E6E220B14CCE0027AE30 /* DetailUserVC.swift */; };
+		F55B9CA220A9335800456228 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55B9CA120A9335800456228 /* More.storyboard */; };
+		F55B9CA520A936F400456228 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B9CA420A936F400456228 /* MoreVC.swift */; };
+		F5688CC020AE949A00B8AEE8 /* StaffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */; };
+		F56B87CB20AF24FB0055FF08 /* Notification+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B87CA20AF24FB0055FF08 /* Notification+Login.swift */; };
+		F5702C2220B2797400260B88 /* JuryEventListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5702C2120B2797400260B88 /* JuryEventListVC.swift */; };
+		F5702C2420B2798700260B88 /* JuryIdeaListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5702C2320B2798700260B88 /* JuryIdeaListVC.swift */; };
+		F5702C2620B27A4200260B88 /* Jury.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5702C2520B27A4200260B88 /* Jury.storyboard */; };
+		F5702C2820B27CD100260B88 /* JuryIdeaDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5702C2720B27CD100260B88 /* JuryIdeaDetailVC.swift */; };
+		F5702C2A20B281D300260B88 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5702C2920B281D300260B88 /* Rate.swift */; };
+		F5702C2C20B2861000260B88 /* JuryIdeaRateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5702C2B20B2861000260B88 /* JuryIdeaRateVC.swift */; };
+		F574D55520AF7A3F00273446 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F574D55420AF7A3F00273446 /* Images.xcassets */; };
+		F58BD6D320ACD2F900C6C65C /* Moderator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */; };
+		F58BD6D420ACDFA900C6C65C /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32199CD20A7EA0C007C7457 /* Idea.swift */; };
+		F58BD6D520ACDFAA00C6C65C /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32199CD20A7EA0C007C7457 /* Idea.swift */; };
+		F58BD6D620ACDFAC00C6C65C /* Participants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31C682F20AA933F00FC43E6 /* Participants.swift */; };
+		F58BD6D720ACDFAC00C6C65C /* Participants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31C682F20AA933F00FC43E6 /* Participants.swift */; };
+		F593057420AD0B9D00A0415A /* ModeratorEventListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F593057320AD0B9D00A0415A /* ModeratorEventListVC.swift */; };
+		F593057620AD0DD900A0415A /* ModeratorIdeaListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F593057520AD0DD900A0415A /* ModeratorIdeaListVC.swift */; };
+		F5F57BAA20AAA25E00019635 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F57BA920AAA25E00019635 /* ForgotPasswordVC.swift */; };
 		FF0E8624C885D132818E8F55 /* Pods_Hackatrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB0EB9098F46B99F587D518 /* Pods_Hackatrix.framework */; };
 /* End PBXBuildFile section */
 
@@ -189,8 +271,22 @@
 		7B20776D2088F17400F75143 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7B20776F2088F32F00F75143 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7B2077712088F75300F75143 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		7B4DE9C9208F6C01007C4BF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Events.storyboard; sourceTree = "<group>"; };
+		7B4DE9E1208F80F2007C4BF6 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		7B4DE9E5208F81B6007C4BF6 /* AddIdeaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIdeaTableViewCell.swift; sourceTree = "<group>"; };
+		7B4DE9E9208F9466007C4BF6 /* AddNewIdeaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewIdeaVC.swift; sourceTree = "<group>"; };
+		7B4DE9EE208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectParticipantTableViewCell.swift; sourceTree = "<group>"; };
+		7B4DE9F2208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSubscribeTableViewCell.swift; sourceTree = "<group>"; };
+		7B4DE9F6208FACC3007C4BF6 /* ProjectDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailVC.swift; sourceTree = "<group>"; };
 		7C0242861AF7A77AB80B9CA9 /* Pods-HackatrixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackatrixTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackatrixTests/Pods-HackatrixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		868A775811D05CFEE19B8EC6 /* Pods_HackatrixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackatrixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		932FC8CC20AB2C1600B84A62 /* UpdateProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileVC.swift; sourceTree = "<group>"; };
+		932FC8D020AB2FEF00B84A62 /* UITextField+Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Toolbar.swift"; sourceTree = "<group>"; };
+		932FC8D420AB52F100B84A62 /* CustomTextFieldCombo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldCombo.swift; sourceTree = "<group>"; };
+		932FC8D620AB570900B84A62 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		932FC8DB20AB6C3F00B84A62 /* AttendanceListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceListVC.swift; sourceTree = "<group>"; };
+		932FC8DD20AB6CE800B84A62 /* Staff.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Staff.storyboard; sourceTree = "<group>"; };
+		932FC8DF20AB756A00B84A62 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		9485E9A8E92AF9DC74FA3E16 /* Pods-HackatrixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackatrixUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackatrixUITests/Pods-HackatrixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DCB0EB9098F46B99F587D518 /* Pods_Hackatrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackatrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E174186F982FA7A5E55E5BE2 /* Pods-HackatrixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackatrixTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackatrixTests/Pods-HackatrixTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +297,38 @@
 		ED0B7EC8207FCAE800F4A26B /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		ED0B7ECA207FCE4800F4A26B /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 		ED0B7ECC207FD2E600F4A26B /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		F31C682F20AA933F00FC43E6 /* Participants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participants.swift; sourceTree = "<group>"; };
+		F31C683120AAAD9A00FC43E6 /* Candidates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidates.swift; sourceTree = "<group>"; };
+		F31E93C720A3F1B1000B27B2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		F31E93CA20A3F703000B27B2 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		F31E93CC20A3F89D000B27B2 /* CreateUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserVC.swift; sourceTree = "<group>"; };
+		F32199CD20A7EA0C007C7457 /* Idea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Idea.swift; sourceTree = "<group>"; };
+		F32199CF20A7FA59007C7457 /* IdeaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaTableViewCell.swift; sourceTree = "<group>"; };
+		F32ADFCC20A420AA00528A78 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		F37D6C0C20AD49F80075C763 /* MyIdeaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIdeaTableViewCell.swift; sourceTree = "<group>"; };
+		F37D6C0E20AD4B190075C763 /* MyIdeasVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIdeasVC.swift; sourceTree = "<group>"; };
+		F3F9738220AC011800040FBE /* IdeaDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		F50DD15D20A93EDD00CDF913 /* QRReaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderVC.swift; sourceTree = "<group>"; };
+		F50DD16020AA84B400CDF913 /* CustomWhiteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWhiteButton.swift; sourceTree = "<group>"; };
+		F524E6DA20B12EAD0027AE30 /* MyIdeasEventListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIdeasEventListVC.swift; sourceTree = "<group>"; };
+		F524E6DC20B1314D0027AE30 /* SearchUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserVC.swift; sourceTree = "<group>"; };
+		F524E6E020B139850027AE30 /* CustomCopyPasteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCopyPasteLabel.swift; sourceTree = "<group>"; };
+		F524E6E220B14CCE0027AE30 /* DetailUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserVC.swift; sourceTree = "<group>"; };
+		F55B9CA120A9335800456228 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
+		F55B9CA420A936F400456228 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffVC.swift; sourceTree = "<group>"; };
+		F56B87CA20AF24FB0055FF08 /* Notification+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Login.swift"; sourceTree = "<group>"; };
+		F5702C2120B2797400260B88 /* JuryEventListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuryEventListVC.swift; sourceTree = "<group>"; };
+		F5702C2320B2798700260B88 /* JuryIdeaListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuryIdeaListVC.swift; sourceTree = "<group>"; };
+		F5702C2520B27A4200260B88 /* Jury.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jury.storyboard; sourceTree = "<group>"; };
+		F5702C2720B27CD100260B88 /* JuryIdeaDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuryIdeaDetailVC.swift; sourceTree = "<group>"; };
+		F5702C2920B281D300260B88 /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		F5702C2B20B2861000260B88 /* JuryIdeaRateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuryIdeaRateVC.swift; sourceTree = "<group>"; };
+		F574D55420AF7A3F00273446 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Moderator.storyboard; sourceTree = "<group>"; };
+		F593057320AD0B9D00A0415A /* ModeratorEventListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeratorEventListVC.swift; sourceTree = "<group>"; };
+		F593057520AD0DD900A0415A /* ModeratorIdeaListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeratorIdeaListVC.swift; sourceTree = "<group>"; };
+		F5F57BA920AAA25E00019635 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +404,7 @@
 				663418AA1EC0CD3200B26A7D /* View */,
 				663418791EC0CD1000B26A7D /* AppDelegate.swift */,
 				666F6ED51ECA042D0044A298 /* Hackatrix.entitlements */,
+				F574D55420AF7A3F00273446 /* Images.xcassets */,
 			);
 			path = Hackatrix;
 			sourceTree = "<group>";
@@ -301,9 +430,16 @@
 		663418AA1EC0CD3200B26A7D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F50DD15F20AA845F00CDF913 /* Custom */,
 				663418B31EC1076200B26A7D /* Cell */,
 				663418851EC0CD1000B26A7D /* LaunchScreen.storyboard */,
 				6634187D1EC0CD1000B26A7D /* Main.storyboard */,
+				7B4DE9C8208F6C01007C4BF6 /* Events.storyboard */,
+				F31E93C720A3F1B1000B27B2 /* Profile.storyboard */,
+				F55B9CA120A9335800456228 /* More.storyboard */,
+				932FC8DD20AB6CE800B84A62 /* Staff.storyboard */,
+				F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */,
+				F5702C2520B27A4200260B88 /* Jury.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +457,13 @@
 				ED0B7EC2207FC05000F4A26B /* ServiceError.swift */,
 				7B20776F2088F32F00F75143 /* User.swift */,
 				7B2077712088F75300F75143 /* Employee.swift */,
+				F32ADFCC20A420AA00528A78 /* Auth.swift */,
+				F32199CD20A7EA0C007C7457 /* Idea.swift */,
+				F31C682F20AA933F00FC43E6 /* Participants.swift */,
+				F31C683120AAAD9A00FC43E6 /* Candidates.swift */,
+				932FC8D620AB570900B84A62 /* Role.swift */,
+				932FC8DF20AB756A00B84A62 /* Meeting.swift */,
+				F5702C2920B281D300260B88 /* Rate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -328,14 +471,15 @@
 		663418AC1EC0CD4400B26A7D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F55B9CA320A936DC00456228 /* More */,
+				F31E93C920A3F6C8000B27B2 /* Profile */,
+				7B4DE9FC208FBA04007C4BF6 /* News */,
+				7B4DE9CB208F7083007C4BF6 /* Events */,
 				66AA966E1EC246E600C3C351 /* AboutVC.swift */,
-				66E880071EC3BD11008E3C18 /* DetailVC.swift */,
 				66E8800B1EC3BFF9008E3C18 /* InteractionVC.swift */,
 				66308CC81ECF32D3001B714B /* LocationVC.swift */,
-				66F4527F1EC204BC002D7D96 /* MainVC.swift */,
 				6636CA9C1EC4EAAE00C442D8 /* MapVC.swift */,
 				66A801B11EC12AF300E22303 /* MenuVC.swift */,
-				66AA966A1EC246D300C3C351 /* NewsVC.swift */,
 				6683595A1ECF8B0D0079ACB0 /* SelectCityVC.swift */,
 				66AA96661EC246A000C3C351 /* SettingsVC.swift */,
 			);
@@ -361,15 +505,58 @@
 		663418B31EC1076200B26A7D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				7B4DE9FD208FBA13007C4BF6 /* News */,
+				7B4DE9DE208F80B8007C4BF6 /* Events */,
 				6668EB961ECB498A0098685F /* ContributorCell.swift */,
 				66E87FFF1EC378B5008E3C18 /* EventCell.swift */,
 				6636CAA41EC4F72E00C442D8 /* InteractionCell.swift */,
 				663418B41EC1078600B26A7D /* ItemMenuCell.swift */,
 				668896CA1ECF40CF00EA12C2 /* LocationCell.swift */,
-				6603FEE01EC657D200A37D68 /* NewsCell.swift */,
 				666F6ECD1ECA01B70044A298 /* SettingsCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		7B4DE9CB208F7083007C4BF6 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				F37D6C0E20AD4B190075C763 /* MyIdeasVC.swift */,
+				66F4527F1EC204BC002D7D96 /* MainVC.swift */,
+				66E880071EC3BD11008E3C18 /* DetailVC.swift */,
+				7B4DE9E9208F9466007C4BF6 /* AddNewIdeaVC.swift */,
+				7B4DE9F6208FACC3007C4BF6 /* ProjectDetailVC.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		7B4DE9DE208F80B8007C4BF6 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				7B4DE9E1208F80F2007C4BF6 /* ProjectTableViewCell.swift */,
+				7B4DE9E5208F81B6007C4BF6 /* AddIdeaTableViewCell.swift */,
+				7B4DE9EE208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift */,
+				7B4DE9F2208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift */,
+				F32199CF20A7FA59007C7457 /* IdeaTableViewCell.swift */,
+				F3F9738220AC011800040FBE /* IdeaDetailsTableViewCell.swift */,
+				F37D6C0C20AD49F80075C763 /* MyIdeaTableViewCell.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		7B4DE9FC208FBA04007C4BF6 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				66AA966A1EC246D300C3C351 /* NewsVC.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		7B4DE9FD208FBA13007C4BF6 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				6603FEE01EC657D200A37D68 /* NewsCell.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 		8D3AB7CAC0D7C4FB11A95155 /* Frameworks */ = {
@@ -380,6 +567,27 @@
 				0F510F2E91A07BF29F0ACE77 /* Pods_HackatrixUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		932FC8CF20AB2FD500B84A62 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				932FC8D020AB2FEF00B84A62 /* UITextField+Toolbar.swift */,
+				F56B87CA20AF24FB0055FF08 /* Notification+Login.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		932FC8D820AB690800B84A62 /* Staff */ = {
+			isa = PBXGroup;
+			children = (
+				F50DD15D20A93EDD00CDF913 /* QRReaderVC.swift */,
+				932FC8DB20AB6C3F00B84A62 /* AttendanceListVC.swift */,
+				F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */,
+				F524E6DC20B1314D0027AE30 /* SearchUserVC.swift */,
+				F524E6E220B14CCE0027AE30 /* DetailUserVC.swift */,
+			);
+			path = Staff;
 			sourceTree = "<group>";
 		};
 		ED0B7EBF207FBF3400F4A26B /* Managers */ = {
@@ -397,6 +605,68 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		F31E93C920A3F6C8000B27B2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F31E93CA20A3F703000B27B2 /* ProfileVC.swift */,
+				F31E93CC20A3F89D000B27B2 /* CreateUserVC.swift */,
+				F5F57BA920AAA25E00019635 /* ForgotPasswordVC.swift */,
+				932FC8CC20AB2C1600B84A62 /* UpdateProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F50DD15F20AA845F00CDF913 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				932FC8CF20AB2FD500B84A62 /* Extensions */,
+				F50DD16020AA84B400CDF913 /* CustomWhiteButton.swift */,
+				932FC8D420AB52F100B84A62 /* CustomTextFieldCombo.swift */,
+				F524E6E020B139850027AE30 /* CustomCopyPasteLabel.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		F524E6D920B12E9C0027AE30 /* MyIdeas */ = {
+			isa = PBXGroup;
+			children = (
+				F524E6DA20B12EAD0027AE30 /* MyIdeasEventListVC.swift */,
+			);
+			path = MyIdeas;
+			sourceTree = "<group>";
+		};
+		F55B9CA320A936DC00456228 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				F5702C2020B2796400260B88 /* Jury */,
+				F524E6D920B12E9C0027AE30 /* MyIdeas */,
+				F593057220AD0B7E00A0415A /* Moderator */,
+				932FC8D820AB690800B84A62 /* Staff */,
+				F55B9CA420A936F400456228 /* MoreVC.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		F5702C2020B2796400260B88 /* Jury */ = {
+			isa = PBXGroup;
+			children = (
+				F5702C2120B2797400260B88 /* JuryEventListVC.swift */,
+				F5702C2320B2798700260B88 /* JuryIdeaListVC.swift */,
+				F5702C2720B27CD100260B88 /* JuryIdeaDetailVC.swift */,
+				F5702C2B20B2861000260B88 /* JuryIdeaRateVC.swift */,
+			);
+			path = Jury;
+			sourceTree = "<group>";
+		};
+		F593057220AD0B7E00A0415A /* Moderator */ = {
+			isa = PBXGroup;
+			children = (
+				F593057320AD0B9D00A0415A /* ModeratorEventListVC.swift */,
+				F593057520AD0DD900A0415A /* ModeratorIdeaListVC.swift */,
+			);
+			path = Moderator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -409,7 +679,6 @@
 				663418731EC0CD1000B26A7D /* Frameworks */,
 				663418741EC0CD1000B26A7D /* Resources */,
 				FD72C19D064FBE5489691D7B /* [CP] Embed Pods Frameworks */,
-				1619E24A42849574BE63C7CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -429,7 +698,6 @@
 				6634188A1EC0CD1100B26A7D /* Frameworks */,
 				6634188B1EC0CD1100B26A7D /* Resources */,
 				AE11E466A5DB3C72F9B35BCC /* [CP] Embed Pods Frameworks */,
-				2C87ABE78CD8408594CFA56B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -449,8 +717,6 @@
 				663418941EC0CD1100B26A7D /* Sources */,
 				663418951EC0CD1100B26A7D /* Frameworks */,
 				663418961EC0CD1100B26A7D /* Resources */,
-				83469C22AE3A96844F7E96E5 /* [CP] Embed Pods Frameworks */,
-				13D7006D5AD5557A923FDF6D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -474,6 +740,7 @@
 				TargetAttributes = {
 					663418751EC0CD1000B26A7D = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = X3NTASB9PV;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -524,10 +791,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				663418871EC0CD1000B26A7D /* LaunchScreen.storyboard in Resources */,
+				F55B9CA220A9335800456228 /* More.storyboard in Resources */,
 				66E68E511EC1FC5B00CCA811 /* GoogleService-Info.plist in Resources */,
 				663418841EC0CD1000B26A7D /* Assets.xcassets in Resources */,
+				F574D55520AF7A3F00273446 /* Images.xcassets in Resources */,
 				66DCA64E1ECCB6C300D86F9A /* Contributors.json in Resources */,
 				6634187F1EC0CD1000B26A7D /* Main.storyboard in Resources */,
+				F58BD6D320ACD2F900C6C65C /* Moderator.storyboard in Resources */,
+				F5702C2620B27A4200260B88 /* Jury.storyboard in Resources */,
+				F31E93C820A3F1B1000B27B2 /* Profile.storyboard in Resources */,
+				7B4DE9CA208F6C01007C4BF6 /* Events.storyboard in Resources */,
+				932FC8DE20AB6CE800B84A62 /* Staff.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,51 +826,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13D7006D5AD5557A923FDF6D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackatrixUITests/Pods-HackatrixUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1619E24A42849574BE63C7CA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hackatrix/Pods-Hackatrix-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2C87ABE78CD8408594CFA56B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackatrixTests/Pods-HackatrixTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5061B23522A2147A93A8D47E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -613,21 +842,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		83469C22AE3A96844F7E96E5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackatrixUITests/Pods-HackatrixUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AE11E466A5DB3C72F9B35BCC /* [CP] Embed Pods Frameworks */ = {
@@ -699,8 +913,14 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/PTPopupWebView/PTPopupWebView.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftQRCode/SwiftQRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -710,8 +930,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PTPopupWebView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftQRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -728,26 +954,52 @@
 			buildActionMask = 2147483647;
 			files = (
 				66AA966F1EC246E600C3C351 /* AboutVC.swift in Sources */,
+				932FC8D520AB52F100B84A62 /* CustomTextFieldCombo.swift in Sources */,
+				F5688CC020AE949A00B8AEE8 /* StaffVC.swift in Sources */,
+				F524E6E120B139850027AE30 /* CustomCopyPasteLabel.swift in Sources */,
+				7B4DE9EF208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift in Sources */,
 				ED0B7EC7207FC7D100F4A26B /* VoteManager.swift in Sources */,
+				F31C683220AAAD9A00FC43E6 /* Candidates.swift in Sources */,
 				7B20776E2088F17400F75143 /* UserManager.swift in Sources */,
+				F5702C2820B27CD100260B88 /* JuryIdeaDetailVC.swift in Sources */,
+				F5702C2C20B2861000260B88 /* JuryIdeaRateVC.swift in Sources */,
+				F55B9CA520A936F400456228 /* MoreVC.swift in Sources */,
 				7B20776C2088EDAB00F75143 /* EmployeeManager.swift in Sources */,
+				F32ADFCD20A420AA00528A78 /* Auth.swift in Sources */,
+				932FC8D120AB2FEF00B84A62 /* UITextField+Toolbar.swift in Sources */,
+				F524E6E320B14CCE0027AE30 /* DetailUserVC.swift in Sources */,
 				ED0B7EC5207FC2A700F4A26B /* ProjectManager.swift in Sources */,
 				66E880001EC378B5008E3C18 /* EventCell.swift in Sources */,
 				662A9A031ECB933200581622 /* Enums.swift in Sources */,
 				663418B61EC1078600B26A7D /* ItemMenuCell.swift in Sources */,
+				F31E93CD20A3F89D000B27B2 /* CreateUserVC.swift in Sources */,
+				7B4DE9E6208F81B6007C4BF6 /* AddIdeaTableViewCell.swift in Sources */,
 				ED0B7EC9207FCAE800F4A26B /* EventManager.swift in Sources */,
+				F5F57BAA20AAA25E00019635 /* ForgotPasswordVC.swift in Sources */,
+				F524E6DD20B1314D0027AE30 /* SearchUserVC.swift in Sources */,
 				66F452801EC204BC002D7D96 /* MainVC.swift in Sources */,
+				932FC8D720AB570900B84A62 /* Role.swift in Sources */,
 				66F2BB181EC495E600FB20DD /* Event.swift in Sources */,
+				7B4DE9F7208FACC3007C4BF6 /* ProjectDetailVC.swift in Sources */,
+				F32199D020A7FA59007C7457 /* IdeaTableViewCell.swift in Sources */,
 				66A801B21EC12AF300E22303 /* MenuVC.swift in Sources */,
 				6683595B1ECF8B0D0079ACB0 /* SelectCityVC.swift in Sources */,
+				F31E93CB20A3F703000B27B2 /* ProfileVC.swift in Sources */,
 				6636CAA11EC4F0A500C442D8 /* Annotation.swift in Sources */,
 				ED0B7ECB207FCE4800F4A26B /* NewsManager.swift in Sources */,
+				932FC8E020AB756A00B84A62 /* Meeting.swift in Sources */,
 				ED0B7EC3207FC05000F4A26B /* ServiceError.swift in Sources */,
 				66F2BB201EC4985000FB20DD /* City.swift in Sources */,
+				F32199CE20A7EA0C007C7457 /* Idea.swift in Sources */,
 				66F2BB1C1EC497DE00FB20DD /* Location.swift in Sources */,
+				F50DD15E20A93EDD00CDF913 /* QRReaderVC.swift in Sources */,
+				F593057420AD0B9D00A0415A /* ModeratorEventListVC.swift in Sources */,
 				6668EB971ECB498A0098685F /* ContributorCell.swift in Sources */,
 				6636CAA51EC4F72E00C442D8 /* InteractionCell.swift in Sources */,
+				7B4DE9F3208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift in Sources */,
 				666F6ECE1ECA01B70044A298 /* SettingsCell.swift in Sources */,
+				7B4DE9EA208F9466007C4BF6 /* AddNewIdeaVC.swift in Sources */,
+				F5702C2A20B281D300260B88 /* Rate.swift in Sources */,
 				66E880081EC3BD11008E3C18 /* DetailVC.swift in Sources */,
 				6603FEE11EC657D200A37D68 /* NewsCell.swift in Sources */,
 				66AA96731EC2613F00C3C351 /* ApiURL.swift in Sources */,
@@ -756,16 +1008,29 @@
 				7B2077702088F32F00F75143 /* User.swift in Sources */,
 				668896CB1ECF40CF00EA12C2 /* LocationCell.swift in Sources */,
 				ED0B7ECD207FD2E600F4A26B /* DeviceManager.swift in Sources */,
+				932FC8CD20AB2C1600B84A62 /* UpdateProfileVC.swift in Sources */,
+				F5702C2220B2797400260B88 /* JuryEventListVC.swift in Sources */,
+				F56B87CB20AF24FB0055FF08 /* Notification+Login.swift in Sources */,
 				6634187A1EC0CD1000B26A7D /* AppDelegate.swift in Sources */,
 				66AA96671EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66308CC91ECF32D3001B714B /* LocationVC.swift in Sources */,
 				66E8800C1EC3BFF9008E3C18 /* InteractionVC.swift in Sources */,
+				F524E6DB20B12EAD0027AE30 /* MyIdeasEventListVC.swift in Sources */,
 				7B2077722088F75300F75143 /* Employee.swift in Sources */,
+				F3F9738320AC011800040FBE /* IdeaDetailsTableViewCell.swift in Sources */,
+				F31C683020AA933F00FC43E6 /* Participants.swift in Sources */,
+				932FC8DC20AB6C3F00B84A62 /* AttendanceListVC.swift in Sources */,
+				F37D6C0D20AD49F80075C763 /* MyIdeaTableViewCell.swift in Sources */,
 				6603FEE91EC6660000A37D68 /* Utils.swift in Sources */,
 				66AA966B1EC246D300C3C351 /* NewsVC.swift in Sources */,
 				6603FEE51EC6598D00A37D68 /* News.swift in Sources */,
 				6636CAA91EC4FC1700C442D8 /* Project.swift in Sources */,
+				F5702C2420B2798700260B88 /* JuryIdeaListVC.swift in Sources */,
 				662A99FF1ECB918D00581622 /* Constants.swift in Sources */,
+				F37D6C0F20AD4B190075C763 /* MyIdeasVC.swift in Sources */,
+				F50DD16120AA84B400CDF913 /* CustomWhiteButton.swift in Sources */,
+				F593057620AD0DD900A0415A /* ModeratorIdeaListVC.swift in Sources */,
+				7B4DE9E2208F80F2007C4BF6 /* ProjectTableViewCell.swift in Sources */,
 				ED0B7EC1207FBF4400F4A26B /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -779,30 +1044,48 @@
 				662A9A041ECB933200581622 /* Enums.swift in Sources */,
 				663418921EC0CD1100B26A7D /* HackatrixTests.swift in Sources */,
 				66F452811EC204BC002D7D96 /* MainVC.swift in Sources */,
+				7B4DE9E7208F81B6007C4BF6 /* AddIdeaTableViewCell.swift in Sources */,
+				7B4DE9D2208F8011007C4BF6 /* VoteManager.swift in Sources */,
 				66F2BB191EC495E600FB20DD /* Event.swift in Sources */,
 				663418B71EC1078600B26A7D /* ItemMenuCell.swift in Sources */,
 				6683595C1ECF8B0D0079ACB0 /* SelectCityVC.swift in Sources */,
 				6636CAA21EC4F0A500C442D8 /* Annotation.swift in Sources */,
+				F58BD6D620ACDFAC00C6C65C /* Participants.swift in Sources */,
 				66F2BB211EC4985000FB20DD /* City.swift in Sources */,
+				7B4DE9EB208F9466007C4BF6 /* AddNewIdeaVC.swift in Sources */,
+				7B4DE9E3208F80F8007C4BF6 /* ProjectTableViewCell.swift in Sources */,
 				66F2BB1D1EC497DE00FB20DD /* Location.swift in Sources */,
 				6668EB981ECB498A0098685F /* ContributorCell.swift in Sources */,
 				6636CAA61EC4F72E00C442D8 /* InteractionCell.swift in Sources */,
+				F58BD6D420ACDFA900C6C65C /* Idea.swift in Sources */,
 				666F6ECF1ECA01B70044A298 /* SettingsCell.swift in Sources */,
 				66E880091EC3BD11008E3C18 /* DetailVC.swift in Sources */,
 				6603FEE21EC657D200A37D68 /* NewsCell.swift in Sources */,
 				66AA96741EC2613F00C3C351 /* ApiURL.swift in Sources */,
+				7B4DE9DC208F801F007C4BF6 /* UserManager.swift in Sources */,
 				6636CA9E1EC4EAAE00C442D8 /* MapVC.swift in Sources */,
+				7B4DE9F8208FACC3007C4BF6 /* ProjectDetailVC.swift in Sources */,
 				66DCA6531ECCD4BB00D86F9A /* Contributor.swift in Sources */,
+				7B4DE9FA208FAD04007C4BF6 /* Employee.swift in Sources */,
 				668896CC1ECF40CF00EA12C2 /* LocationCell.swift in Sources */,
 				66A801B31EC12AF300E22303 /* MenuVC.swift in Sources */,
+				F37D6C1020AD4B350075C763 /* MyIdeasVC.swift in Sources */,
 				66AA96681EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66308CCA1ECF32D3001B714B /* LocationVC.swift in Sources */,
+				7B4DE9F4208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift in Sources */,
+				7B4DE9D4208F8013007C4BF6 /* EventManager.swift in Sources */,
 				66E8800D1EC3BFF9008E3C18 /* InteractionVC.swift in Sources */,
 				6603FEEA1EC6660000A37D68 /* Utils.swift in Sources */,
+				7B4DE9DA208F801C007C4BF6 /* EmployeeManager.swift in Sources */,
 				66AA966C1EC246D300C3C351 /* NewsVC.swift in Sources */,
+				7B4DE9D8208F801A007C4BF6 /* DeviceManager.swift in Sources */,
+				7B4DE9D6208F8016007C4BF6 /* NewsManager.swift in Sources */,
+				7B4DE9D0208F800E007C4BF6 /* ProjectManager.swift in Sources */,
 				6603FEE61EC6598D00A37D68 /* News.swift in Sources */,
 				6636CAAA1EC4FC1700C442D8 /* Project.swift in Sources */,
 				662A9A001ECB918D00581622 /* Constants.swift in Sources */,
+				7B4DE9F0208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift in Sources */,
+				7B4DE9CE208F800C007C4BF6 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,30 +1098,48 @@
 				662A9A051ECB933200581622 /* Enums.swift in Sources */,
 				6634189D1EC0CD1100B26A7D /* HackatrixUITests.swift in Sources */,
 				66F452821EC204BC002D7D96 /* MainVC.swift in Sources */,
+				7B4DE9E8208F81B6007C4BF6 /* AddIdeaTableViewCell.swift in Sources */,
+				7B4DE9D3208F8011007C4BF6 /* VoteManager.swift in Sources */,
 				66F2BB1A1EC495E600FB20DD /* Event.swift in Sources */,
 				663418B81EC1078600B26A7D /* ItemMenuCell.swift in Sources */,
 				6683595D1ECF8B0D0079ACB0 /* SelectCityVC.swift in Sources */,
 				6636CAA31EC4F0A500C442D8 /* Annotation.swift in Sources */,
+				F58BD6D720ACDFAC00C6C65C /* Participants.swift in Sources */,
 				66F2BB221EC4985000FB20DD /* City.swift in Sources */,
+				7B4DE9EC208F9466007C4BF6 /* AddNewIdeaVC.swift in Sources */,
+				7B4DE9E4208F80F9007C4BF6 /* ProjectTableViewCell.swift in Sources */,
 				66F2BB1E1EC497DE00FB20DD /* Location.swift in Sources */,
 				6668EB991ECB498A0098685F /* ContributorCell.swift in Sources */,
 				6636CAA71EC4F72E00C442D8 /* InteractionCell.swift in Sources */,
+				F58BD6D520ACDFAA00C6C65C /* Idea.swift in Sources */,
 				666F6ED01ECA01B70044A298 /* SettingsCell.swift in Sources */,
 				66E8800A1EC3BD11008E3C18 /* DetailVC.swift in Sources */,
 				6603FEE31EC657D200A37D68 /* NewsCell.swift in Sources */,
 				66AA96751EC2613F00C3C351 /* ApiURL.swift in Sources */,
+				7B4DE9DD208F801F007C4BF6 /* UserManager.swift in Sources */,
 				6636CA9F1EC4EAAE00C442D8 /* MapVC.swift in Sources */,
+				7B4DE9F9208FACC3007C4BF6 /* ProjectDetailVC.swift in Sources */,
 				66DCA6541ECCD4BB00D86F9A /* Contributor.swift in Sources */,
+				7B4DE9FB208FAD04007C4BF6 /* Employee.swift in Sources */,
 				668896CD1ECF40CF00EA12C2 /* LocationCell.swift in Sources */,
 				66A801B41EC12AF300E22303 /* MenuVC.swift in Sources */,
+				F37D6C1120AD4B350075C763 /* MyIdeasVC.swift in Sources */,
 				66AA96691EC246A000C3C351 /* SettingsVC.swift in Sources */,
 				66308CCB1ECF32D3001B714B /* LocationVC.swift in Sources */,
+				7B4DE9F5208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift in Sources */,
+				7B4DE9D5208F8013007C4BF6 /* EventManager.swift in Sources */,
 				66E8800E1EC3BFF9008E3C18 /* InteractionVC.swift in Sources */,
 				6603FEEB1EC6660000A37D68 /* Utils.swift in Sources */,
+				7B4DE9DB208F801D007C4BF6 /* EmployeeManager.swift in Sources */,
 				66AA966D1EC246D300C3C351 /* NewsVC.swift in Sources */,
+				7B4DE9D9208F801A007C4BF6 /* DeviceManager.swift in Sources */,
+				7B4DE9D7208F8016007C4BF6 /* NewsManager.swift in Sources */,
+				7B4DE9D1208F800F007C4BF6 /* ProjectManager.swift in Sources */,
 				6603FEE71EC6598D00A37D68 /* News.swift in Sources */,
 				6636CAAB1EC4FC1700C442D8 /* Project.swift in Sources */,
 				662A9A011ECB918D00581622 /* Constants.swift in Sources */,
+				7B4DE9F1208FAC1A007C4BF6 /* ProjectParticipantTableViewCell.swift in Sources */,
+				7B4DE9CF208F800C007C4BF6 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -874,6 +1175,14 @@
 			);
 			name = LaunchScreen.storyboard;
 			path = .;
+			sourceTree = "<group>";
+		};
+		7B4DE9C8208F6C01007C4BF6 /* Events.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B4DE9C9208F6C01007C4BF6 /* Base */,
+			);
+			name = Events.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -980,16 +1289,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Hackatrix/Hackatrix.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X3NTASB9PV;
 				INFOPLIST_FILE = Hackatrix/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lp.com.belatrix.hackatrix;
+				PRODUCT_BUNDLE_IDENTIFIER = com.belatrix.hackatrix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "1873e5cd-31b4-45b1-9742-71b5c05beed6";
+				PROVISIONING_PROFILE_SPECIFIER = "Belatrix Hackatrix Production 2018";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1002,16 +1312,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Hackatrix/Hackatrix.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X3NTASB9PV;
 				INFOPLIST_FILE = Hackatrix/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lp.com.belatrix.hackatrix;
+				PRODUCT_BUNDLE_IDENTIFIER = com.belatrix.hackatrix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "1873e5cd-31b4-45b1-9742-71b5c05beed6";
+				PROVISIONING_PROFILE_SPECIFIER = "Belatrix Hackatrix Production 2018";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import SwiftKeychainWrapper
 
 struct Utils {
     struct date {
@@ -34,6 +35,15 @@ struct Utils {
             newDateFormat.dateFormat = "dd/MM/yy hh:mm a"
             newDateFormat.locale = Locale(identifier: "es_PE")
             return newDateFormat.string(from: date)
+        }
+    }
+    
+    struct auth {
+        static func getToken() -> String {
+            if let token =  KeychainWrapper.standard.string(forKey: K.keychain.tokenKey) {
+                return token
+            }
+            return ""
         }
     }
 }

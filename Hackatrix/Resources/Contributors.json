@@ -1,38 +1,31 @@
-[
-    {
-        "icon": "ErikIcon",
-        "name": "Erik Flores"
-    },
-    {
-        "icon": "DiegoIcon",
-        "name": "Diego Velásquez"
-    },
-    {
-        "icon": "KarlaIcon",
-        "name": "Karla Cerrón"
-    },
-    {
-        "icon": "SergioIcon",
-        "name": "Sergio Infante"
-    },
-    {
-        "icon": "CarinaIcon",
-        "name": "Carina Valdez"
-    },
-    {
-        "icon": "FernandoIcon",
-        "name": "Fernando Puebla"
-    },
-    {
-        "icon": "CarlosIcon",
-        "name": "Carlos Monzón"
-    },
-    {
-        "icon": "GladysIcon",
-        "name": "Gladys Cuzcano"
-    },
-    {
-        "icon": "RaulIcon",
-        "name": "Raul Rashuaman"
-    }
-]
+ [
+  {
+  "icon": "SergioIcon",
+  "name": "Sergio Infante"
+  },
+  {
+  "icon": "DiegoIcon",
+  "name": "Diego Velásquez"
+  },
+  {
+  "icon": "KarlaIcon",
+  "name": "Karla Cerrón"
+  },
+  {
+  "icon": "TracyIcon",
+  "name": "Tracy Leveau"
+  },
+  {
+  "icon": "LuisIcon",
+  "name": "Luis Burgos"
+  },
+  {
+  "icon": "FrancoIcon",
+  "name": "Franco Castellanos"
+  },
+  {
+  "icon": "carlosicon",
+  "name": "Carlos Monzón"
+  }
+  ]
+

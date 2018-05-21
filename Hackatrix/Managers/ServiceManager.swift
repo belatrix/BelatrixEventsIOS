@@ -9,28 +9,81 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SwiftKeychainWrapper
 
 class ServiceManager: NSObject {
     static let shared = ServiceManager()
+    var sessionManager: Alamofire.SessionManager?
+  #if DEBUG
+    let debugLog = true
+  #else
+    let debugLog = false
+  #endif
+  
+  
+  func useService(url: String, method: HTTPMethod, parameters: Parameters?, token: String? = nil,  completion: ((_ response: JSON?) -> Void)? = nil ){
+    useService(url: url, method: method, parameters: parameters, token: token , completion: completion , result: nil)
+  }
     
-    func useService(url: String, method: HTTPMethod, parameters: Parameters?, completion: ((_ response: JSON?) -> Void)? = nil) {
-        Alamofire.request(url, method: method, parameters: parameters).responseJSON { response in
-            if let completion = completion {
-                if let responseServer = response.result.value, let code = response.response?.statusCode {
-                    if code == 200 {
+  func useService(url: String, method: HTTPMethod, parameters: Parameters?, token: String? = nil,  completion: ((_ response: JSON?) -> Void)? = nil,
+                  result: ((_ response: JSON?, _ error: String? ) -> Void)? = nil
+                  ) {
+    
+        let tokenFromLocal: String? = KeychainWrapper.standard.string(forKey: K.keychain.tokenKey)
+        var headers : HTTPHeaders?
+        if let customToken = tokenFromLocal {
+          if self.debugLog {
+            print("token: \(customToken)")
+          }
+          headers = [
+          "Authorization": "Token \(customToken)"
+          ]
+        }
+    Alamofire.request(url, method: method, parameters: parameters, headers: headers).responseJSON { response in
+                if self.debugLog {
+                    print(url)
+                    print(parameters)
+                }
+                let responseServer = response.result.value
+                if let code = response.response?.statusCode {
+                  if self.debugLog {
+                    print(responseServer)
+                  }
+                  
+                    switch code {
+                    case 200, 201 , 202:
                         let json = JSON(responseServer)
-                        completion(json)
-                    } else {
-                        ServiceError(errorCode: code, urlRequest: url).printMessage()
-                        completion(nil)
+                        if let currentResult = result {
+                           currentResult(json, nil)
+                        } else {
+                           completion?(json)
+                        }
+                       
+                        break
+                    default:
+                         let json = JSON(responseServer)
+                         let message =  json["detail"].stringValue
+                         ServiceError(errorCode: code, urlRequest: url, message:message).printMessage()
+                         if let currentResult = result {
+                            currentResult(nil, message)
+                         } else {
+                            completion?(nil)
+                         }
+                        break
                     }
                 } else {
-                    if let code = response.response?.statusCode {
-                        ServiceError(errorCode: code, urlRequest: url).printMessage()
-                    }
-                    completion(nil)
+                  
+                   if self.debugLog {
+                    print("error : \(response.response)")
+                  }
+                  if let currentResult = result {
+                    currentResult(nil, "error inesperado")
+                  } else {
+                    completion?(nil)
+                  }
                 }
-            }
         }
     }
+  
+    
 }

@@ -1,42 +1,49 @@
 PODS:
-  - Alamofire (4.7.1)
+  - Alamofire (4.7.2)
   - AlamofireImage (3.3.1):
     - Alamofire (~> 4.5)
   - DZNEmptyDataSet (1.8.1)
-  - Firebase/Core (4.12.0):
-    - FirebaseAnalytics (= 4.1.0)
-    - FirebaseCore (= 4.0.19)
-  - Firebase/Messaging (4.12.0):
-    - Firebase/Core
-    - FirebaseMessaging (= 2.2.0)
-  - FirebaseAnalytics (4.1.0):
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - Firebase/Core (5.0.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.0.0)
+  - Firebase/CoreOnly (5.0.0):
+    - FirebaseCore (= 5.0.0)
+  - Firebase/Messaging (5.0.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.0.0)
+  - FirebaseAnalytics (5.0.0):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - nanopb (~> 0.3)
-  - FirebaseCore (4.0.19):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (2.0.10):
-    - FirebaseCore (~> 4.0)
-  - FirebaseMessaging (2.2.0):
-    - FirebaseAnalytics (~> 4.1)
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
+  - FirebaseCore (5.0.0):
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseInstanceID (3.0.0):
+    - FirebaseCore (~> 5.0)
+  - FirebaseMessaging (3.0.0):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
-    - Protobuf (~> 3.5)
-  - GoogleToolboxForMac/Defines (2.1.3)
-  - GoogleToolboxForMac/Logger (2.1.3):
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-  - GoogleToolboxForMac/NSData+zlib (2.1.3):
-    - GoogleToolboxForMac/Defines (= 2.1.3)
+    - Protobuf (~> 3.1)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/Logger (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - IQKeyboardManagerSwift (6.0.3)
+  - KMPlaceholderTextView (1.3.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Protobuf (3.5.0)
+  - PTPopupWebView (0.4.0)
   - SideMenu (3.1.5)
-  - SwiftyJSON (4.0.0)
+  - SVProgressHUD (2.2.5)
+  - SwiftKeychainWrapper (3.0.1)
+  - SwiftQRCode (3.0.2)
+  - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
@@ -44,24 +51,58 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - Firebase/Core
   - Firebase/Messaging
+  - IQKeyboardManagerSwift
+  - KMPlaceholderTextView
+  - PTPopupWebView
   - SideMenu
+  - SVProgressHUD
+  - SwiftKeychainWrapper
+  - SwiftQRCode (>= 3.0.2)
   - SwiftyJSON
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - DZNEmptyDataSet
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - GoogleToolboxForMac
+    - IQKeyboardManagerSwift
+    - KMPlaceholderTextView
+    - nanopb
+    - Protobuf
+    - PTPopupWebView
+    - SideMenu
+    - SVProgressHUD
+    - SwiftKeychainWrapper
+    - SwiftQRCode
+    - SwiftyJSON
+
 SPEC CHECKSUMS:
-  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Firebase: d7fdf40e4d6c841849c52919f437fd3a0009ded0
-  FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
-  FirebaseCore: ff49ebb37e0f63a570d78c4f1c1c0befe8659d5c
-  FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
-  FirebaseMessaging: 75cdb862e86c30e0913a2ff307e48d49357c5b73
-  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  Firebase: 4bd804448ab2596794698773d41520a0af101e65
+  FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
+  FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
+  FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
+  FirebaseMessaging: f2360a966ecfb0d14facf0fbdf306efc2df0ddbe
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
+  KMPlaceholderTextView: 2bbcd19a273648a80a61e1e48f9743a24d8930e3
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  PTPopupWebView: 9db92ddc0629ed735dee23d4388d67b18158d55c
   SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
+  SwiftQRCode: 280589699d84195c2c573011aa52f2c015c31c34
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: d61ca657b8c1cd87c47f8a7f80170fa8d07baa8a
+PODFILE CHECKSUM: c4beef2fe3028b5b41f03e91fdae80eaaffe2691
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.2

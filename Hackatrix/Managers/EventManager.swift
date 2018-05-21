@@ -23,19 +23,6 @@ class EventManager: NSObject {
         }
     }
 
-    func getEventInteractions(eventID: Int, completion: ((_ interactions: [Project]) -> Void)? = nil) {
-        self.serviceManager.useService(url: api.url.event.interactionWith(eventID: eventID), method: .get, parameters: nil) { (json) in
-            if let json = json {
-                var interactions: [Project] = []
-                for (_, subJson): (String, JSON) in json {
-                    interactions.append(Project(data: subJson))
-                }
-                if let completion = completion {
-                    completion(interactions)
-                }
-            }
-        }
-    }
 
     func getFeaturedEvent(completion: ((_ event: Event) -> Void)? = nil) {
         self.serviceManager.useService(url: api.url.event.featured, method: .get, parameters: nil) { (json) in
@@ -61,7 +48,7 @@ class EventManager: NSObject {
         }
     }
     
-    func getEvent(type: EventType, completion: ((_ upcomingEvents: [Event], _ pastEvents: [Event]) -> Void)? = nil) {
+    func getEvent(type: EventType, completion: ((_ events: [Event]) -> Void)? = nil) {
         var eventURL = api.url.event.upcoming
         if type == .past {
             eventURL = api.url.event.past
@@ -69,19 +56,14 @@ class EventManager: NSObject {
         
         self.serviceManager.useService(url: eventURL, method: .get, parameters: nil) { (json) in
             if let json = json {
-                var upcomingEvents: [Event] = []
-                var pastEvents: [Event] = []
+                var events: [Event] = []
                 
                 for (_, subJson): (String, JSON) in json {
-                    if type == .upcoming {
-                        upcomingEvents.append(Event(data: subJson))
-                    } else {
-                        pastEvents.append(Event(data: subJson))
-                    }
+                    events.append(Event(data: subJson))
                 }
                 
                 if let completion = completion {
-                    completion(upcomingEvents, pastEvents)
+                    completion(events)
                 }
             }
         }
@@ -100,4 +82,34 @@ class EventManager: NSObject {
             }
         }
     }
+  
+  func getMeetingList(error:((String) -> ())? = nil, completion: ((_ meetings: [Meeting]) -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.event.meetingList, method: .get, parameters:nil, completion: nil, result: { (json, errorMessage) in
+      if let json = json {
+        if let completion = completion {
+          let arrayValues = json.arrayValue
+          var values : [Meeting] = [Meeting]()
+          for item in arrayValues {
+            values.append(Meeting(data: item))
+          }
+          completion(values)
+        }
+      } else {
+        error?(errorMessage!)
+      }
+    })
+  }
+  
+  func registerAttendance(token: String?, email: String, meetingId: Int, error:((String) -> ())? = nil, completion: ((_ user: User) -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.event.meetingAttendance, method: .post, parameters: ["user_email": email, "meeting_id": meetingId], token: token, completion: nil, result: { (json, errorMessage) in
+      if let json = json {
+        if let completion = completion {
+          let jsonUser = json.dictionaryValue["user"]!
+          completion(User(data: jsonUser))
+        }
+      } else {
+        error?(errorMessage!)
+      }
+    })
+  }
 }

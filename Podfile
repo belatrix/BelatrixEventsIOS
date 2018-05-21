@@ -13,6 +13,12 @@ target 'Hackatrix' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'DZNEmptyDataSet'
+  pod 'KMPlaceholderTextView'
+  pod 'SwiftKeychainWrapper'
+  pod 'SwiftQRCode', '>= 3.0.2'
+  pod 'SVProgressHUD'
+  pod "PTPopupWebView"
+  pod 'IQKeyboardManagerSwift'
 
   target 'HackatrixTests' do
     inherit! :search_paths

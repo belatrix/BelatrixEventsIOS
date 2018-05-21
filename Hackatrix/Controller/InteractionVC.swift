@@ -84,6 +84,7 @@ class InteractionVC: UIViewController {
             self.tableViewInteraction.reloadData()
             self.activityIndicator.startAnimating()
             if let projectID = project.id {
+              /*
                 self.sendVoteForProject(withID: projectID) { [weak self] in
                     if let weakSelf = self {
                         weakSelf.getProjects {
@@ -92,7 +93,7 @@ class InteractionVC: UIViewController {
                             weakSelf.activityIndicator.stopAnimating()
                         }
                     }
-                }
+                }*/
             }
             self.userDefaults.set(true, forKey: K.key.interactionForAProject)
         }
@@ -128,11 +129,8 @@ class InteractionVC: UIViewController {
             sender.endRefreshing()
         }
     }
-    
-    func sendVoteForProject(withID id: Int, completion: @escaping () -> Void) {
-        VoteManager.shared.castVote(projectID: id, completion: completion)
-    }
-    
+  
+  
     func makeFeedback() {
         if #available(iOS 10.0, *) {
             var feedbackGenerator : UINotificationFeedbackGenerator? =  nil

@@ -23,6 +23,20 @@ struct K {
         static let map = "mapSegue"
         static let citySetting = "citySettingSegue"
         static let selectCity = "selectCitySegue"
+        static let newIdea = "newIdeaSegue"
+        static let project = "projectSegue"
+        static let myIdeas = "myIdeasSegue"
+        static let login = "loginSegue"
+        static let createAccount = "createAccountSegue"
+        static let forgotPassword = "forgotPasswordSegue"
+        static let updateProfile = "updateProfileSegue"
+        static let qrReader = "showQRReaderSegue"
+        static let moderatorIdeas = "showIdeasSegue"
+        static let editIdea = "editIdeaSegue"
+        static let moderatorIdeaDetail = "showIdeaSegue"
+        static let searchUser = "searchUserSegue"
+        static let userDetail = "showUserDetailSegue"
+        static let juryRate = "showRateSegue"
     }
     struct cell {
         static let menu = "itemMenuCell"
@@ -36,5 +50,9 @@ struct K {
     struct key {
         static let showedWelcomeAlertInteraction = "isShowedWelcomeAlertInteraction"
         static let interactionForAProject = "isInteractionForAProject"
+    }
+    
+    struct keychain {
+        static let tokenKey = "token"
     }
 }
