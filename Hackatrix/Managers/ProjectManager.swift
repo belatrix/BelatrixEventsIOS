@@ -203,5 +203,37 @@ class ProjectManager: NSObject {
       }
     })
   }
+  
+  func getIdeaRateList(ideaId: Int, completion: ((_ response: [Rate]) -> Void)? = nil) {
+    self.serviceManager.useService(url: api.url.idea.ideateRate(ideaId), method: .get, parameters: nil) { (json) in
+      if let completion = completion {
+        var elements: [Rate] = []
+        if let json = json {
+          guard let _ = json.error else {
+            for (_, subJson): (String, JSON) in json {
+              elements.append(Rate(data: subJson))
+            }
+            completion(elements)
+            return
+          }
+          completion(elements)
+        }
+        completion(elements)
+      }
+    }
+  }
+  
+  
+  func rateIdea(ideaID: Int, categoryID: Int, value: Int, error:((String) -> ())? = nil, success: @escaping () -> ()) {
+      let parameters: [String: Any] = ["category_id": categoryID, "value": value]
+      self.serviceManager.useService(url: api.url.idea.ideateRate(ideaID), method: .patch, parameters: parameters, completion: nil , result:  { (json, errorMessage) in
+        if json != nil {
+          success()
+        } else {
+          error?(errorMessage!)
+        }
+      }
+      )
+  }
     
 }

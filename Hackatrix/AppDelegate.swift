@@ -72,6 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Connected to FCM.")
             }
         }
+      guard InstanceID.instanceID().token() != nil else {
+        return;
+      }
+       Messaging.messaging().shouldEstablishDirectChannel = true
     }
     
     func registerDeviceInBackEndWith(_ fcmToken:String) {

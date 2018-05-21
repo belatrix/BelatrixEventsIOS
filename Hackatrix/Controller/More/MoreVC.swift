@@ -14,6 +14,7 @@ class MoreVC : UIViewController {
   @IBOutlet weak var staffConstraint : NSLayoutConstraint!
   @IBOutlet weak var moderatorConstraint : NSLayoutConstraint!
   @IBOutlet weak var ideasConstraint : NSLayoutConstraint!
+  @IBOutlet weak var juryConstraint : NSLayoutConstraint!
   let constantHeight : CGFloat = 70.0
   
   var currentUser : User?  {
@@ -40,11 +41,13 @@ class MoreVC : UIViewController {
     if let user = currentUser {
        staffConstraint.constant = user.isStaff! ? constantHeight : 0
        moderatorConstraint.constant = user.isModerator! ? constantHeight : 0
+       juryConstraint.constant = user.isJury! ? constantHeight : 0
        ideasConstraint.constant = constantHeight
     } else {
        staffConstraint.constant = 0
        moderatorConstraint.constant = 0
        ideasConstraint.constant = 0
+       juryConstraint.constant = 0
     }
   }
   

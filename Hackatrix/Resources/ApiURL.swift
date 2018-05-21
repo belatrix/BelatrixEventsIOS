@@ -91,6 +91,9 @@ struct api {
             static func ideaWithoutFilterList(eventID id:Int) -> String {
               return "\(root)/idea/draft/event/\(id)/list/"
             }
+            static func ideateRate(_ id:Int) -> String {
+              return "\(root)/idea/\(id)/rate/"
+            }
         }
     }
 }

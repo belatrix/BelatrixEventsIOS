@@ -183,6 +183,12 @@
 		F55B9CA520A936F400456228 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B9CA420A936F400456228 /* MoreVC.swift */; };
 		F5688CC020AE949A00B8AEE8 /* StaffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */; };
 		F56B87CB20AF24FB0055FF08 /* Notification+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B87CA20AF24FB0055FF08 /* Notification+Login.swift */; };
+		F5702C2220B2797400260B88 /* JuryEventListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5702C2120B2797400260B88 /* JuryEventListVC.swift */; };
+		F5702C2420B2798700260B88 /* JuryIdeaListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5702C2320B2798700260B88 /* JuryIdeaListVC.swift */; };
+		F5702C2620B27A4200260B88 /* Jury.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5702C2520B27A4200260B88 /* Jury.storyboard */; };
+		F5702C2820B27CD100260B88 /* JuryIdeaDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5702C2720B27CD100260B88 /* JuryIdeaDetailVC.swift */; };
+		F5702C2A20B281D300260B88 /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5702C2920B281D300260B88 /* Rate.swift */; };
+		F5702C2C20B2861000260B88 /* JuryIdeaRateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5702C2B20B2861000260B88 /* JuryIdeaRateVC.swift */; };
 		F574D55520AF7A3F00273446 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F574D55420AF7A3F00273446 /* Images.xcassets */; };
 		F58BD6D320ACD2F900C6C65C /* Moderator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */; };
 		F58BD6D420ACDFA900C6C65C /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32199CD20A7EA0C007C7457 /* Idea.swift */; };
@@ -312,6 +318,12 @@
 		F55B9CA420A936F400456228 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		F5688CBF20AE949A00B8AEE8 /* StaffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffVC.swift; sourceTree = "<group>"; };
 		F56B87CA20AF24FB0055FF08 /* Notification+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Login.swift"; sourceTree = "<group>"; };
+		F5702C2120B2797400260B88 /* JuryEventListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuryEventListVC.swift; sourceTree = "<group>"; };
+		F5702C2320B2798700260B88 /* JuryIdeaListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuryIdeaListVC.swift; sourceTree = "<group>"; };
+		F5702C2520B27A4200260B88 /* Jury.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jury.storyboard; sourceTree = "<group>"; };
+		F5702C2720B27CD100260B88 /* JuryIdeaDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuryIdeaDetailVC.swift; sourceTree = "<group>"; };
+		F5702C2920B281D300260B88 /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		F5702C2B20B2861000260B88 /* JuryIdeaRateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuryIdeaRateVC.swift; sourceTree = "<group>"; };
 		F574D55420AF7A3F00273446 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Moderator.storyboard; sourceTree = "<group>"; };
 		F593057320AD0B9D00A0415A /* ModeratorEventListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeratorEventListVC.swift; sourceTree = "<group>"; };
@@ -427,6 +439,7 @@
 				F55B9CA120A9335800456228 /* More.storyboard */,
 				932FC8DD20AB6CE800B84A62 /* Staff.storyboard */,
 				F58BD6D220ACD2F900C6C65C /* Moderator.storyboard */,
+				F5702C2520B27A4200260B88 /* Jury.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,6 +463,7 @@
 				F31C683120AAAD9A00FC43E6 /* Candidates.swift */,
 				932FC8D620AB570900B84A62 /* Role.swift */,
 				932FC8DF20AB756A00B84A62 /* Meeting.swift */,
+				F5702C2920B281D300260B88 /* Rate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -624,12 +638,24 @@
 		F55B9CA320A936DC00456228 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				F5702C2020B2796400260B88 /* Jury */,
 				F524E6D920B12E9C0027AE30 /* MyIdeas */,
 				F593057220AD0B7E00A0415A /* Moderator */,
 				932FC8D820AB690800B84A62 /* Staff */,
 				F55B9CA420A936F400456228 /* MoreVC.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		F5702C2020B2796400260B88 /* Jury */ = {
+			isa = PBXGroup;
+			children = (
+				F5702C2120B2797400260B88 /* JuryEventListVC.swift */,
+				F5702C2320B2798700260B88 /* JuryIdeaListVC.swift */,
+				F5702C2720B27CD100260B88 /* JuryIdeaDetailVC.swift */,
+				F5702C2B20B2861000260B88 /* JuryIdeaRateVC.swift */,
+			);
+			path = Jury;
 			sourceTree = "<group>";
 		};
 		F593057220AD0B7E00A0415A /* Moderator */ = {
@@ -772,6 +798,7 @@
 				66DCA64E1ECCB6C300D86F9A /* Contributors.json in Resources */,
 				6634187F1EC0CD1000B26A7D /* Main.storyboard in Resources */,
 				F58BD6D320ACD2F900C6C65C /* Moderator.storyboard in Resources */,
+				F5702C2620B27A4200260B88 /* Jury.storyboard in Resources */,
 				F31E93C820A3F1B1000B27B2 /* Profile.storyboard in Resources */,
 				7B4DE9CA208F6C01007C4BF6 /* Events.storyboard in Resources */,
 				932FC8DE20AB6CE800B84A62 /* Staff.storyboard in Resources */,
@@ -934,6 +961,8 @@
 				ED0B7EC7207FC7D100F4A26B /* VoteManager.swift in Sources */,
 				F31C683220AAAD9A00FC43E6 /* Candidates.swift in Sources */,
 				7B20776E2088F17400F75143 /* UserManager.swift in Sources */,
+				F5702C2820B27CD100260B88 /* JuryIdeaDetailVC.swift in Sources */,
+				F5702C2C20B2861000260B88 /* JuryIdeaRateVC.swift in Sources */,
 				F55B9CA520A936F400456228 /* MoreVC.swift in Sources */,
 				7B20776C2088EDAB00F75143 /* EmployeeManager.swift in Sources */,
 				F32ADFCD20A420AA00528A78 /* Auth.swift in Sources */,
@@ -970,6 +999,7 @@
 				7B4DE9F3208FAC37007C4BF6 /* ProjectSubscribeTableViewCell.swift in Sources */,
 				666F6ECE1ECA01B70044A298 /* SettingsCell.swift in Sources */,
 				7B4DE9EA208F9466007C4BF6 /* AddNewIdeaVC.swift in Sources */,
+				F5702C2A20B281D300260B88 /* Rate.swift in Sources */,
 				66E880081EC3BD11008E3C18 /* DetailVC.swift in Sources */,
 				6603FEE11EC657D200A37D68 /* NewsCell.swift in Sources */,
 				66AA96731EC2613F00C3C351 /* ApiURL.swift in Sources */,
@@ -979,6 +1009,7 @@
 				668896CB1ECF40CF00EA12C2 /* LocationCell.swift in Sources */,
 				ED0B7ECD207FD2E600F4A26B /* DeviceManager.swift in Sources */,
 				932FC8CD20AB2C1600B84A62 /* UpdateProfileVC.swift in Sources */,
+				F5702C2220B2797400260B88 /* JuryEventListVC.swift in Sources */,
 				F56B87CB20AF24FB0055FF08 /* Notification+Login.swift in Sources */,
 				6634187A1EC0CD1000B26A7D /* AppDelegate.swift in Sources */,
 				66AA96671EC246A000C3C351 /* SettingsVC.swift in Sources */,
@@ -994,6 +1025,7 @@
 				66AA966B1EC246D300C3C351 /* NewsVC.swift in Sources */,
 				6603FEE51EC6598D00A37D68 /* News.swift in Sources */,
 				6636CAA91EC4FC1700C442D8 /* Project.swift in Sources */,
+				F5702C2420B2798700260B88 /* JuryIdeaListVC.swift in Sources */,
 				662A99FF1ECB918D00581622 /* Constants.swift in Sources */,
 				F37D6C0F20AD4B190075C763 /* MyIdeasVC.swift in Sources */,
 				F50DD16120AA84B400CDF913 /* CustomWhiteButton.swift in Sources */,
