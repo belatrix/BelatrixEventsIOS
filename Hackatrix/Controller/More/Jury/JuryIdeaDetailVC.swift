@@ -16,6 +16,7 @@ class JuryIdeaDetailVC : UIViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
+  @IBOutlet weak var headerView: UIView!
   var elements: [Rate] = [] {
     didSet {
       tableView.reloadData()
@@ -25,6 +26,21 @@ class JuryIdeaDetailVC : UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    sizeHeaderToFit()
+  }
+  
+  func sizeHeaderToFit() {
+    let headerView = tableView.tableHeaderView!
+    let height = descriptionLabel.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+    let height2 = titleLabel.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+    var frame = headerView.frame
+    frame.size.height = height + height2 + 75
+    headerView.frame = frame
+    tableView.tableHeaderView = headerView
   }
   
   func setupUI(){
@@ -40,16 +56,7 @@ class JuryIdeaDetailVC : UIViewController {
       self.elements = rateList
     })
   }
-  
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == K.segue.juryRate {
-      let dvc = segue.destination as! JuryIdeaRateVC
-      dvc.idea = idea
-      dvc.rate = sender as! Rate
-      dvc.delegate = self
-    }
-  }
+
 }
 
 
