@@ -42,6 +42,15 @@ class JuryIdeaDetailVC : UIViewController {
     headerView.frame = frame
     tableView.tableHeaderView = headerView
   }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.segue.juryRate {
+            let dvc = segue.destination as! JuryIdeaRateVC
+            dvc.rate = sender as! Rate
+            dvc.idea = idea
+            dvc.delegate = self
+        }
+    }
   
   func setupUI(){
     titleLabel.text = idea.title
