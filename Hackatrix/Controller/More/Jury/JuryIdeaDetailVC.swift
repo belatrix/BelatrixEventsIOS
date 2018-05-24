@@ -62,7 +62,9 @@ class JuryIdeaDetailVC : UIViewController {
     SVProgressHUD.show()
     ProjectManager.shared.getIdeaRateList(ideaId: idea.id!, completion: { rateList in
       SVProgressHUD.dismiss()
-      self.elements = rateList
+      self.elements = rateList.sorted(by: { (rate1, rate2) -> Bool in
+        rate1.categoryName!.caseInsensitiveCompare(rate2.categoryName!) == ComparisonResult.orderedAscending
+      })
     })
   }
 
